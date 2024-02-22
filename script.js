@@ -4131,8 +4131,9 @@ let currentGameData; // Global variable to hold the current game's data
 // Function to reset the current game
 function resetGame() {
     initializeHearts();
-    displayGameData(currentGameData); // Reset game display with current game data
-    unfreezeGame(); // Call unfreezeGame to revert any changes made by freezeGame
+    displayGameData(currentGameData); // This will create the tiles and grid
+    unfreezeGame();
+    setupDragAndDrop();
 }
 
 
@@ -4191,16 +4192,19 @@ function handleDragEnd(event) {
 		});
 
 
-    function handleDrop(event) {
-        event.preventDefault();
-        var draggedElement = document.querySelector('.dragging');
-        if (draggedElement && event.target.classList.contains('droppable')) {
-            // Append the tile to the cell or handle the drop logic
-            event.target.appendChild(draggedElement);
-            event.target.classList.remove('drag-over');
-            
-        }
+    function handleDrop(event) {function handleDrop(event) {
+    
+    event.preventDefault();
+    var draggedElement = document.querySelector('.dragging');
+
+    // Ensure the target is a cell and it does not have the 'locked' class
+    if (draggedElement && event.target.classList.contains('droppable') && !event.target.classList.contains('locked')) {
+        // Append the tile to the cell or handle the drop logic
+        event.target.appendChild(draggedElement);
+        event.target.classList.remove('drag-over');
     }
+    }
+}
 }
 
     
@@ -4401,6 +4405,12 @@ function checkAnswers() {
 
         	if (currentAttempts <= 0) {
           // Freeze game and show loss message
+          if (currentMode === 'hard') {
+        		let rowColCorrectness = sumTrueValues(correctness);
+        		colourAllHeadings(rowColCorrectness);
+    				} else {
+        		colourClues(correctness, currentGameData);
+          	}
           freezeGame();
           } else {
           // Not frozen, update colors
@@ -4442,6 +4452,8 @@ function colourClues(correctness, currentGameData) {
                 // Apply coloring based on correctness
                 if (isCorrectCell) {
                     tile.classList.add('clue-correct');
+										lockCell(parentCell);
+
                 } else if (isCorrectRow || isCorrectColumn) {
                     tile.classList.add('clue-partial');
                 } else {
@@ -4488,9 +4500,16 @@ function colourAllHeadings(rowColCorrectness = null) {
     });
 }
 
+// Example function that locks a cell
+function lockCell(cell) {
+    cell.classList.add('locked');
+}
+
+
 function lockRow(rowIndex) {
     // Logic to lock all clues in this row
     document.querySelectorAll(`.droppable[data-row="${rowIndex}"]`).forEach(cell => {
+    		lockCell(cell);
         const tile = cell.firstChild;
         if (tile) {
             tile.classList.add('locked-in'); // Add a CSS class to style locked-in clues
@@ -4503,7 +4522,8 @@ function lockRow(rowIndex) {
 function lockColumn(colIndex) {
     // Logic to lock all clues in this column
     document.querySelectorAll(`.droppable[data-col="${colIndex}"]`).forEach(cell => {
-        const tile = cell.firstChild;
+        lockCell(cell);
+				const tile = cell.firstChild;
         if (tile) {
             tile.classList.add('locked-in'); // Add a CSS class to style locked-in clues
             tile.draggable = false; // Disable dragging
@@ -4679,7 +4699,7 @@ function startNewGame() {
     displayGameData(currentGameData); // This will create the tiles and grid
     unfreezeGame();
     toggleMode(); // If needed at game start, otherwise call it when mode change is required
-setupDragAndDrop();
+		setupDragAndDrop();
 
 }
 

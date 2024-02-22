@@ -222,3 +222,7 @@ button {
 
     pointer-events: none; /* Makes the tiles unmovable */
 }
+
+.locked {
+    pointer-events: none; /* Disables mouse events on the locked cell */
+}
