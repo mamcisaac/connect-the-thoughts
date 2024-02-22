@@ -43,12 +43,38 @@
     background-color: #f0f0f0;
 }
 
+/* Hover effect on tile */
+.tile:hover {
+    background-color: #e0e0e0; /* Slightly darker when hovered */
+}
+
+/* Style for tile being dragged - you'll need to add a class dynamically via JavaScript */
+.tile.dragging {
+    opacity: 0.5; /* Make the tile semi-transparent when dragging */
+    background-color: #cccccc; /* Different background to indicate dragging */
+}
+
+#grid .cell.drag-over {
+    background-color: #f0f0f0; /* Background color for droppable cells */
+}
+
+/* Enhanced droppable cell style */
+#grid .cell.droppable {
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
 #tiles {
     display: flex; /* Aligns tiles horizontally */
+		align-items: center; /* Center items vertically */
     flex-wrap: wrap; /* Allows tiles to wrap to the next line if the container is full */
     gap: 5px; /* Adds a small gap between tiles */
-    justify-content: flex-start; /* Aligns tiles to the start of the container */
+    justify-content: center; /* Aligns tiles to the start of the container */
+    min-height: 50px; /* Adjust to match the height of your tiles */
+		min-width: 50px; /* Adjust to match the height of your tiles */
+    margin-bottom: 20px; /* Added margin to create space underneath */
+
 }
+
 
 .tile {
     border: 1px solid #000;
@@ -111,4 +137,88 @@
 
 #gameInstructions ol {
     margin-left: 20px;
+}
+
+
+.clue-correct {
+    background-color: green;
+    opacity: 0.6; /* Makes the clue look faded */
+    pointer-events: none; /* Makes the clue unmovable */
+}
+
+.clue-partial {
+    background-color: yellow;
+}
+
+.clue-incorrect {
+    background-color: red;
+}
+
+/* Base styling for all buttons */
+button {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Check Answers button - most prominent */
+#checkAnswers {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 20px; /* Larger size */
+    box-shadow: 0 4px #2e7d32;
+    margin-bottom: 20px; /* Added margin to create space underneath */
+}
+
+#checkAnswers:hover {
+    background-color: #388E3C;
+}
+
+/* New Game and Reset Game buttons - identical properties, half the size of Check Answers */
+#newGame, #resetGame {
+    background-color: #2196F3; /* Blue */
+    color: white;
+    font-size: 9px; /* Half the font size */
+    padding: 10px 15px; /* Half the padding */
+}
+
+#newGame:hover, #resetGame:hover {
+    background-color: #1976D2; /* Darker Blue */
+}
+
+/* Toggle Mode button - distinct and slightly intimidating, half the size of Check Answers */
+#toggleMode {
+    background-color: #FF5722; /* Deep Orange */
+    color: white;
+    font-size: 9px; /* Half the font size */
+    padding: 10px 15px; /* Half the padding */
+    border-radius: 0; /* Optional: makes it look more 'sharp' */
+}
+
+#toggleMode:hover {
+    background-color: #E64A19; /* Darker Deep Orange */
+}
+
+
+
+#modeInstructions p {
+    display: none; /* Initially hide mode-specific instructions */
+}
+
+#modeInstructions p.active {
+    display: block; /* Show instructions for the active mode */
+}
+
+.all-correct {
+    background-color: lightgreen; /* Or any other color you want for the correct row/column */
+    opacity: 0.6; /* Fade effect for the tiles */
+}
+
+.all-correct .tile {
+	    background-color: lightgreen; /* Or any other color you want for the correct row/column */
+
+    pointer-events: none; /* Makes the tiles unmovable */
 }

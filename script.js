@@ -4102,6 +4102,7 @@ const gameDataSets = [
 
 let maxAttempts = 3;
 let currentAttempts = maxAttempts;
+let currentMode = 'hard'; // Default mode is regular
 
 
 function initializeHearts() {
@@ -4126,24 +4127,84 @@ function getRandomGameData() {
 
 let currentGameData; // Global variable to hold the current game's data
 
-    
-// Function to start a new game
-function startNewGame() {
-		initializeHearts();
-    currentGameData = getRandomGameData(); // Update global variable
-    displayGameData(currentGameData); // Update game display
-    // Call unfreezeGame to revert any changes made by freezeGame
-    unfreezeGame();
-}
 
 // Function to reset the current game
 function resetGame() {
-		initializeHearts();
+    initializeHearts();
     displayGameData(currentGameData); // Reset game display with current game data
-		// Call unfreezeGame to revert any changes made by freezeGame
-    unfreezeGame();
+    unfreezeGame(); // Call unfreezeGame to revert any changes made by freezeGame
 }
 
+
+function setupDragAndDrop() {
+    // Get all the tiles and droppable cells
+    const tiles = document.querySelectorAll('.tile');
+    const droppableCells = document.querySelectorAll('.droppable');
+    // Add drag event listeners to the tiles
+    tiles.forEach(tile => {
+        tile.addEventListener('dragstart', handleDragStart);
+        tile.addEventListener('dragend', handleDragEnd);
+    });
+
+    // Add drag event listeners to the droppable cells
+    droppableCells.forEach(cell => {
+        cell.addEventListener('dragover', handleDragOver);
+        cell.addEventListener('dragenter', handleDragEnter);
+        cell.addEventListener('dragleave', handleDragLeave);
+        cell.addEventListener('drop', handleDrop);
+    });
+    
+
+    function handleDragStart(event) {
+        event.target.classList.add('dragging');
+        // Optionally, set the data transfer
+        event.dataTransfer.setData('text/plain', event.target.id);
+    }
+
+function handleDragEnd(event) {
+    event.target.classList.remove('dragging');
+    // Reset color-related classes
+    event.target.classList.remove('clue-correct', 'clue-partial', 'clue-incorrect');
+}
+
+
+    function handleDragOver(event) {
+        event.preventDefault(); // Necessary to allow dropping
+    }
+
+		function handleDragEnter(event) {
+  		  if (event.target.classList.contains('droppable')) {
+        event.target.classList.add('drag-over');
+    		}
+		}
+
+		function handleDragLeave(event) {
+    		if (event.target.classList.contains('droppable')) {
+        event.target.classList.remove('drag-over');
+    		}
+		}
+
+		// Attach these functions to the dragenter and dragleave events
+		document.querySelectorAll('.droppable').forEach(cell => {
+    cell.addEventListener('dragenter', handleDragEnter);
+    cell.addEventListener('dragleave', handleDragLeave);
+		});
+
+
+    function handleDrop(event) {
+        event.preventDefault();
+        var draggedElement = document.querySelector('.dragging');
+        if (draggedElement && event.target.classList.contains('droppable')) {
+            // Append the tile to the cell or handle the drop logic
+            event.target.appendChild(draggedElement);
+            event.target.classList.remove('drag-over');
+            
+        }
+    }
+}
+
+    
+    
 // Function to display game data
 function displayGameData(gameData) {
     gameData.clues = gameData.correctAnswers.flat().sort(() => Math.random() - 0.5);
@@ -4188,11 +4249,9 @@ function generateGrid(columnWords, rowWords) {
 function generateTiles(clues) {
     const tilesContainer = document.getElementById('tiles');
     tilesContainer.innerHTML = clues.map((clue, index) => 
-        `<div class="tile" draggable="true" id="tile-${index}" 
-        ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">${clue}</div>`
+        `<div class="tile" draggable="true" id="tile-${index}">${clue}</div>`
     ).join('');
 }
-
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -4201,43 +4260,51 @@ function allowDrop(ev) {
 
 function drag(ev) {
 ev.dataTransfer.setData('text', ev.target.id);
+
 }
 
 
 
 function drop(ev) {
     ev.preventDefault();
-    ev.stopPropagation(); // Stop the event from bubbling up
 
-    const draggedTileId = ev.dataTransfer.getData('text');
+    const draggedTileId = ev.dataTransfer.getData('text/plain');
     const draggedTile = document.getElementById(draggedTileId);
     let target = ev.target;
 
-    // Check if the drop target is a tile and find the closest droppable ancestor
-    if (target.classList.contains('tile')) {
-
-        if (target.parentNode.classList.contains('cell')) {
-            // Dropped on a tile within the grid
-            target = target.parentNode;
-        } else if (target.parentNode.id === 'tiles') {
-            // Dropped on a tile within the tile container
-            shuffleTilesInContainer(target, draggedTile);
-            return; // Exit the function since we've handled this case
-        }
+    // Dropped on a tile in the grid cell, we need to swap them
+    if (target.classList.contains('tile') && target.parentNode.classList.contains('cell')) {
+        swapTiles(target.parentNode, draggedTile);
     }
-
-    if (target.classList.contains('droppable')) {
-        // Dropping on a cell (empty or with a tile) in the grid
-        if (target.firstChild && target.firstChild !== draggedTile) {
-            // If the cell is not empty, move the existing tile back to the tile container
-            document.getElementById('tiles').appendChild(target.firstChild);
-        }
-        // Remove the dragged tile from its previous parent if it has one
-        if (draggedTile.parentNode) {
-            draggedTile.parentNode.removeChild(draggedTile);
-        }
-        // Place the dragged tile in the cell
+    // Dropped on an empty cell in the grid
+    else if (target.classList.contains('droppable') && !target.firstChild) {
         target.appendChild(draggedTile);
+    }
+    // Dropped on a tile in the tiles container
+    else if (target.classList.contains('tile') && target.parentNode.id === 'tiles') {
+        shuffleTilesInContainer(target, draggedTile);
+    }
+    // Dropped on a non-empty cell
+    else if (target.classList.contains('droppable') && target.firstChild && target.firstChild !== draggedTile) {
+            swapTiles(target, draggedTile);
+    }
+}
+
+function swapTiles(targetCell, draggedTile) {
+		targetCell.firstChild.classList.remove('clue-correct', 'clue-partial', 'clue-incorrect');
+
+    // Get the parent cell (or container) of the dragged tile
+    const draggedTileParent = draggedTile.parentNode;
+
+    // Check if the dragged tile is coming from another cell or from the tiles container
+    if (draggedTileParent.classList.contains('cell')) {
+        // If dragged from a cell, swap the tiles
+        targetCell.appendChild(draggedTile);
+        draggedTileParent.appendChild(targetCell.firstChild);
+    } else {
+        // If dragged from the tiles container, move the target tile to the container and the dragged tile to the cell
+        document.getElementById('tiles').appendChild(targetCell.firstChild);
+        targetCell.appendChild(draggedTile);
     }
 }
 
@@ -4261,6 +4328,28 @@ function shuffleTilesInContainer(targetTile, draggedTile) {
 }
 
 
+// Function to toggle game mode
+function toggleMode() {
+    // Switch the current mode
+    currentMode = currentMode === 'hard' ? 'regular' : 'hard';
+    
+    // Update the button text to indicate the mode to which it will switch
+    const modeToSwitch = currentMode === 'hard' ? 'Regular' : 'Hard';
+    document.getElementById('toggleMode').textContent = `Switch to ${modeToSwitch} Mode`;
+
+    // Hide all mode instructions
+    document.querySelectorAll('.mode-instructions').forEach(element => {
+        element.style.display = 'none';
+    });
+
+    // Show the instructions for the current mode
+    document.getElementById(`${currentMode}ModeInstructions`).style.display = 'block';
+
+    // Reset the game for the new mode
+    resetGame();
+}
+
+
 
 
 function checkAnswers() {
@@ -4273,76 +4362,175 @@ function checkAnswers() {
         currentGameData.columnWords.forEach((colWord, colIndex) => {
             const cell = grid.querySelector(`.droppable[data-row="${rowIndex}"][data-col="${colIndex}"]`);
 
-            if (cell) {
+            if (cell && cell.firstChild) {
                 const tile = cell.firstChild;
-                const answer = tile ? tile.textContent.trim() : '';
+                const answer = tile.textContent.trim();
                 entered[rowIndex][colIndex] = answer;
 
                 // Check if the answer matches the correct answer
                 const isCorrect = answer === currentGameData.correctAnswers[rowIndex][colIndex];
             } else {
-                console.error(`Cell not found for row ${rowWord}, column ${colWord}`);
+                entered[rowIndex][colIndex] = ""; // or some other placeholder for an empty answer
             }
         });
     });
 
 
     // Check if any answers have been entered into the grid
-    const hasAnswers = entered.some(entered => entered.some(answer => answer));
-		let correctness = null;
-		let rowColCorrectness = null;
-				
+    const hasAnswers = entered.some(row => row.some(answer => answer));
+    let correctness = null;
+    let rowColCorrectness = null;
+
     if (hasAnswers) {
         // Check correctness for rows and columns
-        correctness = elementwiseEquality(currentGameData.correctAnswers,entered);
-				rowColCorrectness = sumTrueValues(correctness);
+        correctness = elementwiseEquality(currentGameData.correctAnswers, entered);
+        rowColCorrectness = sumTrueValues(correctness);
 
         // Test whether the game has been won
-        allCorrect = rowColCorrectness.totalSums==9;
+        allCorrect = rowColCorrectness.totalSums === 9;
 
-    if (allCorrect) {
+        if (allCorrect) {
+        colourClues(correctness, currentGameData);
     		colourAllHeadings(rowColCorrectness);
       	grid.classList.add('win');
-        document.getElementById('result').textContent = 'Congratulations!';
-    } else {
-        currentAttempts--;
+        document.getElementById('result').textContent = 'You connected all the thoughts!';
+        } else {
+        // Game not won yet
+				currentAttempts--;
         updateHearts();
 
-        if (currentAttempts <= 0) {
-            // Freeze game and show loss message
-            freezeGame();
-        }
-				colourAllHeadings(rowColCorrectness);
-
+        	if (currentAttempts <= 0) {
+          // Freeze game and show loss message
+          freezeGame();
+          } else {
+          // Not frozen, update colors
+          if (currentMode === 'hard') {
+        		let rowColCorrectness = sumTrueValues(correctness);
+        		colourAllHeadings(rowColCorrectness);
+    				} else {
+        		colourClues(correctness, currentGameData);
+          	}
         document.getElementById('result').textContent = 'Some answers are incorrect.';
-    }} else{
+    }}} else{
     	  document.getElementById('result').textContent = 'No answers to check.';
     }
 }
 
-function colourAllHeadings(rowColCorrectness=null){
 
-		// Get the heading elements using their IDs
-				const columnHeadings = currentGameData.columnWords.map((_, colIndex) => document.getElementById(`col-${colIndex}`));
-				const rowHeadings = currentGameData.rowWords.map((_, rowIndex) => document.getElementById(`row-${rowIndex}`));
+function colourClues(correctness, currentGameData) {
+    const tiles = document.querySelectorAll('.tile');
+    tiles.forEach(tile => {
+        // Get the current position of the tile
+        const parentCell = tile.parentElement;
 
-			// Loop through each column heading
-			columnHeadings.forEach((heading, columnIndex) => {
-    	// Get the sum of correctness for the current column
-    	const sum = rowColCorrectness===null ? 0:rowColCorrectness.columnSums[columnIndex];
-      
-      // Set the background color based on the sum
-      colourHeading(heading, sum);
-			});
+        // Check if the parent of the tile is a cell in the grid and has the needed attributes
+        if (parentCell && parentCell.hasAttribute('data-row') && parentCell.hasAttribute('data-col')) {
+            const rowIndex = parseInt(parentCell.getAttribute('data-row'));
+            const colIndex = parseInt(parentCell.getAttribute('data-col'));
 
-			// Loop through each row heading
-			rowHeadings.forEach((heading, rowIndex) => {
-    	// Get the sum of correctness for the current column
-    	const sum = rowColCorrectness===null ? 0 : rowColCorrectness.rowSums[rowIndex];
-    
-    	// Set the background color based on the sum
-    	colourHeading(heading, sum);
-			});
+            // Ensure rowIndex and colIndex are not NaN
+            if (!isNaN(rowIndex) && !isNaN(colIndex)) {
+                // Only then proceed to get the correct answer and compare
+                const correctAnswer = currentGameData.correctAnswers[rowIndex][colIndex];
+                const isCorrectCell = tile.textContent.trim() === correctAnswer;
+                const isCorrectRow = currentGameData.correctAnswers[rowIndex].includes(tile.textContent.trim());
+                const isCorrectColumn = currentGameData.correctAnswers.some(row => row[colIndex] === tile.textContent.trim());
+
+                // Reset classes for coloring
+                tile.classList.remove('clue-correct', 'clue-partial', 'clue-incorrect');
+
+                // Apply coloring based on correctness
+                if (isCorrectCell) {
+                    tile.classList.add('clue-correct');
+                } else if (isCorrectRow || isCorrectColumn) {
+                    tile.classList.add('clue-partial');
+                } else {
+                    tile.classList.add('clue-incorrect');
+                }
+            }
+        } else {
+            // If the tile is not in a droppable cell, remove any related classes
+            tile.classList.remove('clue-correct', 'clue-partial', 'clue-incorrect');
+        }
+    });
+}
+	
+function isInCorrectRowOrColumn(clue, rowIndex, colIndex, correctAnswers) {
+    const correctRow = correctAnswers[rowIndex].includes(clue);
+    const correctColumn = correctAnswers.some(row => row[colIndex] === clue);
+    return correctRow || correctColumn;
+}
+
+
+
+function colourAllHeadings(rowColCorrectness = null) {
+    const columnHeadings = currentGameData.columnWords.map((_, colIndex) => document.getElementById(`col-${colIndex}`));
+    const rowHeadings = currentGameData.rowWords.map((_, rowIndex) => document.getElementById(`row-${rowIndex}`));
+
+    columnHeadings.forEach((heading, columnIndex) => {
+        const sum = rowColCorrectness === null ? 0 : rowColCorrectness.columnSums[columnIndex];
+        colourHeading(heading, sum);
+        if (sum === currentGameData.rowWords.length) { // All clues in the column are correct
+            lockColumn(columnIndex);
+						colourColumn(columnIndex, true);
+
+        }
+    });
+
+    rowHeadings.forEach((heading, rowIndex) => {
+        const sum = rowColCorrectness === null ? 0 : rowColCorrectness.rowSums[rowIndex];
+        colourHeading(heading, sum);
+        if (sum === currentGameData.columnWords.length) { // All clues in the row are correct
+            lockRow(rowIndex);
+						colourRow(rowIndex, true);
+
+        }
+    });
+}
+
+function lockRow(rowIndex) {
+    // Logic to lock all clues in this row
+    document.querySelectorAll(`.droppable[data-row="${rowIndex}"]`).forEach(cell => {
+        const tile = cell.firstChild;
+        if (tile) {
+            tile.classList.add('locked-in'); // Add a CSS class to style locked-in clues
+            tile.draggable = false; // Disable dragging
+        }
+    });
+}
+
+
+function lockColumn(colIndex) {
+    // Logic to lock all clues in this column
+    document.querySelectorAll(`.droppable[data-col="${colIndex}"]`).forEach(cell => {
+        const tile = cell.firstChild;
+        if (tile) {
+            tile.classList.add('locked-in'); // Add a CSS class to style locked-in clues
+            tile.draggable = false; // Disable dragging
+        }
+    });
+}
+
+function colourRow(rowIndex, isCorrect) {
+    const rowCells = document.querySelectorAll(`.droppable[data-row="${rowIndex}"]`);
+    rowCells.forEach(cell => {
+        if (isCorrect) {
+            cell.classList.add('all-correct');
+        } else {
+            cell.classList.remove('all-correct');
+        }
+    });
+}
+
+function colourColumn(colIndex, isCorrect) {
+    const columnCells = document.querySelectorAll(`.droppable[data-col="${colIndex}"]`);
+    columnCells.forEach(cell => {
+        if (isCorrect) {
+            cell.classList.add('all-correct');
+        } else {
+            cell.classList.remove('all-correct');
+        }
+    });
 }
 
 function colourHeading(heading, correctnessCount=0){
@@ -4440,11 +4628,7 @@ function freezeGame() {
     }
 
     // Display a message to the user
-    const resultDiv = document.getElementById('result');
-    if (resultDiv) {
-        resultDiv.textContent = 'Better luck next time!';
-        resultDiv.style.color = 'white'; // Adjust styling as needed
-    }
+		document.getElementById('result').textContent = 'Better luck next time!';
 }
 
 
@@ -4477,9 +4661,25 @@ function unfreezeGame() {
 }
 
 
-// Event listeners
 
-document.getElementById('checkAnswers').addEventListener('click', checkAnswers);
-document.addEventListener('DOMContentLoaded', startNewGame);
-document.getElementById('newGame').addEventListener('click', startNewGame);
-document.getElementById('resetGame').addEventListener('click', resetGame);
+document.addEventListener('DOMContentLoaded', function() {
+    startNewGame(); // This function should handle everything needed to start a new game, including setting up drag and drop
+});
+
+function startNewGame() {
+	// Event listeners
+		document.getElementById('checkAnswers').addEventListener('click', checkAnswers);
+		document.getElementById('newGame').addEventListener('click', startNewGame);
+		document.getElementById('resetGame').addEventListener('click', resetGame);
+		document.getElementById('toggleMode').addEventListener('click', toggleMode);
+
+    // Initialize game settings
+    initializeHearts();
+    currentGameData = getRandomGameData();
+    displayGameData(currentGameData); // This will create the tiles and grid
+    unfreezeGame();
+    toggleMode(); // If needed at game start, otherwise call it when mode change is required
+setupDragAndDrop();
+
+}
+
