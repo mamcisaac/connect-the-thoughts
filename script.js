@@ -1,4104 +1,4006 @@
 // Structure for game data
 const gameDataSets = [
     {
-        columnWords: ['Apple', 'Book', 'Cat'],
-        rowWords: ['Dog', 'Tree', 'Water'],
-        correctAnswers: [
-            ['Bite', 'Learn', 'Pet'],
-            ['Fruit', 'Leaf', 'Climb'],
-            ['Juice', 'Drawing', 'Avoid']
-        ]
-    },
-    {
-        columnWords: ['Chair', 'Flower', 'Music'],
-        rowWords: ['Paint', 'Car', 'Coffee'],
-        correctAnswers: [
-            ['Stain', 'Bright', 'Art'],
-            ['Driver', 'Bug', 'Radio'],
-            ['Breakfast', 'Bean', 'Relax']
-        ]
-    },
-    {
         "columnWords": [
-            "world",
-            "agent",
-            "hope"
+            "share",
+            "range",
+            "minute"
         ],
         "rowWords": [
-            "bank",
-            "care",
-            "outside"
+            "mile",
+            "pay",
+            "dream"
         ],
         "correctAnswers": [
             [
-                "monetary",
-                "transaction",
-                "chase"
+                "track",
+                "distance",
+                "walking"
             ],
             [
-                "nutrition",
-                "specialist",
-                "continuing"
-            ],
-            [
-                "virtually",
-                "prior",
-                "wherever"
-            ]
-        ],
-        "gridQuality": [
-            0.04240828641321037,
-            0.11085712563740047,
-            0.04159912985244385,
-            0.06821237540962011,
-            0.0954158795640998,
-            0.107612436107003,
-            0.07637669758544341,
-            0.043037772110001704,
-            0.11484091020948584
-        ]
-    },
-    {
-        "columnWords": [
-            "percent",
-            "shoot",
-            "mention"
-        ],
-        "rowWords": [
-            "season",
-            "produce",
-            "family"
-        ],
-        "correctAnswers": [
-            [
-                "consecutive",
-                "spring",
-                "coming"
-            ],
-            [
-                "annually",
-                "capture",
-                "hence"
-            ],
-            [
-                "household",
-                "photography",
-                "dear"
-            ]
-        ],
-        "gridQuality": [
-            0.17541237754079664,
-            0.019116465244104264,
-            0.09322079413675954,
-            0.11160847347359337,
-            0.09150028220424555,
-            0.19971118427908463,
-            0.022479027362775073,
-            0.050039126245750465,
-            0.12421939921593883
-        ]
-    },
-    {
-        "columnWords": [
-            "million",
-            "affect",
-            "page"
-        ],
-        "rowWords": [
-            "bank",
-            "mother",
-            "victim"
-        ],
-        "correctAnswers": [
-            [
-                "treasury",
-                "monetary",
-                "register"
-            ],
-            [
-                "lost",
-                "thinking",
-                "birthday"
-            ],
-            [
-                "alleged",
-                "perceived",
-                "crash"
-            ]
-        ],
-        "gridQuality": [
-            0.12926164994753397,
-            0.06189193377298963,
-            0.12238715570990966,
-            0.045548658130461495,
-            0.11445761915863262,
-            0.09752658860730468,
-            -0.016994164035786907,
-            0.15477511978050185,
-            -0.011381491155452395
-        ]
-    },
-    {
-        "columnWords": [
-            "food",
-            "mouth",
-            "agency"
-        ],
-        "rowWords": [
-            "feel",
-            "woman",
-            "chair"
-        ],
-        "correctAnswers": [
-            [
-                "friendly",
-                "soft",
-                "regarding"
-            ],
-            [
-                "grocery",
-                "babe",
-                "senior"
-            ],
-            [
-                "cafe",
-                "chest",
-                "vice"
-            ]
-        ],
-        "gridQuality": [
-            0.13601796230785912,
-            0.09200674533273834,
-            0.08869344414023761,
-            0.047305254502882255,
-            0.12295874208070856,
-            0.025243798632340164,
-            0.03109636361884316,
-            -0.008739939472519165,
-            0.09520414302168312
-        ]
-    },
-    {
-        "columnWords": [
-            "bag",
-            "cover",
-            "subject"
-        ],
-        "rowWords": [
-            "food",
-            "wait",
-            "event"
-        ],
-        "correctAnswers": [
-            [
-                "grocery",
-                "dish",
-                "agriculture"
-            ],
-            [
-                "bunch",
-                "barely",
-                "reply"
-            ],
-            [
-                "package",
-                "highlight",
-                "registration"
-            ]
-        ],
-        "gridQuality": [
-            0.10451184897912891,
-            0.00111870853281415,
-            0.11557240178118122,
-            0.04307460002634256,
-            0.05834802154232355,
-            0.15551315860946435,
-            -0.007078062289344267,
-            0.03300764542635093,
-            0.10655228236579539
-        ]
-    },
-    {
-        "columnWords": [
-            "value",
-            "freedom",
-            "staff"
-        ],
-        "rowWords": [
-            "leave",
-            "order",
-            "purpose"
-        ],
-        "correctAnswers": [
-            [
-                "missing",
-                "forever",
-                "crew"
-            ],
-            [
-                "discount",
-                "honor",
-                "schedule"
-            ],
-            [
-                "significance",
-                "unity",
-                "guidance"
-            ]
-        ],
-        "gridQuality": [
-            0.038482787763783,
-            0.09307169609238586,
-            0.08258882249005872,
-            0.13329520992436716,
-            0.03305504315812502,
-            0.03506214550021736,
-            0.13940418128217702,
-            0.11830663606119596,
-            0.06527046420835536
-        ]
-    },
-    {
-        "columnWords": [
-            "comment",
-            "handle",
-            "wind"
-        ],
-        "rowWords": [
-            "side",
-            "cover",
-            "total"
-        ],
-        "correctAnswers": [
-            [
-                "thinking",
-                "counter",
-                "direction"
-            ],
-            [
-                "written",
-                "fit",
-                "rolling"
-            ],
-            [
-                "rating",
-                "maximum",
-                "expected"
-            ]
-        ],
-        "gridQuality": [
-            0.08615146339767699,
-            0.09617695615766997,
-            0.12301737550892544,
-            0.09416631545679166,
-            0.04114403317072435,
-            0.021539871781824038,
-            0.16332852240391382,
-            0.0374983931922368,
-            0.020546793150785225
-        ]
-    },
-    {
-        "columnWords": [
-            "sea",
-            "son",
-            "hour"
-        ],
-        "rowWords": [
-            "beat",
-            "front",
-            "data"
-        ],
-        "correctAnswers": [
-            [
-                "tide",
-                "daddy",
+                "obligation",
+                "affordable",
                 "twice"
             ],
             [
-                "gulf",
-                "beside",
-                "parking"
-            ],
-            [
-                "marine",
-                "given",
-                "required"
+                "happiness",
+                "fantastic",
+                "weekend"
             ]
         ],
         "gridQuality": [
-            -0.004601732654721413,
-            0.10891265432045882,
-            0.10513815185383457,
-            0.07187782219589511,
-            0.0054970423441311755,
-            0.1432988361921539,
-            0.01192168220726264,
-            -0.004996072064083257,
-            0.09426492948849174
+            -0.007959708397931586,
+            0.018710348069383986,
+            0.11874632439453525,
+            0.18320827753819324,
+            0.11289821910965703,
+            0.11115279620056318,
+            0.1490059641119087,
+            0.006553967652946913,
+            0.04034559753700351
         ]
     },
     {
         "columnWords": [
-            "lay",
-            "growth",
-            "book"
+            "girl",
+            "death",
+            "hold"
         ],
         "rowWords": [
-            "line",
-            "dark",
-            "church"
+            "career",
+            "street",
+            "term"
         ],
         "correctAnswers": [
             [
-                "across",
-                "improved",
-                "reference"
+                "fashion",
+                "fame",
+                "impressive"
             ],
             [
-                "beneath",
-                "medium",
-                "fiction"
+                "parade",
+                "highway",
+                "block"
             ],
             [
-                "bishop",
-                "formation",
-                "christianity"
+                "ugly",
+                "mortality",
+                "typically"
             ]
         ],
         "gridQuality": [
-            0.04659058312451303,
-            0.10478335144875561,
-            0.15779141695817045,
-            0.14357460605542804,
-            0.003094402207711955,
-            0.13336589062749327,
-            0.06187009257287712,
-            0.041941308632789776,
-            0.08276992722621523
+            0.047176934650670965,
+            0.03446372752967597,
+            0.07342071854337218,
+            0.10022979787513009,
+            0.09094224455190181,
+            0.08154748113060073,
+            -0.001331138738136728,
+            0.11219986191704379,
+            0.21380442203447125
         ]
     },
     {
         "columnWords": [
-            "finger",
-            "dad",
-            "council"
+            "school",
+            "pattern",
+            "court"
         ],
         "rowWords": [
-            "black",
-            "book",
-            "sunday"
+            "office",
+            "room",
+            "faith"
         ],
         "correctAnswers": [
             [
-                "grip",
-                "shirt",
-                "alliance"
+                "assistant",
+                "print",
+                "clerk"
             ],
             [
-                "tip",
-                "gift",
-                "chapter"
+                "dance",
+                "fabric",
+                "venue"
             ],
             [
-                "closed",
-                "shortly",
-                "parliament"
+                "theology",
+                "meaning",
+                "conviction"
             ]
         ],
         "gridQuality": [
-            0.1542144632074427,
-            0.1123265810480174,
-            0.04536930152317886,
-            0.02744642372118511,
-            0.13257699087934527,
-            0.12818458466110538,
-            -0.017826528020666976,
-            0.0511212707911175,
-            0.11126262205125537
+            0.13433193025186285,
+            0.047069862734301804,
+            0.18217658324301722,
+            0.06399833632429897,
+            0.06699004649630025,
+            0.01779549134792857,
+            0.13856231824597454,
+            0.038670023823057176,
+            0.24274747745237069
         ]
     },
     {
         "columnWords": [
-            "space",
-            "union",
-            "chair"
-        ],
-        "rowWords": [
-            "city",
-            "act",
-            "month"
-        ],
-        "correctAnswers": [
-            [
-                "surrounding",
-                "headquarters",
-                "mayor"
-            ],
-            [
-                "necessary",
-                "reform",
-                "standing"
-            ],
-            [
-                "minimum",
-                "membership",
-                "appointment"
-            ]
-        ],
-        "gridQuality": [
-            0.13235743544154732,
-            0.10977596164429904,
-            0.010574787044460021,
-            0.05281645536334112,
-            0.13841392868722968,
-            -0.007751401706649119,
-            0.07286776833255737,
-            0.13096162662878397,
-            0.08895918896846078
-        ]
-    },
-    {
-        "columnWords": [
-            "company",
-            "figure",
-            "check"
-        ],
-        "rowWords": [
-            "country",
-            "mention",
-            "content"
-        ],
-        "correctAnswers": [
-            [
-                "worldwide",
-                "standing",
-                "holiday"
-            ],
-            [
-                "pleased",
-                "impressive",
-                "whenever"
-            ],
-            [
-                "publishing",
-                "text",
-                "submit"
-            ]
-        ],
-        "gridQuality": [
-            0.108480758568269,
-            -0.009319200225889945,
-            0.050385960456692525,
-            0.12935820770696416,
-            0.06291641942096926,
-            0.12358055731651651,
-            0.13858508378471124,
-            -0.02960662566143546,
-            0.07970104868706995
-        ]
-    },
-    {
-        "columnWords": [
-            "notice",
-            "freedom",
-            "thought"
-        ],
-        "rowWords": [
-            "paper",
-            "church",
-            "threat"
-        ],
-        "correctAnswers": [
-            [
-                "sheet",
-                "stamp",
-                "piece"
-            ],
-            [
-                "registration",
-                "unity",
-                "priest"
-            ],
-            [
-                "warrant",
-                "terror",
-                "unlikely"
-            ]
-        ],
-        "gridQuality": [
-            0.054229162276404064,
-            -0.013997107629418082,
-            0.13555990597731238,
-            0.016105461996190007,
-            0.16354850420371925,
-            0.11297733177967229,
-            0.050040856842288095,
-            0.06814754202177342,
-            0.1257582382587934
-        ]
-    },
-    {
-        "columnWords": [
-            "pain",
-            "owner",
-            "degree"
-        ],
-        "rowWords": [
-            "role",
-            "plan",
-            "man"
-        ],
-        "correctAnswers": [
-            [
-                "associated",
-                "principal",
-                "profession"
-            ],
-            [
-                "medication",
-                "purchase",
-                "minimum"
-            ],
-            [
-                "throat",
-                "lucky",
-                "straight"
-            ]
-        ],
-        "gridQuality": [
-            0.09037499265437487,
-            0.05736201075158587,
-            0.15414312143599962,
-            0.07270942286719828,
-            0.16919803270505995,
-            0.12101063405513202,
-            0.1408547615700778,
-            0.1289880511379503,
-            -0.0025313318072759383
-        ]
-    },
-    {
-        "columnWords": [
-            "deep",
-            "process",
-            "legal"
-        ],
-        "rowWords": [
-            "fight",
-            "skill",
-            "rate"
-        ],
-        "correctAnswers": [
-            [
-                "massive",
-                "eventually",
-                "lawsuit"
-            ],
-            [
-                "depth",
-                "creativity",
-                "intellectual"
-            ],
-            [
-                "lower",
-                "calculation",
-                "liability"
-            ]
-        ],
-        "gridQuality": [
-            0.09316045785109639,
-            0.11677524923854299,
-            0.08945836716223632,
-            0.09596113415858332,
-            0.10265231516885354,
-            0.022792535613288423,
-            0.01874543194470102,
-            0.11041106906009734,
-            0.044048630221480756
-        ]
-    },
-    {
-        "columnWords": [
-            "evening",
-            "common",
-            "nature"
-        ],
-        "rowWords": [
-            "blue",
-            "movie",
-            "task"
-        ],
-        "correctAnswers": [
-            [
-                "silk",
-                "used",
-                "ocean"
-            ],
-            [
-                "concert",
-                "funny",
-                "documentary"
-            ],
-            [
-                "busy",
-                "required",
-                "creation"
-            ]
-        ],
-        "gridQuality": [
-            0.1256407685742732,
-            0.06852119263434675,
-            0.11145746673057921,
-            0.09643281964090444,
-            0.01607081441093061,
-            0.05600345701457421,
-            0.1252608290503785,
-            0.1266767399566463,
-            0.10634667093970329
-        ]
-    },
-    {
-        "columnWords": [
-            "action",
-            "system",
-            "truth"
-        ],
-        "rowWords": [
-            "money",
-            "run",
-            "site"
-        ],
-        "correctAnswers": [
-            [
-                "equity",
-                "banking",
-                "happiness"
-            ],
-            [
-                "pace",
-                "operating",
-                "exist"
-            ],
-            [
-                "forum",
-                "database",
-                "significance"
-            ]
-        ],
-        "gridQuality": [
-            0.0810681877199868,
-            0.10186261911221917,
-            0.13586073673420718,
-            0.08485457628302451,
-            0.14724943217524433,
-            0.024012792380947223,
-            0.02817896998258429,
-            0.10213860297562904,
-            0.03776439572778589
-        ]
-    },
-    {
-        "columnWords": [
-            "note",
-            "meet",
+            "page",
+            "surface",
             "partner"
         ],
         "rowWords": [
-            "ground",
-            "cost",
-            "client"
+            "skill",
+            "control",
+            "car"
         ],
         "correctAnswers": [
             [
-                "dry",
-                "lay",
-                "standing"
+                "given",
+                "depth",
+                "mentor"
             ],
             [
-                "additional",
-                "exceed",
-                "invest"
+                "edit",
+                "fluid",
+                "integration"
             ],
             [
-                "browser",
-                "satisfy",
-                "vendor"
+                "picture",
+                "flat",
+                "dealer"
             ]
         ],
         "gridQuality": [
-            0.0700837110995125,
-            0.059714048133310604,
-            -0.029727977430112018,
-            0.0947781840896722,
-            0.12934035690742507,
-            0.03316439385320813,
-            0.122039020654796,
-            0.0724791426182324,
-            0.10361545998389654
+            0.005603020234622669,
+            0.09660676202834295,
+            0.13229133009642946,
+            0.10676652936224196,
+            0.19147266890089654,
+            0.12049212569403134,
+            0.05521483341125599,
+            0.10378230417583745,
+            0.07210121184550278
         ]
     },
     {
         "columnWords": [
-            "main",
-            "truth",
-            "type"
+            "media",
+            "line",
+            "result"
         ],
         "rowWords": [
-            "keep",
-            "user",
-            "web"
+            "style",
+            "town",
+            "touch"
         ],
         "correctAnswers": [
             [
-                "onto",
-                "pray",
-                "normally"
+                "publishing",
+                "signature",
+                "formal"
             ],
             [
-                "entry",
-                "anonymous",
-                "default"
+                "council",
+                "lake",
+                "province"
             ],
             [
-                "map",
-                "insight",
-                "flash"
+                "mobile",
+                "telephone",
+                "painful"
             ]
         ],
         "gridQuality": [
-            0.11826807414315421,
-            0.2456801698442358,
-            0.11195792516393499,
-            0.020698153696629973,
-            -0.02330175244934707,
-            0.11568198489606041,
-            0.030678486475391953,
-            0.03548633209299168,
-            0.04270913040917346
+            0.0345371496751814,
+            0.04943088085328129,
+            0.087854621659472,
+            0.0030896385145654515,
+            0.095885097703718,
+            0.1075887789181178,
+            0.10388936975120933,
+            0.04165669900409197,
+            0.1115527437474726
         ]
     },
     {
         "columnWords": [
-            "piece",
-            "track",
-            "pay"
+            "safety",
+            "feature",
+            "private"
         ],
         "rowWords": [
-            "season",
-            "society",
-            "energy"
-        ],
-        "correctAnswers": [
-            [
-                "round",
-                "debut",
-                "expected"
-            ],
-            [
-                "contemporary",
-                "progress",
-                "membership"
-            ],
-            [
-                "wood",
-                "flow",
-                "saving"
-            ]
-        ],
-        "gridQuality": [
-            0.04104865827368709,
-            0.09983131253269073,
-            0.07464291851314397,
-            0.1373178449695689,
-            0.02509327100085934,
-            0.13684173966500024,
-            0.04280292187974122,
-            0.1052762559156315,
-            0.14432012083498835
-        ]
-    },
-    {
-        "columnWords": [
-            "plan",
-            "wear",
-            "risk"
-        ],
-        "rowWords": [
-            "device",
-            "family",
-            "pay"
-        ],
-        "correctAnswers": [
-            [
-                "invention",
-                "belt",
-                "thereby"
-            ],
-            [
-                "shared",
-                "casual",
-                "genetic"
-            ],
-            [
-                "incentive",
-                "slip",
-                "proportion"
-            ]
-        ],
-        "gridQuality": [
-            0.06977896094061475,
-            0.03789897612054194,
-            0.10907794705751683,
-            0.08233927472502445,
-            0.038371390060018995,
-            0.10330946304373045,
-            0.15627639250825598,
-            0.05570474997563857,
-            0.13677181590763343
-        ]
-    },
-    {
-        "columnWords": [
-            "second",
             "father",
-            "win"
-        ],
-        "rowWords": [
-            "young",
-            "sound",
-            "budget"
+            "defense",
+            "color"
         ],
         "correctAnswers": [
             [
-                "senior",
-                "loving",
-                "lucky"
+                "birth",
+                "coming",
+                "spouse"
             ],
             [
-                "instrument",
-                "guitar",
-                "incredible"
+                "prevention",
+                "basically",
+                "sector"
             ],
             [
-                "proposed",
-                "bill",
-                "compromise"
+                "orange",
+                "display",
+                "medium"
             ]
         ],
         "gridQuality": [
-            0.09791883915415733,
-            0.18465271460691302,
-            0.09344591392171875,
-            0.09663217988847617,
-            0.003692507361461872,
-            0.004672034349163856,
-            0.12640179384391492,
-            0.00204892564499104,
-            0.007112047958111045
+            -0.004844853488884193,
+            0.09011387682491534,
+            0.10374105608373785,
+            0.0993448695369471,
+            0.01991960196602527,
+            -0.010687782175181959,
+            -0.01428751251223015,
+            0.19140363628011303,
+            -0.0017904981894593108
+        ]
+    },
+    {
+        "columnWords": [
+            "level",
+            "style",
+            "career"
+        ],
+        "rowWords": [
+            "soldier",
+            "school",
+            "decade"
+        ],
+        "correctAnswers": [
+            [
+                "combat",
+                "warrior",
+                "civilian"
+            ],
+            [
+                "secondary",
+                "dance",
+                "graduation"
+            ],
+            [
+                "rapidly",
+                "unlike",
+                "fame"
+            ]
+        ],
+        "gridQuality": [
+            0.06961349381641224,
+            -0.012194085100797891,
+            -0.020839461434503437,
+            0.1681254204968683,
+            0.11993922163765591,
+            0.07330545041140946,
+            0.10950944115291217,
+            0.07172789915348976,
+            0.09330158915051956
+        ]
+    },
+    {
+        "columnWords": [
+            "study",
+            "safety",
+            "color"
+        ],
+        "rowWords": [
+            "quality",
+            "force",
+            "press"
+        ],
+        "correctAnswers": [
+            [
+                "extensive",
+                "efficiency",
+                "gorgeous"
+            ],
+            [
+                "latter",
+                "armed",
+                "navy"
+            ],
+            [
+                "lecture",
+                "privacy",
+                "orange"
+            ]
+        ],
+        "gridQuality": [
+            0.1165444850939732,
+            0.10890884229747833,
+            0.20723613633261317,
+            0.07352668357500436,
+            0.06632908736295118,
+            0.050416940484666606,
+            0.091653615848317,
+            -0.012346991339573843,
+            -0.008053940074359778
+        ]
+    },
+    {
+        "columnWords": [
+            "fish",
+            "claim",
+            "laugh"
+        ],
+        "rowWords": [
+            "history",
+            "health",
+            "meet"
+        ],
+        "correctAnswers": [
+            [
+                "marine",
+                "invention",
+                "fascinating"
+            ],
+            [
+                "diet",
+                "liability",
+                "stress"
+            ],
+            [
+                "lunch",
+                "exceed",
+                "tonight"
+            ]
+        ],
+        "gridQuality": [
+            -0.0035765125910577344,
+            0.11805416798097323,
+            0.036708419318730146,
+            0.07680444105987116,
+            0.12400533392825286,
+            -0.026837313327026324,
+            0.13006804095788072,
+            0.10055731030509885,
+            0.11904994641119948
+        ]
+    },
+    {
+        "columnWords": [
+            "image",
+            "return",
+            "box"
+        ],
+        "rowWords": [
+            "book",
+            "half",
+            "lack"
+        ],
+        "correctAnswers": [
+            [
+                "graphic",
+                "welcome",
+                "edition"
+            ],
+            [
+                "shape",
+                "final",
+                "flat"
+            ],
+            [
+                "perceived",
+                "ensure",
+                "technical"
+            ]
+        ],
+        "gridQuality": [
+            0.12378541645013819,
+            0.07953434444289087,
+            0.07363236983242416,
+            0.009687467052315935,
+            0.0903243091572955,
+            0.10236902935356174,
+            0.05996513819945115,
+            0.10832393366330983,
+            7.34883770889816e-05
+        ]
+    },
+    {
+        "columnWords": [
+            "kid",
+            "top",
+            "trial"
+        ],
+        "rowWords": [
+            "weapon",
+            "age",
+            "expert"
+        ],
+        "correctAnswers": [
+            [
+                "knife",
+                "enemy",
+                "conviction"
+            ],
+            [
+                "childhood",
+                "above",
+                "prior"
+            ],
+            [
+                "anybody",
+                "leading",
+                "testimony"
+            ]
+        ],
+        "gridQuality": [
+            0.006665019413604423,
+            0.028913143357488624,
+            0.04595516416152301,
+            0.24967462507085425,
+            0.09564228209780545,
+            0.11023889968698808,
+            0.03277306196400054,
+            0.12927369715767478,
+            0.18491379619797865
+        ]
+    },
+    {
+        "columnWords": [
+            "court",
+            "focus",
+            "fine"
+        ],
+        "rowWords": [
+            "option",
+            "local",
+            "level"
+        ],
+        "correctAnswers": [
+            [
+                "bankruptcy",
+                "utilize",
+                "attractive"
+            ],
+            [
+                "behalf",
+                "rural",
+                "serving"
+            ],
+            [
+                "circuit",
+                "intensity",
+                "grade"
+            ]
+        ],
+        "gridQuality": [
+            0.07694724638726302,
+            0.1094632264909694,
+            0.07110824722326847,
+            0.08565935955005166,
+            0.09460003102116166,
+            0.07586032601105863,
+            0.03596469353156395,
+            0.2068748185313265,
+            0.1010419293443856
+        ]
+    },
+    {
+        "columnWords": [
+            "hand",
+            "human",
+            "expert"
+        ],
+        "rowWords": [
+            "program",
+            "few",
+            "service"
+        ],
+        "correctAnswers": [
+            [
+                "instruction",
+                "diversity",
+                "trainer"
+            ],
+            [
+                "gently",
+                "distinct",
+                "helpful"
+            ],
+            [
+                "mobile",
+                "associated",
+                "repair"
+            ]
+        ],
+        "gridQuality": [
+            0.006224608042620816,
+            0.10523525555151836,
+            0.10331557377184153,
+            0.18128128310318792,
+            0.1387915002160578,
+            0.05913259593728637,
+            0.008394881546856747,
+            0.006831448925311068,
+            0.034064066644190705
+        ]
+    },
+    {
+        "columnWords": [
+            "speech",
+            "law",
+            "turn"
+        ],
+        "rowWords": [
+            "help",
+            "music",
+            "goal"
+        ],
+        "correctAnswers": [
+            [
+                "aids",
+                "finance",
+                "adjust"
+            ],
+            [
+                "vocal",
+                "copyright",
+                "roll"
+            ],
+            [
+                "presentation",
+                "penalty",
+                "fourth"
+            ]
+        ],
+        "gridQuality": [
+            0.0473932489568315,
+            0.09014116696322594,
+            0.19079285480100283,
+            0.1222409187580108,
+            0.042616799321245624,
+            0.06274291883525906,
+            -0.02649437577633429,
+            0.10312675917983061,
+            0.09701079063683371
+        ]
+    },
+    {
+        "columnWords": [
+            "message",
+            "policy",
+            "water"
+        ],
+        "rowWords": [
+            "staff",
+            "march",
+            "stand"
+        ],
+        "correctAnswers": [
+            [
+                "chat",
+                "academic",
+                "addition"
+            ],
+            [
+                "originally",
+                "prior",
+                "lake"
+            ],
+            [
+                "display",
+                "ought",
+                "wash"
+            ]
+        ],
+        "gridQuality": [
+            0.04532205665045941,
+            0.15683536430497536,
+            0.03804885074965636,
+            0.0868371199828748,
+            0.03219195436615507,
+            0.04330704569861232,
+            0.12074410464245366,
+            0.09295261040109337,
+            0.16808709520774845
         ]
     },
     {
         "columnWords": [
             "event",
-            "option",
-            "table"
+            "track",
+            "father"
         ],
         "rowWords": [
-            "union",
-            "decade",
-            "edge"
-        ],
-        "correctAnswers": [
-            [
-                "headquarters",
-                "opposed",
-                "standing"
-            ],
-            [
-                "worldwide",
-                "unlike",
-                "fifteen"
-            ],
-            [
-                "opening",
-                "advantage",
-                "knife"
-            ]
-        ],
-        "gridQuality": [
-            0.1034187535897505,
-            0.0586923636401252,
-            -0.013930804999686464,
-            0.10579867735776993,
-            0.07268099339685319,
-            0.028383925442934554,
-            0.061021875422724636,
-            0.11340870307271367,
-            0.11091775656979574
-        ]
-    },
-    {
-        "columnWords": [
-            "deep",
-            "decade",
-            "student"
-        ],
-        "rowWords": [
-            "death",
-            "task",
-            "rise"
-        ],
-        "correctAnswers": [
-            [
-                "grave",
-                "shortly",
-                "victim"
-            ],
-            [
-                "depth",
-                "considering",
-                "assistance"
-            ],
-            [
-                "ocean",
-                "popularity",
-                "loan"
-            ]
-        ],
-        "gridQuality": [
-            0.09874617669623631,
-            0.06328824513815223,
-            0.10078808167640607,
-            0.030166135068343758,
-            0.07155872037189892,
-            0.16166281323506415,
-            0.09187822677429824,
-            0.19809056864142638,
-            0.025301068647456848
-        ]
-    },
-    {
-        "columnWords": [
-            "hair",
-            "culture",
-            "trust"
-        ],
-        "rowWords": [
-            "body",
-            "image",
-            "visit"
-        ],
-        "correctAnswers": [
-            [
-                "makeup",
-                "lifestyle",
-                "balance"
-            ],
-            [
-                "portrait",
-                "artistic",
-                "document"
-            ],
-            [
-                "appointment",
-                "explore",
-                "behalf"
-            ]
-        ],
-        "gridQuality": [
-            0.1429686618328111,
-            0.05080623668506856,
-            0.10357840571661936,
-            0.006092653175806317,
-            0.07335444459534579,
-            0.0015707180973482116,
-            -0.008958595307610118,
-            0.14948752965533985,
-            0.10940266335355331
-        ]
-    },
-    {
-        "columnWords": [
-            "brain",
-            "thanks",
-            "turn"
-        ],
-        "rowWords": [
-            "kill",
-            "night",
-            "owner"
-        ],
-        "correctAnswers": [
-            [
-                "harm",
-                "rob",
-                "rid"
-            ],
-            [
-                "sleep",
-                "birthday",
-                "walking"
-            ],
-            [
-                "injury",
-                "info",
-                "estate"
-            ]
-        ],
-        "gridQuality": [
-            -0.017737830628355766,
-            0.04227666580405631,
-            0.15564615869842757,
-            0.03467825941189839,
-            0.12281122818466139,
-            0.1343138430049482,
-            0.012311178291664504,
-            0.06502940893915832,
-            0.09453626629826384
-        ]
-    },
-    {
-        "columnWords": [
-            "service",
-            "river",
-            "past"
-        ],
-        "rowWords": [
-            "high",
-            "faith",
-            "state"
-        ],
-        "correctAnswers": [
-            [
-                "affordable",
-                "ridge",
-                "above"
-            ],
-            [
-                "praise",
-                "wilderness",
-                "convinced"
-            ],
-            [
-                "request",
-                "northwest",
-                "congress"
-            ]
-        ],
-        "gridQuality": [
-            0.12120225038765997,
-            0.05556183852493091,
-            0.11411958476968587,
-            0.034463483975099796,
-            -0.014560365729599845,
-            0.13862472943058124,
-            0.06197971366007782,
-            0.0454628449021659,
-            0.10029246415975424
-        ]
-    },
-    {
-        "columnWords": [
-            "simple",
-            "door",
-            "element"
-        ],
-        "rowWords": [
-            "author",
-            "economy",
-            "base"
-        ],
-        "correctAnswers": [
-            [
-                "creator",
-                "mark",
-                "literature"
-            ],
-            [
-                "sustainable",
-                "domestic",
-                "thereby"
-            ],
-            [
-                "solid",
-                "cab",
-                "portion"
-            ]
-        ],
-        "gridQuality": [
-            0.14454563620456573,
-            -0.018071011123682368,
-            -0.005429798929607266,
-            0.10619248303214479,
-            -0.0008594320162633728,
-            0.009833600007231214,
-            0.07794521854257741,
-            0.09197687105682395,
-            0.11533388961293922
-        ]
-    },
-    {
-        "columnWords": [
-            "pick",
-            "officer",
-            "bed"
-        ],
-        "rowWords": [
-            "quality",
-            "race",
-            "east"
-        ],
-        "correctAnswers": [
-            [
-                "decent",
-                "technical",
-                "furniture"
-            ],
-            [
-                "running",
-                "veteran",
-                "lap"
-            ],
-            [
-                "downtown",
-                "branch",
-                "ridge"
-            ]
-        ],
-        "gridQuality": [
-            0.16311443946030524,
-            0.08699079092639073,
-            0.11900961331457882,
-            0.09662854809172483,
-            -0.00785801603065861,
-            0.026139256923827014,
-            0.03424109121519503,
-            0.11915129955960657,
-            0.07966327503438508
-        ]
-    },
-    {
-        "columnWords": [
-            "young",
-            "leave",
-            "study"
-        ],
-        "rowWords": [
-            "loss",
-            "talk",
-            "view"
-        ],
-        "correctAnswers": [
-            [
-                "fat",
-                "permanent",
-                "associated"
-            ],
-            [
-                "gay",
-                "bother",
-                "lecture"
-            ],
-            [
-                "gallery",
-                "submit",
-                "summary"
-            ]
-        ],
-        "gridQuality": [
-            0.06869408486582129,
-            0.07087142096756949,
-            0.10924443764674019,
-            0.09842798421061039,
-            0.22393332024816714,
-            0.12844729928146337,
-            0.07723381479981017,
-            0.09409722708002055,
-            0.12110425823071125
-        ]
-    },
-    {
-        "columnWords": [
-            "answer",
-            "fish",
-            "war"
-        ],
-        "rowWords": [
-            "street",
-            "agency",
-            "wind"
-        ],
-        "correctAnswers": [
-            [
-                "corner",
-                "square",
-                "parade"
-            ],
-            [
-                "advise",
-                "animal",
-                "civilian"
-            ],
-            [
-                "whenever",
-                "ocean",
-                "wave"
-            ]
-        ],
-        "gridQuality": [
-            0.0429984329089238,
-            0.034045173729010614,
-            0.13842957969886505,
-            0.2037324268731895,
-            0.04189100765091858,
-            0.16674865010827544,
-            0.019274552889653407,
-            0.12070144105760328,
-            0.031170175604250505
-        ]
-    },
-    {
-        "columnWords": [
-            "option",
-            "sister",
-            "major"
-        ],
-        "rowWords": [
-            "west",
-            "student",
-            "number"
-        ],
-        "correctAnswers": [
-            [
-                "close",
-                "grace",
-                "northeast"
-            ],
-            [
-                "fee",
-                "teenage",
-                "continuing"
-            ],
-            [
-                "specify",
-                "lucky",
-                "worldwide"
-            ]
-        ],
-        "gridQuality": [
-            0.00044264713986474913,
-            0.02916304968049288,
-            0.11042603897728509,
-            0.03257048716902111,
-            0.08997751038479862,
-            0.08715569318882788,
-            0.19413763832839281,
-            0.09838387078756727,
-            0.12613483162014605
-        ]
-    },
-    {
-        "columnWords": [
-            "left",
-            "state",
-            "road"
-        ],
-        "rowWords": [
-            "death",
-            "list",
-            "poor"
-        ],
-        "correctAnswers": [
-            [
-                "shortly",
-                "terror",
-                "driving"
-            ],
-            [
-                "click",
-                "membership",
-                "map"
-            ],
-            [
-                "badly",
-                "regard",
-                "driving"
-            ]
-        ],
-        "gridQuality": [
-            0.09967641157276586,
-            0.0465968429022563,
-            0.006296903498519191,
-            0.1321565806282664,
-            0.0976746442170977,
-            0.017294641791736343,
-            0.09355913479055733,
-            0.06130260138108845,
-            -0.011537335680865346
-        ]
-    },
-    {
-        "columnWords": [
-            "earth",
-            "lawyer",
-            "play"
-        ],
-        "rowWords": [
-            "size",
-            "century",
-            "travel"
-        ],
-        "correctAnswers": [
-            [
-                "tall",
-                "suit",
-                "overall"
-            ],
-            [
-                "civilization",
-                "estate",
-                "classical"
-            ],
-            [
-                "abroad",
-                "consultant",
-                "online"
-            ]
-        ],
-        "gridQuality": [
-            0.05030981232934528,
-            0.08356085533265223,
-            0.08873784656246197,
-            0.18609381232581934,
-            0.016419829111124606,
-            0.1370673985714801,
-            0.026374752239641364,
-            0.15430752103906187,
-            0.1475032384628936
-        ]
-    },
-    {
-        "columnWords": [
-            "family",
-            "worker",
-            "focus"
-        ],
-        "rowWords": [
-            "play",
-            "window",
-            "church"
-        ],
-        "correctAnswers": [
-            [
-                "favorite",
-                "assistant",
-                "competition"
-            ],
-            [
-                "bathroom",
-                "installation",
-                "lens"
-            ],
-            [
-                "jewish",
-                "ministry",
-                "theology"
-            ]
-        ],
-        "gridQuality": [
-            0.11339717465703536,
-            -0.021376000043227705,
-            0.12669308200056772,
-            0.08756483904470824,
-            -0.016228954184263067,
-            0.114269025332975,
-            0.13549316465008887,
-            -0.007502660257466709,
-            0.14918006855409338
-        ]
-    },
-    {
-        "columnWords": [
-            "amount",
-            "trip",
-            "yard"
-        ],
-        "rowWords": [
-            "support",
-            "return",
-            "artist"
-        ],
-        "correctAnswers": [
-            [
-                "generous",
-                "planning",
-                "running"
-            ],
-            [
-                "expected",
-                "destination",
-                "outside"
-            ],
-            [
-                "drawing",
-                "photography",
-                "painting"
-            ]
-        ],
-        "gridQuality": [
-            0.16059371287748836,
-            0.09227058107378394,
-            -0.002108475820957856,
-            0.12414252156249628,
-            0.18120496552583143,
-            0.017781383771487413,
-            0.05212143368121247,
-            0.09970238054298275,
-            0.04726220772392897
-        ]
-    },
-    {
-        "columnWords": [
-            "team",
-            "bed",
-            "kill"
-        ],
-        "rowWords": [
-            "reach",
-            "second",
-            "cover"
-        ],
-        "correctAnswers": [
-            [
-                "compete",
-                "beside",
-                "harm"
-            ],
-            [
-                "junior",
-                "double",
-                "murder"
-            ],
-            [
-                "personnel",
-                "blanket",
-                "bomb"
-            ]
-        ],
-        "gridQuality": [
-            0.06719703759835982,
-            0.06298602880485604,
-            0.07410169224397523,
-            0.14217583033461645,
-            0.11661061224818636,
-            0.09014193923392666,
-            -0.01191421957228811,
-            0.16830295734205092,
-            -0.016061165621983786
-        ]
-    },
-    {
-        "columnWords": [
-            "room",
-            "pattern",
-            "memory"
-        ],
-        "rowWords": [
-            "threat",
-            "owner",
-            "web"
-        ],
-        "correctAnswers": [
-            [
-                "standing",
-                "apparent",
-                "conflict"
-            ],
-            [
-                "residence",
-                "detail",
-                "card"
-            ],
-            [
-                "chat",
-                "print",
-                "browser"
-            ]
-        ],
-        "gridQuality": [
-            0.04457183564663536,
-            0.06194963389376884,
-            0.026944286851271926,
-            0.22798579863915402,
-            -0.022983243126679653,
-            -0.013852763902202803,
-            0.14620836605418086,
-            0.1314552923364647,
-            0.11072206744169955
-        ]
-    },
-    {
-        "columnWords": [
-            "data",
-            "school",
-            "range"
-        ],
-        "rowWords": [
-            "office",
-            "catch",
-            "post"
-        ],
-        "correctAnswers": [
-            [
-                "bureau",
-                "assistant",
-                "affordable"
-            ],
-            [
-                "retrieve",
-                "dance",
-                "plenty"
-            ],
-            [
-                "info",
-                "reading",
-                "fantastic"
-            ]
-        ],
-        "gridQuality": [
-            0.119669733167592,
-            0.17552539262658073,
-            0.07044929063781258,
-            0.122866281593079,
-            0.05395316173159714,
-            0.11467307248813752,
-            0.09348649090718142,
-            0.0860290299019364,
-            0.060349540056854334
-        ]
-    },
-    {
-        "columnWords": [
-            "economy",
-            "speech",
-            "school"
-        ],
-        "rowWords": [
-            "answer",
-            "truth",
-            "budget"
-        ],
-        "correctAnswers": [
-            [
-                "changing",
-                "phrase",
-                "math"
-            ],
-            [
-                "humanity",
-                "islam",
-                "catholic"
-            ],
-            [
-                "inflation",
-                "legislative",
-                "charter"
-            ]
-        ],
-        "gridQuality": [
-            0.03564819208036474,
-            0.03006091998044569,
-            0.10760774128985529,
-            0.1077724586311033,
-            0.045491131281444,
-            0.06480503795335624,
-            0.16598601355301013,
-            0.04931197713753721,
-            0.11192837992809779
-        ]
-    },
-    {
-        "columnWords": [
-            "student",
-            "sun",
-            "box"
-        ],
-        "rowWords": [
-            "foot",
-            "kid",
-            "force"
-        ],
-        "correctAnswers": [
-            [
-                "standing",
-                "rain",
-                "square"
-            ],
-            [
-                "junior",
-                "rain",
-                "candy"
-            ],
-            [
-                "principal",
-                "due",
-                "command"
-            ]
-        ],
-        "gridQuality": [
-            0.02166857586345683,
-            -0.01810544218571375,
-            0.13825453068165627,
-            0.14452795386592054,
-            0.01810544218571375,
-            0.1824706145249445,
-            0.15275189846996762,
-            -0.019368354315366543,
-            0.0925841195853414
-        ]
-    },
-    {
-        "columnWords": [
-            "fine",
-            "task",
-            "type"
-        ],
-        "rowWords": [
-            "choice",
-            "season",
-            "group"
-        ],
-        "correctAnswers": [
-            [
-                "brilliant",
-                "crucial",
-                "opt"
-            ],
-            [
-                "debut",
-                "expected",
-                "previous"
-            ],
-            [
-                "band",
-                "committee",
-                "related"
-            ]
-        ],
-        "gridQuality": [
-            0.13063157274611148,
-            0.11473068505640605,
-            0.1706274926078497,
-            0.041950304879027844,
-            -0.010926145993831682,
-            -0.004721931950668501,
-            0.03587321378519759,
-            0.14224455840661743,
-            0.05400186292657161
-        ]
-    },
-    {
-        "columnWords": [
-            "look",
-            "state",
-            "dog"
-        ],
-        "rowWords": [
-            "star",
-            "son",
+            "tax",
+            "focus",
             "room"
         ],
         "correctAnswers": [
             [
-                "celebrity",
-                "valley",
-                "monkey"
+                "liability",
+                "cash",
+                "retired"
             ],
             [
-                "wise",
-                "governor",
-                "daddy"
+                "awareness",
+                "improved",
+                "convinced"
             ],
             [
-                "elegant",
-                "facility",
-                "outdoor"
-            ]
-        ],
-        "gridQuality": [
-            0.11648279401934136,
-            0.041579276238948304,
-            -0.01880622826621603,
-            0.06661066034936991,
-            0.0961085791308337,
-            0.07024729300959864,
-            0.14090555414335237,
-            0.097995023781973,
-            0.059034080930597366
-        ]
-    },
-    {
-        "columnWords": [
-            "leg",
-            "account",
-            "wall"
-        ],
-        "rowWords": [
-            "doctor",
-            "report",
-            "item"
-        ],
-        "correctAnswers": [
-            [
-                "stomach",
-                "immediately",
-                "bathroom"
-            ],
-            [
-                "wednesday",
-                "statistics",
-                "panel"
-            ],
-            [
-                "tie",
-                "cart",
-                "lamp"
-            ]
-        ],
-        "gridQuality": [
-            0.10361030717212516,
-            0.04301182083346089,
-            0.005326359360685817,
-            -0.011415130849082966,
-            0.17852443650347682,
-            0.11202533073887766,
-            0.023729839208819326,
-            0.09758547045793453,
-            0.09536231043502319
-        ]
-    },
-    {
-        "columnWords": [
-            "value",
-            "half",
-            "blood"
-        ],
-        "rowWords": [
-            "rate",
-            "call",
-            "beat"
-        ],
-        "correctAnswers": [
-            [
-                "threshold",
-                "cent",
-                "fluid"
-            ],
-            [
-                "context",
-                "outside",
-                "emergency"
-            ],
-            [
-                "confidence",
-                "mix",
-                "rhythm"
-            ]
-        ],
-        "gridQuality": [
-            0.13781817563254495,
-            0.08326664550363505,
-            0.02045620245669888,
-            0.09815901984138076,
-            0.11020380457487167,
-            0.0055142184852224885,
-            -0.01931316737086719,
-            0.10835101019473203,
-            0.06790619624421357
-        ]
-    },
-    {
-        "columnWords": [
-            "week",
-            "top",
-            "ability"
-        ],
-        "rowWords": [
-            "cost",
-            "draw",
-            "wall"
-        ],
-        "correctAnswers": [
-            [
-                "monthly",
-                "discount",
-                "dependent"
-            ],
-            [
-                "contest",
-                "tie",
-                "spell"
-            ],
-            [
-                "christmas",
-                "interior",
-                "flow"
-            ]
-        ],
-        "gridQuality": [
-            0.18295722915882962,
-            0.06801414281469287,
-            0.1609834272077756,
-            0.06927174149034276,
-            0.14656092188815606,
-            0.10525369397166717,
-            0.03942987295477973,
-            0.1404347343071516,
-            0.01476886205474659
-        ]
-    },
-    {
-        "columnWords": [
-            "south",
-            "friend",
-            "process"
-        ],
-        "rowWords": [
-            "special",
-            "policy",
-            "king"
-        ],
-        "correctAnswers": [
-            [
-                "bay",
-                "birthday",
-                "highly"
-            ],
-            [
-                "regional",
-                "suggestion",
-                "framework"
-            ],
-            [
-                "avenue",
-                "lord",
-                "latter"
-            ]
-        ],
-        "gridQuality": [
-            0.046238604606986256,
-            0.16939457328217766,
-            0.12674675021392878,
-            0.015256383440200305,
-            0.04411607449766475,
-            0.18083168827743734,
-            0.058266446657033844,
-            0.11645411044116827,
-            -0.021962656438605732
-        ]
-    },
-    {
-        "columnWords": [
-            "news",
-            "general",
-            "kid"
-        ],
-        "rowWords": [
-            "treat",
-            "teacher",
-            "river"
-        ],
-        "correctAnswers": [
-            [
-                "cure",
-                "regard",
-                "candy"
-            ],
-            [
-                "reporter",
-                "mathematics",
-                "teen"
-            ],
-            [
-                "northwest",
-                "ridge",
-                "trail"
-            ]
-        ],
-        "gridQuality": [
-            -0.012259980221462019,
-            0.11414891920479442,
-            0.17532060562501228,
-            0.06692591957054095,
-            0.17434549020446077,
-            0.14930629033334597,
-            0.04235589437609699,
-            0.010539756210747098,
-            0.022938777529102117
-        ]
-    },
-    {
-        "columnWords": [
-            "size",
-            "cause",
-            "piece"
-        ],
-        "rowWords": [
-            "economy",
-            "staff",
-            "justice"
-        ],
-        "correctAnswers": [
-            [
-                "changing",
-                "collapse",
-                "modern"
-            ],
-            [
-                "accommodate",
-                "experienced",
-                "desk"
-            ],
-            [
-                "supreme",
-                "punishment",
-                "liberty"
-            ]
-        ],
-        "gridQuality": [
-            -0.026574548661037145,
-            0.17381985263910416,
-            0.04471648167497888,
-            0.09912241434816282,
-            0.1457927465984643,
-            0.10135586582281098,
-            -0.02007747345519828,
-            0.138740567178958,
-            -0.007775586211764107
-        ]
-    },
-    {
-        "columnWords": [
-            "evening",
-            "bar",
-            "care"
-        ],
-        "rowWords": [
-            "hall",
-            "place",
-            "level"
-        ],
-        "correctAnswers": [
-            [
-                "reception",
                 "booth",
-                "clinic"
-            ],
-            [
-                "pleasant",
-                "straight",
-                "clean"
-            ],
-            [
-                "expected",
-                "zero",
-                "specialist"
-            ]
-        ],
-        "gridQuality": [
-            0.11017175084051123,
-            -0.0207124417344553,
-            -0.01169853248554964,
-            0.1430497409240139,
-            0.06985782246276107,
-            0.10896874102453435,
-            -0.014137617206948505,
-            0.00574256416945107,
-            0.09422655248474698
-        ]
-    },
-    {
-        "columnWords": [
-            "former",
-            "address",
-            "produce"
-        ],
-        "rowWords": [
-            "word",
-            "web",
-            "wrong"
-        ],
-        "correctAnswers": [
-            [
-                "known",
-                "key",
-                "commonly"
-            ],
-            [
-                "founder",
-                "domain",
-                "innovative"
-            ],
-            [
-                "convinced",
-                "priority",
-                "equally"
-            ]
-        ],
-        "gridQuality": [
-            0.0035543504028464623,
-            0.06862791040607952,
-            0.09377486480597652,
-            0.06278426958984806,
-            0.12771945888154823,
-            0.1251956001241794,
-            0.10377010816370846,
-            0.06500671535962943,
-            0.1272601801464086
-        ]
-    },
-    {
-        "columnWords": [
-            "fight",
-            "council",
-            "growth"
-        ],
-        "rowWords": [
-            "major",
-            "husband",
-            "comment"
-        ],
-        "correctAnswers": [
-            [
-                "victory",
-                "regional",
-                "emerging"
-            ],
-            [
-                "marriage",
-                "pastor",
-                "spending"
-            ],
-            [
-                "stupid",
-                "forum",
-                "profile"
-            ]
-        ],
-        "gridQuality": [
-            0.09392343577740281,
-            0.140643436677526,
-            0.18465619098083708,
-            0.07775460538242407,
-            0.04740474420986607,
-            -0.023560379516511132,
-            0.09024851382793109,
-            0.08725158422659862,
-            0.031398536840348656
-        ]
-    },
-    {
-        "columnWords": [
-            "client",
-            "buy",
-            "message"
-        ],
-        "rowWords": [
-            "image",
-            "agency",
-            "table"
-        ],
-        "correctAnswers": [
-            [
-                "dynamic",
-                "stock",
-                "icon"
-            ],
-            [
-                "consultant",
-                "united",
-                "ministry"
-            ],
-            [
-                "instance",
-                "furniture",
-                "given"
-            ]
-        ],
-        "gridQuality": [
-            0.10163679415737836,
-            0.10140318799483272,
-            0.06853788511278636,
-            0.2618610096889876,
-            0.02630639462106177,
-            0.06687594069771097,
-            0.03383444442069883,
-            0.13139939231309405,
-            0.034526617481346666
-        ]
-    },
-    {
-        "columnWords": [
-            "trade",
-            "word",
-            "amount"
-        ],
-        "rowWords": [
-            "court",
-            "bank",
-            "boy"
-        ],
-        "correctAnswers": [
-            [
-                "proceedings",
-                "testimony",
-                "subsequent"
-            ],
-            [
-                "currency",
-                "trust",
-                "deposit"
-            ],
-            [
-                "coming",
-                "monkey",
-                "tiny"
-            ]
-        ],
-        "gridQuality": [
-            0.10699447824549402,
-            0.06787944034277704,
-            0.07704380501094366,
-            0.0986709129785891,
-            -0.024224836558518814,
-            0.22908981210139534,
-            -0.011090777892239001,
-            0.13221370947610112,
-            0.057142209865386207
-        ]
-    },
-    {
-        "columnWords": [
-            "book",
-            "state",
-            "cause"
-        ],
-        "rowWords": [
-            "region",
-            "carry",
-            "author"
-        ],
-        "correctAnswers": [
-            [
-                "trip",
-                "northeast",
-                "continent"
-            ],
-            [
-                "practical",
-                "provided",
-                "wherever"
-            ],
-            [
-                "publishing",
-                "secretary",
-                "cancer"
-            ]
-        ],
-        "gridQuality": [
-            -0.01853333337893348,
-            0.2427554312333946,
-            0.05040790012612051,
-            0.0911989817024711,
-            0.019895192594819422,
-            0.18557204861558263,
-            0.25179210964807164,
-            0.045777284608494395,
-            0.012115210538151122
-        ]
-    },
-    {
-        "columnWords": [
-            "box",
-            "beat",
-            "animal"
-        ],
-        "rowWords": [
-            "room",
-            "goal",
-            "mother"
-        ],
-        "correctAnswers": [
-            [
-                "suite",
-                "tonight",
-                "shelter"
-            ],
-            [
-                "target",
-                "opponent",
-                "conservation"
-            ],
-            [
-                "found",
-                "upset",
-                "loving"
-            ]
-        ],
-        "gridQuality": [
-            0.17575169688316195,
-            0.062484752127953125,
-            0.024319849744117272,
-            0.04689519904087658,
-            0.16601514404868545,
-            0.1048393999487578,
-            0.02587296392759697,
-            0.11917433452441517,
-            0.09344756557922551
-        ]
-    },
-    {
-        "columnWords": [
-            "ground",
-            "form",
-            "carry"
-        ],
-        "rowWords": [
-            "cold",
-            "start",
-            "career"
-        ],
-        "correctAnswers": [
-            [
-                "frozen",
-                "mild",
-                "extremely"
-            ],
-            [
-                "kick",
-                "registration",
-                "intend"
-            ],
-            [
-                "reputation",
-                "employment",
-                "profession"
-            ]
-        ],
-        "gridQuality": [
-            0.1459254635263303,
-            0.026952916907829527,
-            0.018841315752046728,
-            0.09993102840198298,
-            0.15218753793349482,
-            0.15298685861730177,
-            -0.02241815016474935,
-            0.042091428073560366,
-            -0.00845743676159505
-        ]
-    },
-    {
-        "columnWords": [
-            "officer",
-            "hurt",
-            "drive"
-        ],
-        "rowWords": [
-            "press",
-            "company",
-            "user"
-        ],
-        "correctAnswers": [
-            [
-                "spokesman",
-                "shut",
-                "wheel"
-            ],
-            [
-                "consultant",
-                "considering",
-                "motor"
-            ],
-            [
-                "instructor",
-                "physically",
-                "disk"
-            ]
-        ],
-        "gridQuality": [
-            -0.01768874386938868,
-            0.0023513077838215324,
-            0.008339448451307518,
-            0.1974698088325504,
-            0.11243840170163688,
-            0.10798637051423599,
-            0.013994754646232233,
-            0.0259841086847179,
-            0.13887654210793832
-        ]
-    },
-    {
-        "columnWords": [
-            "life",
-            "review",
-            "mom"
-        ],
-        "rowWords": [
-            "news",
-            "artist",
-            "second"
-        ],
-        "correctAnswers": [
-            [
-                "daily",
-                "info",
-                "celebrity"
-            ],
-            [
-                "inspiration",
-                "graphic",
-                "talented"
-            ],
-            [
-                "hence",
-                "complaint",
-                "surprise"
-            ]
-        ],
-        "gridQuality": [
-            0.10368901529840735,
-            0.11914243583964179,
-            0.02437955791280677,
-            0.11040904962405029,
-            0.004021432767154609,
-            -0.00244530168532775,
-            0.17115605436540182,
-            0.0744005901746434,
-            0.05591510450884207
-        ]
-    },
-    {
-        "columnWords": [
-            "earth",
-            "talk",
-            "color"
-        ],
-        "rowWords": [
-            "patient",
-            "release",
-            "hello"
-        ],
-        "correctAnswers": [
-            [
-                "therefore",
-                "clinic",
-                "contrast"
-            ],
-            [
-                "gravity",
-                "upcoming",
-                "label"
-            ],
-            [
-                "heaven",
-                "chat",
-                "gorgeous"
-            ]
-        ],
-        "gridQuality": [
-            0.07655567135587515,
-            0.1017767054331854,
-            0.04790338546009265,
-            0.0345425436729343,
-            0.14492903037298377,
-            0.10272459462074957,
-            0.03218292865555494,
-            0.17028592127324738,
-            0.1223528007840925
-        ]
-    },
-    {
-        "columnWords": [
-            "growth",
-            "wait",
-            "field"
-        ],
-        "rowWords": [
-            "brain",
-            "road",
-            "miss"
-        ],
-        "correctAnswers": [
-            [
-                "liver",
-                "literally",
-                "injury"
-            ],
-            [
-                "rapid",
-                "proceed",
-                "ridge"
-            ],
-            [
-                "presence",
-                "dear",
-                "third"
-            ]
-        ],
-        "gridQuality": [
-            0.11223695345410112,
-            0.08541437063967239,
-            0.031477860944185365,
-            -0.02413282452158505,
-            0.11222757437361308,
-            0.11150065392312836,
-            -0.021001792350020865,
-            0.2160425569723028,
-            -0.0010150769133917548
-        ]
-    },
-    {
-        "columnWords": [
-            "pain",
-            "minute",
-            "high"
-        ],
-        "rowWords": [
-            "stuff",
-            "door",
-            "period"
-        ],
-        "correctAnswers": [
-            [
-                "horrible",
-                "boring",
-                "used"
-            ],
-            [
-                "panic",
-                "alarm",
-                "ceiling"
-            ],
-            [
-                "diagnosis",
-                "interval",
-                "combined"
-            ]
-        ],
-        "gridQuality": [
-            0.10797917761844156,
-            0.10404348650210116,
-            0.0925302379408206,
-            0.03343836666774891,
-            -0.00011974454108387711,
-            0.12459348350855948,
-            0.030460721411642133,
-            0.21743878396476446,
-            0.08084081334817095
-        ]
-    },
-    {
-        "columnWords": [
-            "road",
-            "author",
-            "reach"
-        ],
-        "rowWords": [
-            "brother",
-            "sleep",
-            "door"
-        ],
-        "correctAnswers": [
-            [
-                "king",
-                "poet",
-                "surely"
-            ],
-            [
-                "driving",
-                "writing",
-                "relax"
-            ],
-            [
                 "garage",
-                "entry",
-                "ceiling"
+                "standing"
             ]
         ],
         "gridQuality": [
-            -0.004440782913967434,
-            0.17014615916245135,
-            0.03662753773695371,
-            -0.027947384321268642,
-            0.005500778351451241,
-            0.11559618488950152,
-            0.11251402461365267,
-            0.03889813831670097,
-            0.15021459038191065
-        ]
-    },
-    {
-        "columnWords": [
-            "level",
-            "land",
-            "hair"
-        ],
-        "rowWords": [
-            "special",
-            "hurt",
-            "stand"
-        ],
-        "correctAnswers": [
-            [
-                "bonus",
-                "sale",
-                "makeup"
-            ],
-            [
-                "damage",
-                "killing",
-                "kinda"
-            ],
-            [
-                "above",
-                "desert",
-                "brush"
-            ]
-        ],
-        "gridQuality": [
-            0.15426195752756677,
-            0.12083234828336453,
-            0.07270804433468958,
-            0.10150768774544472,
-            0.00852232340631176,
-            -0.01062770517650391,
-            0.08414406319692402,
-            0.03851083890131557,
-            0.09055141511049336
-        ]
-    },
-    {
-        "columnWords": [
-            "victim",
-            "crazy",
-            "floor"
-        ],
-        "rowWords": [
-            "stand",
-            "final",
-            "dead"
-        ],
-        "correctAnswers": [
-            [
-                "unable",
-                "enjoy",
-                "rack"
-            ],
-            [
-                "subsequent",
-                "exciting",
-                "seventh"
-            ],
-            [
-                "killing",
-                "scary",
-                "carpet"
-            ]
-        ],
-        "gridQuality": [
-            0.0531945558908864,
-            0.12975938511630614,
-            0.24242929157390436,
-            0.09768216942359398,
-            0.08520077862155384,
-            0.048519655662065286,
-            0.11372670441361865,
-            0.10728748525392706,
-            0.006727123369149601
-        ]
-    },
-    {
-        "columnWords": [
-            "notice",
-            "drug",
-            "style"
-        ],
-        "rowWords": [
-            "legal",
-            "common",
-            "success"
-        ],
-        "correctAnswers": [
-            [
-                "petition",
-                "fraud",
-                "custom"
-            ],
-            [
-                "normally",
-                "prevention",
-                "typical"
-            ],
-            [
-                "hopefully",
-                "promising",
-                "creativity"
-            ]
-        ],
-        "gridQuality": [
-            0.16841486422655072,
-            0.08819580189862575,
-            -0.02521632499242421,
-            0.1137528049396026,
-            0.05131569734473573,
-            0.10747772565979852,
-            0.11420938640088552,
-            0.07487524192086814,
-            0.12749765808459124
-        ]
-    },
-    {
-        "columnWords": [
-            "scene",
-            "energy",
-            "rest"
-        ],
-        "rowWords": [
-            "design",
-            "sort",
-            "church"
-        ],
-        "correctAnswers": [
-            [
-                "graphic",
-                "electrical",
-                "frame"
-            ],
-            [
-                "bizarre",
-                "alternative",
-                "regardless"
-            ],
-            [
-                "saint",
-                "ministry",
-                "grace"
-            ]
-        ],
-        "gridQuality": [
-            0.07638293426115184,
-            0.1615050703596791,
-            0.07236647285717202,
-            0.18334295710517645,
-            0.029637760058442764,
-            0.19356006250745295,
-            0.014510130838415125,
-            0.042171460464879074,
-            0.102096497967059
-        ]
-    },
-    {
-        "columnWords": [
-            "level",
-            "control",
-            "sense"
-        ],
-        "rowWords": [
-            "ability",
-            "hour",
-            "outside"
-        ],
-        "correctAnswers": [
-            [
-                "rank",
-                "modify",
-                "importantly"
-            ],
-            [
-                "minimum",
-                "automatic",
-                "odd"
-            ],
-            [
-                "location",
-                "northern",
-                "inner"
-            ]
-        ],
-        "gridQuality": [
-            0.08042459846136951,
-            0.0948712272307517,
-            0.1583492578049207,
-            0.11293132911074155,
-            -0.004445609578124454,
-            0.013240163243665615,
-            0.07943097168711755,
-            0.056268954155611395,
-            0.10338445679060326
-        ]
-    },
-    {
-        "columnWords": [
-            "present",
-            "heart",
-            "theory"
-        ],
-        "rowWords": [
-            "doctor",
-            "folk",
-            "produce"
-        ],
-        "correctAnswers": [
-            [
-                "consult",
-                "stroke",
-                "psychology"
-            ],
-            [
-                "festival",
-                "guitar",
-                "classical"
-            ],
-            [
-                "readily",
-                "liver",
-                "rational"
-            ]
-        ],
-        "gridQuality": [
-            0.11395225865619985,
-            0.08911308106224114,
-            0.017735581418553914,
-            0.09869042122325222,
-            0.008850820623359068,
-            0.14080491071301038,
-            0.22491791782132786,
-            -0.018524225951469298,
-            -0.014978569167660383
-        ]
-    },
-    {
-        "columnWords": [
-            "arm",
-            "journal",
-            "trust"
-        ],
-        "rowWords": [
-            "woman",
-            "space",
-            "size"
-        ],
-        "correctAnswers": [
-            [
-                "standing",
-                "chronicle",
-                "loving"
-            ],
-            [
-                "upper",
-                "conference",
-                "shared"
-            ],
-            [
-                "grip",
-                "publication",
-                "client"
-            ]
-        ],
-        "gridQuality": [
-            0.09705417103356384,
-            0.06125369472801223,
-            0.15262135880295014,
-            0.028895986707347943,
-            0.06315333122029443,
-            0.09596039922351363,
-            0.09891839471512165,
-            0.0001591286341064979,
-            -0.009380607802438323
-        ]
-    },
-    {
-        "columnWords": [
-            "wait",
-            "concern",
-            "handle"
-        ],
-        "rowWords": [
-            "action",
-            "hold",
-            "style"
-        ],
-        "correctAnswers": [
-            [
-                "ending",
-                "ongoing",
-                "combat"
-            ],
-            [
-                "bet",
-                "likewise",
-                "grip"
-            ],
-            [
-                "gorgeous",
-                "greatly",
-                "accent"
-            ]
-        ],
-        "gridQuality": [
-            0.04275980066841356,
-            0.07800519349870205,
-            -0.01322434434171893,
-            0.18744091529396245,
-            0.10143851412799942,
-            0.1322545795516914,
-            0.1196742657014096,
-            0.02159541577918922,
-            0.05988613964024225
-        ]
-    },
-    {
-        "columnWords": [
-            "pay",
-            "text",
-            "young"
-        ],
-        "rowWords": [
-            "history",
-            "power",
-            "income"
-        ],
-        "correctAnswers": [
-            [
-                "online",
-                "outline",
-                "famous"
-            ],
-            [
-                "operate",
-                "output",
-                "male"
-            ],
-            [
-                "pension",
-                "paragraph",
-                "elderly"
-            ]
-        ],
-        "gridQuality": [
-            0.0662635901627523,
-            0.1539098074434332,
-            0.15448208667322794,
-            0.10833605951995562,
-            0.11178148941051624,
-            0.04441966429209532,
-            0.31056449322128843,
-            0.042446237589917724,
-            0.007121455327602888
-        ]
-    },
-    {
-        "columnWords": [
-            "news",
-            "camera",
-            "thought"
-        ],
-        "rowWords": [
-            "task",
-            "past",
-            "card"
-        ],
-        "correctAnswers": [
-            [
-                "reporting",
-                "motion",
-                "complicated"
-            ],
-            [
-                "upcoming",
-                "extended",
-                "lately"
-            ],
-            [
-                "info",
-                "laptop",
-                "bet"
-            ]
-        ],
-        "gridQuality": [
-            0.026151516409251285,
-            -0.022358930646398045,
-            0.09771273293965144,
-            0.1435203088776188,
-            -0.022068271892318525,
-            0.18142196112415332,
-            -0.02010091848781126,
-            0.12408831858792302,
-            0.038118412557548
-        ]
-    },
-    {
-        "columnWords": [
-            "rise",
-            "effort",
-            "folk"
-        ],
-        "rowWords": [
-            "heavy",
-            "hit",
-            "meeting"
-        ],
-        "correctAnswers": [
-            [
-                "iron",
-                "minimal",
-                "classical"
-            ],
-            [
-                "cent",
-                "mistake",
-                "tune"
-            ],
-            [
-                "summit",
-                "cooperation",
-                "venue"
-            ]
-        ],
-        "gridQuality": [
-            0.05960066448801382,
-            0.1560549768290036,
-            0.042016558574949237,
-            0.09766017974811403,
-            0.14666724648364304,
-            0.09123645130894009,
-            0.017683158873144422,
-            0.2043174168023314,
-            0.013153109271919261
-        ]
-    },
-    {
-        "columnWords": [
-            "wife",
-            "student",
-            "weight"
-        ],
-        "rowWords": [
-            "nobody",
-            "church",
-            "owner"
-        ],
-        "correctAnswers": [
-            [
-                "stranger",
-                "given",
-                "pill"
-            ],
-            [
-                "bishop",
-                "theology",
-                "shape"
-            ],
-            [
-                "spouse",
-                "loan",
-                "fitness"
-            ]
-        ],
-        "gridQuality": [
-            0.150947829421318,
-            0.03925024720646719,
-            0.11355857683175674,
-            0.07912491968157687,
-            0.15970148214980995,
-            -0.019160755464684653,
-            0.01987365210674108,
-            0.1746595238069184,
-            -0.00037044359258842086
-        ]
-    },
-    {
-        "columnWords": [
-            "fear",
-            "dark",
-            "future"
-        ],
-        "rowWords": [
-            "treat",
-            "half",
-            "hit"
-        ],
-        "correctAnswers": [
-            [
-                "suffering",
-                "candy",
-                "inform"
-            ],
-            [
-                "aside",
-                "medium",
-                "working"
-            ],
-            [
-                "sudden",
-                "dawn",
-                "upcoming"
-            ]
-        ],
-        "gridQuality": [
-            0.09619745379025979,
-            0.07107628923926979,
-            0.1266175089104684,
-            0.03460959568516475,
-            0.12058027862247234,
-            0.12121828754667863,
-            0.05718717719758726,
-            -0.013416502840729705,
-            0.06631225285453679
-        ]
-    },
-    {
-        "columnWords": [
-            "show",
-            "push",
-            "kill"
-        ],
-        "rowWords": [
-            "produce",
-            "economy",
-            "issue"
-        ],
-        "correctAnswers": [
-            [
-                "fantastic",
-                "utilize",
-                "deadly"
-            ],
-            [
-                "reality",
-                "momentum",
-                "dying"
-            ],
-            [
-                "august",
-                "aside",
-                "unless"
-            ]
-        ],
-        "gridQuality": [
-            0.10461819298259734,
-            0.09718050742456974,
-            0.03915355773560991,
-            0.019192530015729625,
-            0.13317985066269733,
-            -0.0022597003049377173,
-            0.18067941607835103,
-            0.09167051399600634,
-            0.0013619180953153842
-        ]
-    },
-    {
-        "columnWords": [
-            "income",
-            "guy",
-            "art"
-        ],
-        "rowWords": [
-            "beat",
-            "loss",
-            "degree"
-        ],
-        "correctAnswers": [
-            [
-                "sum",
-                "daddy",
-                "festival"
-            ],
-            [
-                "estimated",
-                "fat",
-                "nature"
-            ],
-            [
-                "accounting",
-                "standing",
-                "architecture"
-            ]
-        ],
-        "gridQuality": [
-            -0.025899690893962157,
-            0.1821519272723997,
-            0.03807237612909553,
-            0.16318280362610937,
-            0.07579414968458875,
-            0.036880460068310694,
-            0.13482292863255574,
-            0.017909814592121154,
-            0.1657614745523749
-        ]
-    },
-    {
-        "columnWords": [
-            "park",
-            "want",
-            "chair"
-        ],
-        "rowWords": [
-            "family",
-            "sleep",
-            "bag"
-        ],
-        "correctAnswers": [
-            [
-                "residence",
-                "involved",
-                "dining"
-            ],
-            [
-                "walking",
-                "mood",
-                "pillow"
-            ],
-            [
-                "golf",
-                "wrap",
-                "canvas"
-            ]
-        ],
-        "gridQuality": [
-            0.11970896035864875,
-            0.20170867842098839,
-            0.042943365188930716,
-            -0.009646849643422217,
-            0.13653606510383076,
-            -0.022911264992039326,
-            0.016755269643010218,
-            0.11447924782135477,
-            0.04455908132904862
-        ]
-    },
-    {
-        "columnWords": [
-            "range",
-            "lawyer",
-            "debate"
-        ],
-        "rowWords": [
-            "defense",
-            "worry",
-            "street"
-        ],
-        "correctAnswers": [
-            [
-                "combined",
-                "investigator",
-                "opposition"
-            ],
-            [
-                "depending",
-                "advise",
-                "confusion"
-            ],
-            [
-                "square",
-                "neighborhood",
-                "protest"
-            ]
-        ],
-        "gridQuality": [
-            0.08238164692068395,
-            0.1655864304117043,
-            0.09087074424408115,
-            0.14952189675195804,
-            0.10543335704662571,
-            0.17677605531321405,
-            0.14843712656629915,
-            0.02490255969798194,
-            0.03321111004769295
-        ]
-    },
-    {
-        "columnWords": [
-            "star",
-            "bag",
-            "quality"
-        ],
-        "rowWords": [
-            "safety",
-            "real",
-            "pay"
-        ],
-        "correctAnswers": [
-            [
-                "guard",
-                "protective",
-                "improved"
-            ],
-            [
-                "legend",
-                "fake",
-                "genuine"
-            ],
-            [
-                "guest",
-                "lunch",
-                "premium"
-            ]
-        ],
-        "gridQuality": [
-            0.058865593402440464,
-            0.011836691083963347,
-            0.1194958914149078,
-            0.0817021926922914,
-            -0.0038679158946428593,
-            0.1188273475591084,
-            -0.003387883638074629,
-            0.0984828692814641,
-            0.14809827262845465
-        ]
-    },
-    {
-        "columnWords": [
-            "purpose",
-            "army",
-            "police"
-        ],
-        "rowWords": [
-            "charge",
-            "date",
-            "son"
-        ],
-        "correctAnswers": [
-            [
-                "thereby",
-                "command",
-                "jail"
-            ],
-            [
-                "exact",
-                "august",
-                "thursday"
-            ],
-            [
-                "sake",
-                "prince",
-                "mayor"
-            ]
-        ],
-        "gridQuality": [
-            0.17608887931148354,
-            -0.021337430151263548,
-            0.16446311603210872,
-            0.1260503733673528,
-            -0.0049575616489424545,
-            0.08682607606153936,
-            0.10358309711061531,
-            0.08537078089975625,
-            0.09427847641088083
-        ]
-    },
-    {
-        "columnWords": [
-            "care",
-            "man",
-            "state"
-        ],
-        "rowWords": [
-            "health",
-            "club",
-            "family"
-        ],
-        "correctAnswers": [
-            [
-                "medication",
-                "serious",
-                "legislative"
-            ],
-            [
-                "welcome",
-                "boss",
-                "tournament"
-            ],
-            [
-                "visit",
-                "husband",
-                "present"
-            ]
-        ],
-        "gridQuality": [
-            0.19381775328715378,
-            -0.0042492734514603114,
-            0.07701112464471005,
-            -0.017038616016370356,
-            0.09264529905438246,
-            0.10125092532342383,
-            0.05487369003273779,
-            0.14772845829286474,
-            0.04128370762675393
-        ]
-    },
-    {
-        "columnWords": [
-            "normal",
-            "chair",
-            "offer"
-        ],
-        "rowWords": [
-            "charge",
-            "course",
-            "debate"
-        ],
-        "correctAnswers": [
-            [
-                "minimum",
-                "vice",
-                "payment"
-            ],
-            [
-                "previous",
-                "instructor",
-                "fantastic"
-            ],
-            [
-                "versus",
-                "presidential",
-                "compromise"
-            ]
-        ],
-        "gridQuality": [
-            0.028562064011909305,
-            0.04485079200683839,
-            0.13052849150422696,
-            0.10664241071577452,
-            0.053085373803681835,
-            0.16280300247581725,
-            0.05800577430476683,
-            -0.010027553439866499,
-            0.1032661437593374
-        ]
-    },
-    {
-        "columnWords": [
-            "opinion",
-            "group",
-            "wonder"
-        ],
-        "rowWords": [
-            "show",
-            "word",
-            "nation"
-        ],
-        "correctAnswers": [
-            [
-                "previous",
-                "gallery",
-                "incredible"
-            ],
-            [
-                "written",
-                "key",
-                "spell"
-            ],
-            [
-                "ruling",
-                "alliance",
-                "continent"
-            ]
-        ],
-        "gridQuality": [
-            0.06093161751854037,
-            0.1381053075291656,
-            0.13504237893241433,
-            0.10163407876393771,
-            0.021630422941693483,
-            0.16534750436260492,
-            0.09025602667893351,
-            0.12489040238516758,
-            0.043219132615105016
-        ]
-    },
-    {
-        "columnWords": [
-            "hold",
-            "word",
-            "site"
-        ],
-        "rowWords": [
-            "subject",
-            "freedom",
-            "growth"
-        ],
-        "correctAnswers": [
-            [
-                "limit",
-                "vocabulary",
-                "related"
-            ],
-            [
-                "struggle",
-                "joy",
-                "privacy"
-            ],
-            [
-                "steady",
-                "productivity",
-                "improved"
-            ]
-        ],
-        "gridQuality": [
-            0.10250328548906384,
-            0.13100585314230906,
-            0.12046976813544019,
-            0.09639209405909477,
-            0.05757011608238927,
-            0.06781468199499263,
-            0.2041473570372414,
-            -0.013407829926355586,
-            0.030505788479442852
-        ]
-    },
-    {
-        "columnWords": [
-            "site",
-            "dog",
-            "base"
-        ],
-        "rowWords": [
-            "section",
-            "stay",
-            "product"
-        ],
-        "correctAnswers": [
-            [
-                "archive",
-                "pit",
-                "plate"
-            ],
-            [
-                "totally",
-                "walking",
-                "comfortable"
-            ],
-            [
-                "marketing",
-                "bull",
-                "combined"
-            ]
-        ],
-        "gridQuality": [
-            0.09316637949652329,
-            -0.014734436628145442,
-            0.05043731240621918,
-            0.08870917451696947,
-            0.1363743002022254,
-            0.037046105951622166,
-            0.12521995235352357,
-            0.004298692109926172,
-            0.0990240726272078
-        ]
-    },
-    {
-        "columnWords": [
-            "drive",
-            "report",
-            "skill"
-        ],
-        "rowWords": [
-            "machine",
-            "service",
-            "local"
-        ],
-        "correctAnswers": [
-            [
-                "disk",
-                "maker",
-                "technique"
-            ],
-            [
-                "storage",
-                "inquiry",
-                "required"
-            ],
-            [
-                "main",
-                "council",
-                "passion"
-            ]
-        ],
-        "gridQuality": [
-            0.11632731221169468,
-            -0.025939422248166588,
-            0.15211815052787125,
-            0.026035318164940313,
-            0.09529901200731894,
-            0.055553865793145474,
-            0.05258350246684651,
-            0.12236507153428022,
-            0.014918840233001385
-        ]
-    },
-    {
-        "columnWords": [
-            "king",
-            "baby",
-            "date"
-        ],
-        "rowWords": [
-            "earth",
-            "letter",
-            "fan"
-        ],
-        "correctAnswers": [
-            [
-                "evil",
-                "alien",
-                "due"
-            ],
-            [
-                "secretary",
-                "invitation",
-                "registration"
-            ],
-            [
-                "legend",
-                "shower",
-                "info"
-            ]
-        ],
-        "gridQuality": [
-            0.15807389870725652,
-            0.055788400356065915,
-            0.026146938212454618,
-            0.0044136346295780005,
-            0.03625431709107563,
-            0.16130435525610687,
-            0.12249990228687246,
-            0.10335553628166427,
-            0.009191039392638212
-        ]
-    },
-    {
-        "columnWords": [
-            "talk",
-            "island",
-            "skin"
-        ],
-        "rowWords": [
-            "judge",
-            "bed",
-            "area"
-        ],
-        "correctAnswers": [
-            [
-                "sue",
-                "jail",
-                "appearance"
-            ],
-            [
-                "crazy",
-                "vacation",
-                "smooth"
-            ],
-            [
-                "chat",
-                "northeast",
-                "tissue"
-            ]
-        ],
-        "gridQuality": [
-            0.14001422692182353,
-            -0.0050944466379183595,
-            -0.002205079026689871,
-            0.04643083056412434,
-            0.03312827822465092,
-            -0.007196074004900521,
-            0.12998702374415405,
-            0.18995359719370553,
-            0.12689891258607822
-        ]
-    },
-    {
-        "columnWords": [
-            "control",
-            "left",
-            "fan"
-        ],
-        "rowWords": [
-            "music",
-            "animal",
-            "light"
-        ],
-        "correctAnswers": [
-            [
-                "integration",
-                "hip",
-                "genre"
-            ],
-            [
-                "prevention",
-                "rabbit",
-                "toy"
-            ],
-            [
-                "output",
-                "gray",
-                "flame"
-            ]
-        ],
-        "gridQuality": [
-            0.06595208928546192,
-            0.08961725572900814,
-            0.12721977380159,
-            0.1146878357861012,
-            0.028847943061984016,
-            -0.012831660485830176,
-            0.1065318192042678,
-            0.09838243075292907,
-            0.03474108227006534
-        ]
-    },
-    {
-        "columnWords": [
-            "health",
-            "hate",
-            "fear"
-        ],
-        "rowWords": [
-            "option",
-            "state",
-            "rate"
-        ],
-        "correctAnswers": [
-            [
-                "affordable",
-                "prefer",
-                "possibly"
-            ],
-            [
-                "institute",
-                "miss",
-                "conflict"
-            ],
-            [
-                "improvement",
-                "difference",
-                "sudden"
-            ]
-        ],
-        "gridQuality": [
-            0.0907597205990126,
-            0.12670433256122215,
-            0.092588074340893,
-            0.14731447687276633,
-            0.03520238111038565,
-            0.012443440715646514,
-            0.05333392717527086,
-            -0.01715272002623991,
-            0.005121453235220841
-        ]
-    },
-    {
-        "columnWords": [
-            "staff",
-            "green",
-            "affect"
-        ],
-        "rowWords": [
-            "center",
-            "local",
-            "thing"
-        ],
-        "correctAnswers": [
-            [
-                "coordinator",
-                "silver",
-                "lower"
-            ],
-            [
-                "provided",
-                "organic",
-                "associated"
-            ],
-            [
-                "pleased",
-                "sweet",
-                "necessarily"
-            ]
-        ],
-        "gridQuality": [
-            0.11985753750306183,
-            0.013430600119436642,
-            -0.00533551833757695,
-            0.07128920189142873,
-            0.0558823103254954,
-            0.059391438582822254,
-            0.11430865571384641,
-            0.11984648630899397,
-            0.21308455183700625
-        ]
-    },
-    {
-        "columnWords": [
-            "right",
-            "police",
-            "writer"
-        ],
-        "rowWords": [
-            "reader",
-            "help",
-            "street"
-        ],
-        "correctAnswers": [
-            [
-                "angle",
-                "detective",
-                "poetry"
-            ],
-            [
-                "necessary",
-                "personnel",
-                "cope"
-            ],
-            [
-                "lane",
-                "assault",
-                "performer"
-            ]
-        ],
-        "gridQuality": [
-            0.024996485226467136,
-            -0.02177012028090486,
-            0.15038152073339484,
-            0.21433384082566742,
-            0.09899994172106075,
-            -0.0021947806861697394,
-            0.1104901419695844,
-            0.0191768613355352,
-            0.025809198542772194
-        ]
-    },
-    {
-        "columnWords": [
-            "option",
-            "heat",
-            "human"
-        ],
-        "rowWords": [
-            "school",
-            "action",
-            "fear"
-        ],
-        "correctAnswers": [
-            [
-                "starting",
-                "cooking",
-                "biology"
-            ],
-            [
-                "default",
-                "hot",
-                "responsible"
-            ],
-            [
-                "possibility",
-                "flame",
-                "dying"
-            ]
-        ],
-        "gridQuality": [
-            0.05099101826447283,
-            0.04345124646271914,
-            0.1884587489342595,
-            0.1004041081131899,
-            0.027135937251632547,
-            0.07786136885525297,
-            0.09863821444544396,
-            0.06725280254975752,
-            0.1294837786964329
-        ]
-    },
-    {
-        "columnWords": [
-            "tonight",
-            "past",
-            "offer"
-        ],
-        "rowWords": [
-            "kid",
-            "heat",
-            "order"
-        ],
-        "correctAnswers": [
-            [
-                "daddy",
-                "teenage",
-                "friendly"
-            ],
-            [
-                "cooking",
-                "dry",
-                "steam"
-            ],
-            [
-                "schedule",
-                "subsequent",
-                "availability"
-            ]
-        ],
-        "gridQuality": [
-            0.1279005482779394,
-            0.11139527860471232,
-            0.04344821844501345,
-            -0.029458838735682447,
-            0.02325823180794384,
-            0.012051995026610918,
-            0.014188170645358045,
-            0.12213914584430563,
-            0.19493732419741672
-        ]
-    },
-    {
-        "columnWords": [
-            "career",
-            "plan",
-            "bank"
-        ],
-        "rowWords": [
-            "news",
-            "account",
-            "hold"
-        ],
-        "correctAnswers": [
-            [
-                "celebrity",
-                "guide",
-                "journal"
-            ],
-            [
-                "assistant",
-                "monthly",
-                "deposit"
-            ],
-            [
-                "straight",
-                "extend",
-                "stake"
-            ]
-        ],
-        "gridQuality": [
-            0.09201726396838317,
-            0.06804395717079037,
-            -0.020278517646698413,
-            0.027972460771848784,
-            0.08474394626490778,
-            0.09115076626851626,
-            0.08758651439221787,
-            0.12458539145082492,
-            0.09677864735630659
+            0.04939509190078417,
+            0.019186291884952356,
+            0.06679159038113047,
+            0.15017389628787148,
+            0.13655305884436642,
+            0.09859612336855561,
+            0.17423680577197764,
+            0.08367821240464801,
+            0.03802377146086999
         ]
     },
     {
         "columnWords": [
             "fail",
-            "guess",
-            "police"
+            "simple",
+            "outside"
         ],
         "rowWords": [
-            "council",
-            "local",
-            "couple"
-        ],
-        "correctAnswers": [
-            [
-                "approval",
-                "concerned",
-                "commissioner"
-            ],
-            [
-                "required",
-                "particular",
-                "station"
-            ],
-            [
-                "consistently",
-                "curious",
-                "shooting"
-            ]
-        ],
-        "gridQuality": [
-            0.04419413099379821,
-            0.025002745075199173,
-            0.1527694058101543,
-            0.02286903966969356,
-            0.010122430598729415,
-            0.10988780856320213,
-            0.03952320342810656,
-            0.18927221784875214,
-            0.09665013173913095
-        ]
-    },
-    {
-        "columnWords": [
-            "risk",
-            "comment",
-            "left"
-        ],
-        "rowWords": [
-            "crazy",
-            "notice",
+            "image",
+            "focus",
             "heavy"
         ],
         "correctAnswers": [
             [
-                "scenario",
-                "joke",
-                "running"
+                "scan",
+                "interface",
+                "visible"
             ],
             [
-                "disclosure",
-                "paragraph",
-                "standing"
+                "consistently",
+                "innovative",
+                "leading"
             ],
             [
-                "burden",
-                "thread",
-                "solid"
+                "severe",
+                "solid",
+                "rain"
             ]
         ],
         "gridQuality": [
-            0.050987935257771344,
-            0.12986411020260014,
-            0.07698266955979705,
-            0.17799976217890334,
-            0.1680323336169085,
-            0.0863121119386584,
-            0.0908095345457971,
-            -0.01931897498763635,
-            0.09727003321207806
+            -0.024109306498170224,
+            0.09591051646891113,
+            0.06572382657324982,
+            0.08718036455431977,
+            0.1545827601158133,
+            0.12036542423883168,
+            -0.008780686878699484,
+            0.08669144775862325,
+            0.18946435491361824
         ]
     },
     {
         "columnWords": [
-            "fire",
-            "heat",
-            "game"
+            "fall",
+            "offer",
+            "box"
         ],
         "rowWords": [
-            "credit",
-            "hate",
-            "dog"
+            "buy",
+            "game",
+            "trust"
         ],
         "correctAnswers": [
             [
-                "auto",
-                "obtain",
-                "casino"
+                "remember",
+                "affordable",
+                "pill"
             ],
             [
-                "killing",
-                "cold",
-                "boring"
-            ],
-            [
-                "pit",
-                "coat",
+                "fourth",
+                "casino",
                 "puzzle"
+            ],
+            [
+                "faith",
+                "behalf",
+                "bank"
             ]
         ],
         "gridQuality": [
-            0.031214959044208568,
-            0.003570823442472282,
-            0.10911396601738232,
-            0.06989045047871056,
-            0.0063764822233911556,
-            0.13256389955283954,
-            0.14692514549453028,
-            0.11195091394412304,
-            0.08199977282857329
+            0.018973628022429745,
+            0.16571852912785567,
+            0.0679401848688832,
+            0.12582993935083187,
+            0.06926625606318626,
+            0.1022292623399661,
+            0.026634748523033935,
+            0.13737795724876822,
+            -0.01263068833419101
         ]
     },
     {
         "columnWords": [
-            "system",
-            "leave",
-            "size"
+            "weekend",
+            "store",
+            "choice"
         ],
         "rowWords": [
-            "option",
+            "red",
+            "short",
+            "student"
+        ],
+        "correctAnswers": [
+            [
+                "rose",
+                "flower",
+                "olive"
+            ],
+            [
+                "ride",
+                "info",
+                "useful"
+            ],
+            [
+                "graduation",
+                "assistant",
+                "curriculum"
+            ]
+        ],
+        "gridQuality": [
+            0.01479296607517,
+            0.037268879501751284,
+            0.08632693900827837,
+            0.1043239215684516,
+            0.019891572642880107,
+            0.12123411041124621,
+            0.10086391283793217,
+            0.08533176874189852,
+            0.09201440958149842
+        ]
+    },
+    {
+        "columnWords": [
+            "expert",
+            "finger",
+            "threat"
+        ],
+        "rowWords": [
+            "model",
+            "weapon",
+            "feeling"
+        ],
+        "correctAnswers": [
+            [
+                "description",
+                "hole",
+                "scenario"
+            ],
+            [
+                "instructor",
+                "fist",
+                "deadly"
+            ],
+            [
+                "confident",
+                "stomach",
+                "panic"
+            ]
+        ],
+        "gridQuality": [
+            0.10036664516433724,
+            0.0003605006878684147,
+            0.004002717017796753,
+            0.010082386937198873,
+            0.1226251874295674,
+            0.21582851503374867,
+            0.09008201490972367,
+            0.1413127836540351,
+            0.15104665112580762
+        ]
+    },
+    {
+        "columnWords": [
+            "concern",
+            "food",
+            "author"
+        ],
+        "rowWords": [
+            "freedom",
+            "friend",
+            "affect"
+        ],
+        "correctAnswers": [
+            [
+                "unity",
+                "revolution",
+                "publishing"
+            ],
+            [
+                "meanwhile",
+                "pizza",
+                "poet"
+            ],
+            [
+                "extent",
+                "diet",
+                "alter"
+            ]
+        ],
+        "gridQuality": [
+            0.12680930014417646,
+            0.01462043867438445,
+            0.07452376624521617,
+            0.10544706174795404,
+            0.15471921245436338,
+            0.13423522862616777,
+            0.18812992673128837,
+            0.054557223573674984,
+            0.03950890848508859
+        ]
+    },
+    {
+        "columnWords": [
+            "guy",
+            "school",
+            "ground"
+        ],
+        "rowWords": [
+            "light",
+            "account",
+            "past"
+        ],
+        "correctAnswers": [
+            [
+                "smart",
+                "orange",
+                "medium"
+            ],
+            [
+                "profile",
+                "required",
+                "separate"
+            ],
+            [
+                "awful",
+                "graduation",
+                "remaining"
+            ]
+        ],
+        "gridQuality": [
+            0.037335622522000955,
+            -0.012595659783082636,
+            0.12791954946236428,
+            -0.009562381762231564,
+            0.010649226401070466,
+            0.04084974185503509,
+            0.1564461370459339,
+            0.14310843459808908,
+            0.10363878569792173
+        ]
+    },
+    {
+        "columnWords": [
+            "adult",
+            "talk",
+            "senator"
+        ],
+        "rowWords": [
+            "parent",
+            "catch",
+            "design"
+        ],
+        "correctAnswers": [
+            [
+                "infant",
+                "concerned",
+                "spouse"
+            ],
+            [
+                "bite",
+                "laugh",
+                "passing"
+            ],
+            [
+                "graphic",
+                "workshop",
+                "committee"
+            ]
+        ],
+        "gridQuality": [
+            0.13131609978692393,
+            0.10539965846725363,
+            0.016042197885599796,
+            -0.025735698518935868,
+            0.19494105981976428,
+            -0.01918581811014819,
+            0.10914493104124179,
+            0.10878165826650432,
+            -0.006838801804487371
+        ]
+    },
+    {
+        "columnWords": [
+            "hate",
+            "ability",
+            "editor"
+        ],
+        "rowWords": [
+            "white",
+            "general",
+            "police"
+        ],
+        "correctAnswers": [
+            [
+                "plain",
+                "contrast",
+                "stone"
+            ],
+            [
+                "except",
+                "improvement",
+                "assistant"
+            ],
+            [
+                "killing",
+                "unlikely",
+                "deputy"
+            ]
+        ],
+        "gridQuality": [
+            0.09147351687223049,
+            0.08658435708818557,
+            -0.005994389920942478,
+            0.05132037440216275,
+            0.1926740751072007,
+            0.10461458250334421,
+            0.15905563017228785,
+            0.015861330742051427,
+            -0.02495646876285773
+        ]
+    },
+    {
+        "columnWords": [
+            "lay",
+            "visit",
+            "purpose"
+        ],
+        "rowWords": [
+            "set",
+            "site",
+            "manager"
+        ],
+        "correctAnswers": [
+            [
+                "half",
+                "weekend",
+                "ideal"
+            ],
+            [
+                "beneath",
+                "chat",
+                "solely"
+            ],
+            [
+                "vice",
+                "specialist",
+                "principal"
+            ]
+        ],
+        "gridQuality": [
+            0.06934144547824905,
+            0.08492331879606885,
+            0.11378981767075158,
+            0.004452776004610359,
+            0.0990787627287748,
+            0.12622696974167413,
+            0.015746079374700073,
+            0.06905053977960995,
+            0.12240119016561635
+        ]
+    },
+    {
+        "columnWords": [
+            "school",
+            "method",
+            "success"
+        ],
+        "rowWords": [
+            "human",
+            "march",
+            "task"
+        ],
+        "correctAnswers": [
+            [
+                "biology",
+                "genetic",
+                "diversity"
+            ],
+            [
+                "noon",
+                "added",
+                "coming"
+            ],
+            [
+                "assignment",
+                "interface",
+                "crucial"
+            ]
+        ],
+        "gridQuality": [
+            0.12676210543385036,
+            0.04186614764941665,
+            0.11280696014054103,
+            0.18595182940250288,
+            -0.024568389290907988,
+            0.07445739250087802,
+            0.002101885785373403,
+            0.12895081095617367,
+            0.07713710148572361
+        ]
+    },
+    {
+        "columnWords": [
+            "process",
+            "friend",
+            "effort"
+        ],
+        "rowWords": [
+            "cancer",
+            "lack",
+            "image"
+        ],
+        "correctAnswers": [
+            [
+                "screening",
+                "clinic",
+                "cure"
+            ],
+            [
+                "separation",
+                "anymore",
+                "considerable"
+            ],
+            [
+                "digital",
+                "poster",
+                "frame"
+            ]
+        ],
+        "gridQuality": [
+            0.11026417011406964,
+            -0.006351927174433114,
+            0.013008311769836078,
+            0.09584328375617512,
+            0.07857018868342036,
+            0.1733467073995748,
+            0.08730468289856563,
+            0.10672489357134463,
+            -0.0296233250361293
+        ]
+    },
+    {
+        "columnWords": [
+            "order",
+            "normal",
+            "father"
+        ],
+        "rowWords": [
+            "crazy",
+            "fall",
+            "letter"
+        ],
+        "correctAnswers": [
+            [
+                "deal",
+                "tired",
+                "loving"
+            ],
+            [
+                "launch",
+                "expected",
+                "grace"
+            ],
+            [
+                "approval",
+                "initial",
+                "pastor"
+            ]
+        ],
+        "gridQuality": [
+            0.05401952745731575,
+            0.09658137091261965,
+            0.16602388040015914,
+            0.08551678297361476,
+            0.04627642088003825,
+            0.04783122652560623,
+            0.15466687569998994,
+            -0.021924701412400216,
+            0.09191717644184139
+        ]
+    },
+    {
+        "columnWords": [
+            "cold",
             "town",
+            "member"
+        ],
+        "rowWords": [
+            "crazy",
+            "chair",
+            "offer"
+        ],
+        "correctAnswers": [
+            [
+                "nasty",
+                "nowhere",
+                "buddy"
+            ],
+            [
+                "standing",
+                "shore",
+                "vice"
+            ],
+            [
+                "typically",
+                "sale",
+                "commitment"
+            ]
+        ],
+        "gridQuality": [
+            0.16762344073047553,
+            0.09148066330544058,
+            0.048711816152735565,
+            -0.0218243685962497,
+            -0.0009601908499945466,
+            0.17942107211600034,
+            0.07346283571742873,
+            0.10218339558421163,
+            0.11871085565257788
+        ]
+    },
+    {
+        "columnWords": [
+            "area",
+            "class",
+            "rest"
+        ],
+        "rowWords": [
+            "letter",
+            "economy",
+            "spirit"
+        ],
+        "correctAnswers": [
+            [
+                "regarding",
+                "grade",
+                "answer"
+            ],
+            [
+                "agriculture",
+                "competition",
+                "meanwhile"
+            ],
+            [
+                "pride",
+                "knowledge",
+                "glory"
+            ]
+        ],
+        "gridQuality": [
+            0.010294115225949252,
+            0.024801598177809803,
+            0.11031156026848576,
+            0.09401879910976385,
+            0.019420279817840558,
+            0.09384023077811932,
+            -0.01573674728749186,
+            -0.012523873010151676,
+            0.17903050491974337
+        ]
+    },
+    {
+        "columnWords": [
+            "post",
+            "center",
+            "animal"
+        ],
+        "rowWords": [
+            "meeting",
+            "surface",
+            "ground"
+        ],
+        "correctAnswers": [
+            [
+                "december",
+                "downtown",
+                "conservation"
+            ],
+            [
+                "column",
+                "inner",
+                "shape"
+            ],
+            [
+                "drop",
+                "front",
+                "cattle"
+            ]
+        ],
+        "gridQuality": [
+            0.15945309330409507,
+            0.11012101940761643,
+            -0.002202906406362448,
+            0.034508543980622974,
+            -0.02524491315524313,
+            -0.02260990339766855,
+            0.10265678654127863,
+            0.07445443896590531,
+            0.10826033836026772
+        ]
+    },
+    {
+        "columnWords": [
+            "writer",
+            "tree",
+            "floor"
+        ],
+        "rowWords": [
+            "laugh",
+            "field",
+            "cover"
+        ],
+        "correctAnswers": [
+            [
+                "humor",
+                "weird",
+                "loud"
+            ],
+            [
+                "researcher",
+                "grass",
+                "hall"
+            ],
+            [
+                "singer",
+                "palm",
+                "carpet"
+            ]
+        ],
+        "gridQuality": [
+            0.13028501739444132,
+            -0.020048038865712603,
+            0.09343637985583886,
+            0.1883145108764107,
+            0.07590226470785721,
+            0.11260676343622689,
+            0.09156751377433159,
+            0.010261984873765617,
+            0.0830706572560338
+        ]
+    },
+    {
+        "columnWords": [
+            "pattern",
+            "wife",
+            "decade"
+        ],
+        "rowWords": [
+            "city",
+            "body",
+            "claim"
+        ],
+        "correctAnswers": [
+            [
+                "print",
+                "mayor",
+                "northeast"
+            ],
+            [
+                "frame",
+                "loving",
+                "rapidly"
+            ],
+            [
+                "invention",
+                "alleged",
+                "existence"
+            ]
+        ],
+        "gridQuality": [
+            0.02661100894998647,
+            0.122223637231338,
+            0.12235009105214223,
+            0.1292720419985961,
+            0.09222175984424796,
+            0.0628986508520245,
+            0.030752368451297918,
+            0.08852212656756775,
+            0.08977660732558534
+        ]
+    },
+    {
+        "columnWords": [
+            "stay",
+            "buy",
+            "food"
+        ],
+        "rowWords": [
+            "ice",
+            "girl",
+            "board"
+        ],
+        "correctAnswers": [
+            [
+                "zone",
+                "pack",
+                "frozen"
+            ],
+            [
+                "loving",
+                "costume",
+                "asian"
+            ],
+            [
+                "immediately",
+                "forum",
+                "agriculture"
+            ]
+        ],
+        "gridQuality": [
+            0.011972414123169628,
+            -0.002363279730995149,
+            0.17042913689893324,
+            0.10197957499444044,
+            0.026821622302613868,
+            0.1394430898015777,
+            0.03555082458807102,
+            2.0902814155787652e-05,
+            0.1190889436381084
+        ]
+    },
+    {
+        "columnWords": [
+            "east",
+            "pass",
+            "hello"
+        ],
+        "rowWords": [
+            "treat",
+            "foot",
+            "issue"
+        ],
+        "correctAnswers": [
+            [
+                "known",
+                "catch",
+                "candy"
+            ],
+            [
+                "square",
+                "kick",
+                "cool"
+            ],
+            [
+                "united",
+                "complete",
+                "reply"
+            ]
+        ],
+        "gridQuality": [
+            0.024524651439370215,
+            0.0590351026663003,
+            0.15135231412267547,
+            0.15846302251767663,
+            0.15074658207540015,
+            -0.022149707293906085,
+            0.10812109598791575,
+            0.0436008662420464,
+            0.08878123948616001
+        ]
+    },
+    {
+        "columnWords": [
+            "fine",
+            "skill",
+            "trip"
+        ],
+        "rowWords": [
+            "water",
+            "father",
+            "scene"
+        ],
+        "correctAnswers": [
+            [
+                "soft",
+                "strength",
+                "trail"
+            ],
+            [
+                "retired",
+                "courage",
+                "pray"
+            ],
+            [
+                "stunning",
+                "critical",
+                "destination"
+            ]
+        ],
+        "gridQuality": [
+            0.13699497705262198,
+            0.03714094201021778,
+            0.0750465892572072,
+            0.09489884575712648,
+            0.10983710441732608,
+            0.04870072370618872,
+            0.12082853098254187,
+            -0.011791334465688363,
+            0.06279617969289175
+        ]
+    },
+    {
+        "columnWords": [
+            "space",
+            "show",
+            "father"
+        ],
+        "rowWords": [
+            "method",
+            "box",
+            "nobody"
+        ],
+        "correctAnswers": [
+            [
+                "utilize",
+                "demonstrate",
+                "latter"
+            ],
+            [
+                "storage",
+                "clip",
+                "prince"
+            ],
+            [
+                "afford",
+                "tomorrow",
+                "dying"
+            ]
+        ],
+        "gridQuality": [
+            0.08405218413537918,
+            0.09102132058797585,
+            -0.014964300255367102,
+            0.1178413818694346,
+            0.10196093164767983,
+            0.010889091402693896,
+            0.027438179886917546,
+            0.10052131084738158,
+            0.15138977262298903
+        ]
+    },
+    {
+        "columnWords": [
+            "author",
+            "drug",
+            "power"
+        ],
+        "rowWords": [
+            "road",
+            "study",
+            "dad"
+        ],
+        "correctAnswers": [
+            [
+                "mark",
+                "driving",
+                "motor"
+            ],
+            [
+                "essay",
+                "behavioral",
+                "capability"
+            ],
+            [
+                "lover",
+                "addiction",
+                "boss"
+            ]
+        ],
+        "gridQuality": [
+            0.02217890970473535,
+            -0.006882527196482746,
+            0.09536415454494751,
+            0.20536807136410695,
+            0.1731337986270074,
+            0.09784989343876438,
+            0.1245419292591643,
+            -0.013254177872532358,
+            0.05176947845863633
+        ]
+    },
+    {
+        "columnWords": [
+            "major",
+            "music",
+            "income"
+        ],
+        "rowWords": [
+            "method",
+            "worth",
+            "data"
+        ],
+        "correctAnswers": [
+            [
+                "latter",
+                "drum",
+                "payment"
+            ],
+            [
+                "starting",
+                "alive",
+                "invest"
+            ],
+            [
+                "technical",
+                "download",
+                "index"
+            ]
+        ],
+        "gridQuality": [
+            0.03960264124667612,
+            0.033326821368220294,
+            0.017731848743215428,
+            0.11674321937531362,
+            0.09043172113716436,
+            0.18000929501006924,
+            0.13108103920941505,
+            0.09704833111433009,
+            0.06738742993659907
+        ]
+    },
+    {
+        "columnWords": [
+            "try",
+            "image",
+            "level"
+        ],
+        "rowWords": [
+            "top",
+            "moment",
+            "march"
+        ],
+        "correctAnswers": [
+            [
+                "straight",
+                "print",
+                "ranking"
+            ],
+            [
+                "suppose",
+                "photography",
+                "threshold"
+            ],
+            [
+                "update",
+                "courtesy",
+                "expected"
+            ]
+        ],
+        "gridQuality": [
+            0.0957999721254732,
+            0.05225500895819779,
+            0.13327051811052504,
+            0.20897243354861306,
+            0.04894991343157418,
+            0.07823043135739538,
+            0.10291261747120828,
+            -0.02003716635293129,
+            0.011942901173707554
+        ]
+    },
+    {
+        "columnWords": [
+            "hall",
+            "system",
+            "police"
+        ],
+        "rowWords": [
+            "news",
+            "book",
+            "care"
+        ],
+        "correctAnswers": [
+            [
+                "fame",
+                "channel",
+                "spokesman"
+            ],
+            [
+                "guest",
+                "works",
+                "detective"
+            ],
+            [
+                "residence",
+                "ensure",
+                "elderly"
+            ]
+        ],
+        "gridQuality": [
+            0.04741568186301637,
+            0.1450779184787554,
+            0.10064606437702672,
+            0.07150541317870984,
+            0.06707116218342102,
+            0.10878790726309506,
+            0.009599838581668685,
+            0.13940935141638444,
+            0.08873777946510131
+        ]
+    },
+    {
+        "columnWords": [
+            "still",
+            "web",
+            "detail"
+        ],
+        "rowWords": [
+            "special",
+            "thought",
+            "system"
+        ],
+        "correctAnswers": [
+            [
+                "limited",
+                "promotion",
+                "outstanding"
+            ],
+            [
+                "worried",
+                "creative",
+                "subtle"
+            ],
+            [
+                "fixed",
+                "interface",
+                "hardware"
+            ]
+        ],
+        "gridQuality": [
+            0.09068513427996805,
+            0.10656990366934127,
+            -0.01188675712712628,
+            0.29616038945690126,
+            0.008763897458317738,
+            0.04043470769137314,
+            0.05346060065549196,
+            0.14505941495191865,
+            0.025959522211914887
+        ]
+    },
+    {
+        "columnWords": [
+            "society",
+            "wonder",
+            "land"
+        ],
+        "rowWords": [
+            "sea",
+            "safe",
+            "truth"
+        ],
+        "correctAnswers": [
+            [
+                "annual",
+                "magical",
+                "coastal"
+            ],
+            [
+                "responsible",
+                "plenty",
+                "facility"
+            ],
+            [
+                "islam",
+                "convinced",
+                "holy"
+            ]
+        ],
+        "gridQuality": [
+            -0.018767656347114525,
+            0.045596192137267066,
+            0.1709773493782265,
+            0.06361718655829551,
+            0.09716778250409508,
+            0.09755579288090588,
+            0.11442611910808065,
+            0.17629026167649353,
+            -0.015927593628088266
+        ]
+    },
+    {
+        "columnWords": [
+            "future",
+            "try",
+            "run"
+        ],
+        "rowWords": [
+            "article",
+            "million",
+            "cause"
+        ],
+        "correctAnswers": [
+            [
+                "relevant",
+                "helpful",
+                "brief"
+            ],
+            [
+                "funding",
+                "purchase",
+                "roughly"
+            ],
+            [
+                "potentially",
+                "resist",
+                "shut"
+            ]
+        ],
+        "gridQuality": [
+            0.12068574235792628,
+            0.09338222375774663,
+            0.01567759150618875,
+            0.16361031755269806,
+            -0.014560908743638246,
+            0.086237261218161,
+            0.13143306181174386,
+            0.13446660101890173,
+            0.03694664429108452
+        ]
+    },
+    {
+        "columnWords": [
+            "fear",
+            "side",
             "fill"
+        ],
+        "rowWords": [
+            "career",
+            "wait",
+            "market"
+        ],
+        "correctAnswers": [
+            [
+                "fame",
+                "league",
+                "resume"
+            ],
+            [
+                "dying",
+                "forward",
+                "arrange"
+            ],
+            [
+                "uncertainty",
+                "lower",
+                "expand"
+            ]
+        ],
+        "gridQuality": [
+            0.06574879496588482,
+            0.09187696276066504,
+            0.10500310049219919,
+            0.14837358047063132,
+            0.0861182452953363,
+            0.1681670771194559,
+            0.1325662748241242,
+            0.09013377306998083,
+            0.05739493872594459
+        ]
+    },
+    {
+        "columnWords": [
+            "case",
+            "fail",
+            "break"
+        ],
+        "rowWords": [
+            "system",
+            "sense",
+            "read"
+        ],
+        "correctAnswers": [
+            [
+                "storage",
+                "upgrade",
+                "extended"
+            ],
+            [
+                "appeal",
+                "succeed",
+                "calm"
+            ],
+            [
+                "found",
+                "frequently",
+                "evening"
+            ]
+        ],
+        "gridQuality": [
+            0.09523353554724479,
+            0.021569608365579196,
+            0.054565149840671845,
+            0.14037257534753722,
+            0.10342272468404579,
+            0.09967185508832477,
+            0.055911850188962164,
+            0.030019672396513264,
+            0.09587905947115205
+        ]
+    },
+    {
+        "columnWords": [
+            "heart",
+            "purpose",
+            "state"
+        ],
+        "rowWords": [
+            "mission",
+            "health",
+            "piece"
+        ],
+        "correctAnswers": [
+            [
+                "cross",
+                "objective",
+                "valley"
+            ],
+            [
+                "diabetes",
+                "importance",
+                "reform"
+            ],
+            [
+                "charm",
+                "plain",
+                "second"
+            ]
+        ],
+        "gridQuality": [
+            0.01852266457495788,
+            0.11251766314522227,
+            0.05453436770798681,
+            0.24356936647617322,
+            0.10892624952163954,
+            0.08452849372812443,
+            0.13542000161829992,
+            0.0974335060081446,
+            0.034380631507795134
+        ]
+    },
+    {
+        "columnWords": [
+            "size",
+            "summer",
+            "answer"
+        ],
+        "rowWords": [
+            "spring",
+            "rate",
+            "career"
+        ],
+        "correctAnswers": [
+            [
+                "pack",
+                "sunny",
+                "quick"
+            ],
+            [
+                "maximum",
+                "expected",
+                "quote"
+            ],
+            [
+                "impressive",
+                "academic",
+                "succeed"
+            ]
+        ],
+        "gridQuality": [
+            0.024115225593587697,
+            0.19736856198312402,
+            -0.0016327136855415203,
+            0.19541877351351877,
+            0.051636321202729984,
+            0.1647928732867987,
+            -0.0018086890561137547,
+            0.08557516369019857,
+            0.11948762780968503
+        ]
+    },
+    {
+        "columnWords": [
+            "ability",
+            "court",
+            "tonight"
+        ],
+        "rowWords": [
+            "short",
+            "state",
+            "stay"
+        ],
+        "correctAnswers": [
+            [
+                "remarkable",
+                "written",
+                "ending"
+            ],
+            [
+                "mental",
+                "legislature",
+                "contest"
+            ],
+            [
+                "safely",
+                "custody",
+                "till"
+            ]
+        ],
+        "gridQuality": [
+            0.08944273911932055,
+            0.0048476824884450265,
+            0.07249632446460486,
+            0.12807177317269536,
+            0.20459416097038552,
+            0.03437797098314299,
+            0.14890853163925333,
+            0.030251413578961994,
+            0.12628248627883365
+        ]
+    },
+    {
+        "columnWords": [
+            "group",
+            "death",
+            "worth"
+        ],
+        "rowWords": [
+            "table",
+            "meet",
+            "player"
+        ],
+        "correctAnswers": [
+            [
+                "description",
+                "beside",
+                "useful"
+            ],
+            [
+                "fellow",
+                "daughter",
+                "afford"
+            ],
+            [
+                "active",
+                "killer",
+                "decent"
+            ]
+        ],
+        "gridQuality": [
+            0.05624834325346806,
+            0.01205117481173279,
+            0.04059061398963271,
+            0.1258456007346891,
+            0.09173463956304351,
+            0.11712932976220525,
+            0.07305532206658727,
+            0.04674086001923494,
+            0.09632795267154315
+        ]
+    },
+    {
+        "columnWords": [
+            "stage",
+            "return",
+            "hurt"
+        ],
+        "rowWords": [
+            "course",
+            "crazy",
+            "skin"
+        ],
+        "correctAnswers": [
+            [
+                "venue",
+                "purchase",
+                "importantly"
+            ],
+            [
+                "dancing",
+                "rush",
+                "upset"
+            ],
+            [
+                "makeup",
+                "shine",
+                "painful"
+            ]
+        ],
+        "gridQuality": [
+            0.10746770433476716,
+            0.1427383356070422,
+            0.09444375389480575,
+            0.10490915518897359,
+            0.01298724472503976,
+            0.1598328980148198,
+            -0.017596711468921833,
+            -0.018201257022779194,
+            0.04825619264337466
+        ]
+    },
+    {
+        "columnWords": [
+            "visit",
+            "peace",
+            "edge"
+        ],
+        "rowWords": [
+            "thanks",
+            "evening",
+            "mind"
+        ],
+        "correctAnswers": [
+            [
+                "info",
+                "grateful",
+                "flat"
+            ],
+            [
+                "noon",
+                "ceremony",
+                "portion"
+            ],
+            [
+                "refer",
+                "eternal",
+                "shape"
+            ]
+        ],
+        "gridQuality": [
+            0.08954802716096988,
+            -0.0025464027883275175,
+            -0.026657495797653308,
+            0.11331863186088931,
+            -0.0008002308747512288,
+            -0.0018982117690270472,
+            0.1371222796359317,
+            0.2130160293689245,
+            0.17875733911651248
+        ]
+    },
+    {
+        "columnWords": [
+            "writer",
+            "range",
+            "guess"
+        ],
+        "rowWords": [
+            "memory",
+            "book",
+            "feed"
+        ],
+        "correctAnswers": [
+            [
+                "flash",
+                "array",
+                "correctly"
+            ],
+            [
+                "poetry",
+                "extensive",
+                "surprise"
+            ],
+            [
+                "producer",
+                "increasing",
+                "hungry"
+            ]
+        ],
+        "gridQuality": [
+            -0.01840492717814768,
+            0.15409298014905215,
+            0.015219615949648713,
+            0.18015451026076967,
+            0.08948990052078898,
+            0.12102563223116225,
+            0.013189697409879186,
+            0.042185064248119075,
+            0.09376170116938287
+        ]
+    },
+    {
+        "columnWords": [
+            "boy",
+            "point",
+            "post"
+        ],
+        "rowWords": [
+            "glass",
+            "evening",
+            "person"
+        ],
+        "correctAnswers": [
+            [
+                "wooden",
+                "roof",
+                "steel"
+            ],
+            [
+                "celebration",
+                "ahead",
+                "tuesday"
+            ],
+            [
+                "lover",
+                "hence",
+                "submit"
+            ]
+        ],
+        "gridQuality": [
+            0.03987595411337064,
+            0.04716118284333004,
+            -0.019457831842613738,
+            0.026618557900981776,
+            0.020531139835227474,
+            0.11838228313955645,
+            0.11347600758939325,
+            0.1732512482060189,
+            0.10646862961669623
+        ]
+    },
+    {
+        "columnWords": [
+            "cold",
+            "bed",
+            "camera"
+        ],
+        "rowWords": [
+            "score",
+            "device",
+            "model"
+        ],
+        "correctAnswers": [
+            [
+                "beat",
+                "double",
+                "credit"
+            ],
+            [
+                "surface",
+                "provided",
+                "sensor"
+            ],
+            [
+                "brand",
+                "furniture",
+                "photography"
+            ]
+        ],
+        "gridQuality": [
+            0.09749662653156155,
+            -0.004743738517312357,
+            -0.006753582289032778,
+            0.0776779674683824,
+            -0.011387868123414413,
+            0.1997717074580938,
+            -0.004676952719818939,
+            0.09609475490238051,
+            0.11876801197674047
+        ]
+    },
+    {
+        "columnWords": [
+            "local",
+            "blood",
+            "wall"
+        ],
+        "rowWords": [
+            "meeting",
+            "art",
+            "race"
+        ],
+        "correctAnswers": [
+            [
+                "union",
+                "diabetes",
+                "panel"
+            ],
+            [
+                "craft",
+                "brain",
+                "canvas"
+            ],
+            [
+                "bike",
+                "rider",
+                "drag"
+            ]
+        ],
+        "gridQuality": [
+            0.11993231607012522,
+            0.02673621675905402,
+            0.0908426651575529,
+            0.1006480256055069,
+            0.03285134200670692,
+            0.27830100311464157,
+            0.022186448614627485,
+            0.042545620492575154,
+            0.003245197748292239
+        ]
+    },
+    {
+        "columnWords": [
+            "site",
+            "truth",
+            "beat"
+        ],
+        "rowWords": [
+            "music",
+            "speech",
+            "white"
+        ],
+        "correctAnswers": [
+            [
+                "archive",
+                "spiritual",
+                "drum"
+            ],
+            [
+                "required",
+                "doctrine",
+                "upset"
+            ],
+            [
+                "description",
+                "proof",
+                "round"
+            ]
+        ],
+        "gridQuality": [
+            0.11988928458204584,
+            0.09158368970304043,
+            0.17907751639681224,
+            0.02294476053300598,
+            0.11645464879003076,
+            0.026071572447422975,
+            0.09072540147461494,
+            0.05882414509276079,
+            0.1162455068213224
+        ]
+    },
+    {
+        "columnWords": [
+            "touch",
+            "season",
+            "teacher"
+        ],
+        "rowWords": [
+            "period",
+            "catch",
+            "death"
+        ],
+        "correctAnswers": [
+            [
+                "transition",
+                "consecutive",
+                "principal"
+            ],
+            [
+                "hook",
+                "tackle",
+                "reading"
+            ],
+            [
+                "desire",
+                "lost",
+                "professor"
+            ]
+        ],
+        "gridQuality": [
+            0.009357002847191764,
+            0.13842327817699307,
+            0.05848660395421401,
+            0.14300791852199501,
+            0.09919940221118628,
+            -0.016064786662426722,
+            0.04752696483927954,
+            0.06491516727220847,
+            0.13439408696176824
+        ]
+    },
+    {
+        "columnWords": [
+            "expert",
+            "news",
+            "crime"
+        ],
+        "rowWords": [
+            "concern",
+            "project",
+            "treat"
+        ],
+        "correctAnswers": [
+            [
+                "ethical",
+                "meanwhile",
+                "alleged"
+            ],
+            [
+                "coordinator",
+                "upcoming",
+                "scheme"
+            ],
+            [
+                "cure",
+                "daily",
+                "prevention"
+            ]
+        ],
+        "gridQuality": [
+            0.10181694794784113,
+            0.09250675627298999,
+            0.12214716747964283,
+            0.10808340820042683,
+            0.158701957236142,
+            -0.014621359668198886,
+            0.005501340495402407,
+            0.02020936329057743,
+            -0.01658105170509394
+        ]
+    },
+    {
+        "columnWords": [
+            "poor",
+            "model",
+            "stage"
+        ],
+        "rowWords": [
+            "wear",
+            "paper",
+            "wind"
+        ],
+        "correctAnswers": [
+            [
+                "excuse",
+                "uniform",
+                "costume"
+            ],
+            [
+                "concerned",
+                "abstract",
+                "presentation"
+            ],
+            [
+                "mainly",
+                "solar",
+                "coming"
+            ]
+        ],
+        "gridQuality": [
+            0.09185456089820376,
+            0.10670874717763601,
+            0.06742893533511696,
+            0.039376529023704254,
+            0.1218687252457602,
+            0.10211939070873544,
+            0.004940506938664324,
+            -0.0008052397395048594,
+            0.01284812906776811
+        ]
+    },
+    {
+        "columnWords": [
+            "father",
+            "meet",
+            "unit"
+        ],
+        "rowWords": [
+            "release",
+            "client",
+            "crazy"
+        ],
+        "correctAnswers": [
+            [
+                "latter",
+                "upcoming",
+                "distribution"
+            ],
+            [
+                "spouse",
+                "satisfy",
+                "output"
+            ],
+            [
+                "evil",
+                "tough",
+                "instead"
+            ]
+        ],
+        "gridQuality": [
+            0.047461821731079934,
+            0.09290745175444282,
+            0.02413689343870995,
+            0.03388152684033496,
+            0.13627591809627826,
+            0.06116389722929505,
+            0.13670146533768723,
+            0.14727441203896163,
+            -0.022518980081572382
+        ]
+    },
+    {
+        "columnWords": [
+            "black",
+            "club",
+            "fear"
+        ],
+        "rowWords": [
+            "truth",
+            "ball",
+            "section"
+        ],
+        "correctAnswers": [
+            [
+                "light",
+                "discover",
+                "courage"
+            ],
+            [
+                "belt",
+                "tennis",
+                "stress"
+            ],
+            [
+                "related",
+                "sponsor",
+                "specific"
+            ]
+        ],
+        "gridQuality": [
+            0.02563985495208676,
+            -0.0017748540375092103,
+            0.2567491536077178,
+            0.10094465901680916,
+            0.2037479245202094,
+            0.02991446966205058,
+            0.06883489632535111,
+            0.1235566910269752,
+            0.00960395394899749
+        ]
+    },
+    {
+        "columnWords": [
+            "red",
+            "hope",
+            "month"
+        ],
+        "rowWords": [
+            "nature",
+            "police",
+            "read"
+        ],
+        "correctAnswers": [
+            [
+                "flower",
+                "humanity",
+                "depending"
+            ],
+            [
+                "navy",
+                "mayor",
+                "jail"
+            ],
+            [
+                "classic",
+                "anybody",
+                "weekly"
+            ]
+        ],
+        "gridQuality": [
+            0.042432370447466394,
+            0.22515757873655773,
+            0.09653294931639644,
+            0.05660674690539036,
+            0.01450469344294425,
+            0.1085862440709574,
+            0.02845345648804909,
+            0.14338511091938033,
+            0.09054294228535864
+        ]
+    },
+    {
+        "columnWords": [
+            "picture",
+            "anyone",
+            "table"
+        ],
+        "rowWords": [
+            "content",
+            "race",
+            "watch"
+        ],
+        "correctAnswers": [
+            [
+                "graphic",
+                "relevant",
+                "usage"
+            ],
+            [
+                "drag",
+                "running",
+                "championship"
+            ],
+            [
+                "cartoon",
+                "knock",
+                "round"
+            ]
+        ],
+        "gridQuality": [
+            0.09209409177601768,
+            0.12063658936846633,
+            0.007827866070540646,
+            0.004054256114893073,
+            0.12479310107550756,
+            -0.012042102056880388,
+            0.10616900477640034,
+            0.09299020586565288,
+            -0.01622550237167164
+        ]
+    },
+    {
+        "columnWords": [
+            "law",
+            "budget",
+            "station"
+        ],
+        "rowWords": [
+            "office",
+            "decade",
+            "treat"
+        ],
+        "correctAnswers": [
+            [
+                "counsel",
+                "cabinet",
+                "headquarters"
+            ],
+            [
+                "continuing",
+                "expected",
+                "fifteen"
+            ],
+            [
+                "prevent",
+                "holiday",
+                "train"
+            ]
+        ],
+        "gridQuality": [
+            0.1512574460588918,
+            0.10237165450928931,
+            0.16690068836602,
+            0.03907823839571645,
+            0.09139493217511596,
+            0.006977330969475948,
+            0.07591864050179187,
+            0.02965642552683423,
+            0.04530554791461805
+        ]
+    },
+    {
+        "columnWords": [
+            "wonder",
+            "fall",
+            "key"
+        ],
+        "rowWords": [
+            "decade",
+            "special",
+            "top"
+        ],
+        "correctAnswers": [
+            [
+                "convinced",
+                "collapse",
+                "developing"
+            ],
+            [
+                "magical",
+                "holiday",
+                "required"
+            ],
+            [
+                "famous",
+                "fashion",
+                "button"
+            ]
+        ],
+        "gridQuality": [
+            0.06869085328911873,
+            0.12610351871571734,
+            0.06868646279141155,
+            0.09644326783769885,
+            0.0727531654241772,
+            0.11045419381001365,
+            0.04799570735817449,
+            0.08691448180258121,
+            0.1053655560706176
+        ]
+    },
+    {
+        "columnWords": [
+            "theory",
+            "firm",
+            "leg"
+        ],
+        "rowWords": [
+            "page",
+            "project",
+            "country"
+        ],
+        "correctAnswers": [
+            [
+                "explanation",
+                "index",
+                "button"
+            ],
+            [
+                "framework",
+                "venture",
+                "pull"
+            ],
+            [
+                "classical",
+                "banking",
+                "cross"
+            ]
+        ],
+        "gridQuality": [
+            0.08360215995687437,
+            -0.014612548836343997,
+            0.06232851280571139,
+            0.18348577783701003,
+            0.12035945799228742,
+            -0.012909461500488995,
+            0.1057362547963584,
+            0.09857761064337334,
+            0.025899925354067932
+        ]
+    },
+    {
+        "columnWords": [
+            "shoot",
+            "unit",
+            "edge"
+        ],
+        "rowWords": [
+            "coach",
+            "chance",
+            "tree"
+        ],
+        "correctAnswers": [
+            [
+                "soccer",
+                "coordinator",
+                "trainer"
+            ],
+            [
+                "steal",
+                "addition",
+                "apart"
+            ],
+            [
+                "photography",
+                "block",
+                "lawn"
+            ]
+        ],
+        "gridQuality": [
+            -0.025014930368363997,
+            0.10362834120313336,
+            -0.01022432627405856,
+            0.155940466546028,
+            0.11054131389316524,
+            0.09369479664444169,
+            0.005785614790427385,
+            -0.016056615445437905,
+            0.05662330496835011
+        ]
+    },
+    {
+        "columnWords": [
+            "wait",
+            "hand",
+            "life"
+        ],
+        "rowWords": [
+            "version",
+            "bill",
+            "success"
         ],
         "correctAnswers": [
             [
                 "upgrade",
-                "cancel",
-                "minimum"
+                "classic",
+                "english"
             ],
             [
-                "throughout",
-                "alive",
-                "blue"
+                "reply",
+                "rose",
+                "insurance"
             ],
             [
-                "flow",
-                "collect",
-                "accommodate"
+                "expected",
+                "excellent",
+                "creativity"
             ]
         ],
         "gridQuality": [
-            0.1642218256050988,
-            0.11867397407274416,
-            0.055856052617339724,
-            0.034769221754399116,
-            0.11658225837659963,
-            0.017536798215544658,
-            0.06809888321222202,
-            0.12554523015435193,
-            0.04098731786359178
+            0.13021359709106706,
+            0.026325209789160087,
+            0.04192052590048112,
+            0.02244280762602302,
+            -0.01628448227825119,
+            0.11336780240873989,
+            0.09258136476439782,
+            0.03689018638271435,
+            0.16602383139998078
         ]
     },
     {
         "columnWords": [
-            "top",
-            "simple",
-            "word"
+            "access",
+            "rise",
+            "life"
         ],
         "rowWords": [
-            "call",
-            "fight",
-            "rock"
+            "science",
+            "stay",
+            "produce"
         ],
         "correctAnswers": [
             [
-                "leading",
-                "immediate",
-                "refer"
+                "faculty",
+                "evolution",
+                "theology"
             ],
             [
-                "champion",
-                "combat",
-                "defeat"
+                "parking",
+                "steady",
+                "glad"
             ],
             [
-                "cliff",
-                "guitar",
+                "extensive",
+                "decrease",
                 "known"
             ]
         ],
         "gridQuality": [
-            0.05752901433828128,
-            0.09832277734989536,
-            0.09034416462763661,
-            0.10195223025793654,
-            0.042549107453267454,
-            0.02615209077087388,
-            0.10398404890092683,
-            0.023085972005586264,
-            0.007524514804464366
+            0.035933441914757,
+            -0.013454462998490957,
+            0.154821197767816,
+            0.1646497649841241,
+            0.060934350054604236,
+            0.1942606350728905,
+            0.10253055740078221,
+            0.15157748355713352,
+            0.0898818841835628
+        ]
+    },
+    {
+        "columnWords": [
+            "child",
+            "summer",
+            "skin"
+        ],
+        "rowWords": [
+            "song",
+            "treat",
+            "party"
+        ],
+        "correctAnswers": [
+            [
+                "missing",
+                "debut",
+                "smooth"
+            ],
+            [
+                "elderly",
+                "hopefully",
+                "cure"
+            ],
+            [
+                "involved",
+                "venue",
+                "makeup"
+            ]
+        ],
+        "gridQuality": [
+            0.03616127963584681,
+            0.18946276973619125,
+            -0.024077302451866456,
+            0.1769403579522708,
+            0.04450752593795393,
+            0.11591021407455915,
+            0.029616020066867588,
+            0.10283686948279147,
+            1.8443913481824836e-05
+        ]
+    },
+    {
+        "columnWords": [
+            "camera",
+            "church",
+            "win"
+        ],
+        "rowWords": [
+            "film",
+            "maybe",
+            "process"
+        ],
+        "correctAnswers": [
+            [
+                "footage",
+                "festival",
+                "debut"
+            ],
+            [
+                "laptop",
+                "bible",
+                "upset"
+            ],
+            [
+                "sensor",
+                "separation",
+                "crucial"
+            ]
+        ],
+        "gridQuality": [
+            0.1350765567586244,
+            0.03281236119115172,
+            0.09889738124070035,
+            0.08563466313348866,
+            0.1089118659904208,
+            0.22185710273826675,
+            0.07328329255218091,
+            0.04470746933242431,
+            0.028440566129177003
+        ]
+    },
+    {
+        "columnWords": [
+            "wish",
+            "lay",
+            "kid"
+        ],
+        "rowWords": [
+            "black",
+            "nobody",
+            "beyond"
+        ],
+        "correctAnswers": [
+            [
+                "click",
+                "double",
+                "cartoon"
+            ],
+            [
+                "dare",
+                "standing",
+                "dumb"
+            ],
+            [
+                "required",
+                "beneath",
+                "childhood"
+            ]
+        ],
+        "gridQuality": [
+            0.038777786083769916,
+            -0.028203206591963736,
+            0.09704265359663988,
+            0.0992618933798336,
+            0.01361187019306942,
+            0.10646095975298042,
+            0.15591972002600862,
+            0.16784822786748432,
+            0.034199051924519
+        ]
+    },
+    {
+        "columnWords": [
+            "mission",
+            "type",
+            "rule"
+        ],
+        "rowWords": [
+            "case",
+            "safety",
+            "return"
+        ],
+        "correctAnswers": [
+            [
+                "involved",
+                "handle",
+                "statute"
+            ],
+            [
+                "personnel",
+                "maintenance",
+                "comply"
+            ],
+            [
+                "quest",
+                "click",
+                "payment"
+            ]
+        ],
+        "gridQuality": [
+            -0.026558693713115478,
+            0.09074217476817847,
+            0.13117989699272425,
+            0.09673753683042707,
+            0.06877312311770323,
+            0.1405338774060192,
+            0.08175941064713388,
+            0.055670497944330655,
+            0.03252755880952507
+        ]
+    },
+    {
+        "columnWords": [
+            "ship",
+            "common",
+            "music"
+        ],
+        "rowWords": [
+            "job",
+            "trouble",
+            "unit"
+        ],
+        "correctAnswers": [
+            [
+                "crew",
+                "profession",
+                "awesome"
+            ],
+            [
+                "cruise",
+                "frequent",
+                "download"
+            ],
+            [
+                "fleet",
+                "separate",
+                "drum"
+            ]
+        ],
+        "gridQuality": [
+            0.0039882323487308025,
+            0.07540400875920361,
+            0.09961743289445257,
+            0.008412047278468449,
+            0.18272703500681087,
+            0.10425110032090346,
+            0.08003462909860981,
+            0.1031811133690328,
+            0.12178562280252714
+        ]
+    },
+    {
+        "columnWords": [
+            "moment",
+            "claim",
+            "glass"
+        ],
+        "rowWords": [
+            "century",
+            "air",
+            "safe"
+        ],
+        "correctAnswers": [
+            [
+                "dramatic",
+                "known",
+                "roman"
+            ],
+            [
+                "breath",
+                "carrier",
+                "ceiling"
+            ],
+            [
+                "reminder",
+                "provided",
+                "lock"
+            ]
+        ],
+        "gridQuality": [
+            0.12747800868125225,
+            0.03100611532668396,
+            0.03913698459837556,
+            0.13778898010808716,
+            0.08943383685833839,
+            0.10828412019859712,
+            0.12551461605295267,
+            0.07693727167766595,
+            0.03177043555915682
+        ]
+    },
+    {
+        "columnWords": [
+            "county",
+            "effect",
+            "window"
+        ],
+        "rowWords": [
+            "light",
+            "test",
+            "safety"
+        ],
+        "correctAnswers": [
+            [
+                "orange",
+                "subtle",
+                "shade"
+            ],
+            [
+                "south",
+                "comparison",
+                "installation"
+            ],
+            [
+                "northeast",
+                "regard",
+                "privacy"
+            ]
+        ],
+        "gridQuality": [
+            0.0999256543972199,
+            0.19162969064264368,
+            0.1105808396708563,
+            0.04123012956890981,
+            0.134568251377579,
+            0.03920018045176554,
+            0.03747325851928207,
+            0.0841215616458777,
+            0.1288779739148127
+        ]
+    },
+    {
+        "columnWords": [
+            "weekend",
+            "claim",
+            "name"
+        ],
+        "rowWords": [
+            "web",
+            "machine",
+            "wife"
+        ],
+        "correctAnswers": [
+            [
+                "fantastic",
+                "provided",
+                "domain"
+            ],
+            [
+                "perfect",
+                "invention",
+                "label"
+            ],
+            [
+                "affair",
+                "convinced",
+                "actress"
+            ]
+        ],
+        "gridQuality": [
+            0.09069087210507054,
+            0.055500324220683406,
+            0.1783802890296301,
+            0.007495029494183458,
+            0.07162533868999788,
+            0.049417935412379044,
+            0.14362013122804784,
+            0.09514493569656757,
+            0.07419024035191135
+        ]
+    },
+    {
+        "columnWords": [
+            "rise",
+            "history",
+            "father"
+        ],
+        "rowWords": [
+            "floor",
+            "act",
+            "south"
+        ],
+        "correctAnswers": [
+            [
+                "ceiling",
+                "description",
+                "chair"
+            ],
+            [
+                "decrease",
+                "context",
+                "spouse"
+            ],
+            [
+                "expected",
+                "northwest",
+                "bishop"
+            ]
+        ],
+        "gridQuality": [
+            0.0976136147793415,
+            0.04144380125713565,
+            0.005533213384648739,
+            0.07404632943620215,
+            0.11192552500888131,
+            0.10178774095267218,
+            0.03393155641569234,
+            0.11849941817604814,
+            0.045225591909549
+        ]
+    },
+    {
+        "columnWords": [
+            "action",
+            "death",
+            "role"
+        ],
+        "rowWords": [
+            "spirit",
+            "economy",
+            "goal"
+        ],
+        "correctAnswers": [
+            [
+                "adventure",
+                "eternal",
+                "essence"
+            ],
+            [
+                "reform",
+                "collapse",
+                "emerging"
+            ],
+            [
+                "match",
+                "fourth",
+                "vital"
+            ]
+        ],
+        "gridQuality": [
+            0.06553583449839206,
+            0.2369041136311577,
+            0.03299364713634234,
+            0.01971197518072698,
+            0.1187421790251415,
+            0.15897780605060075,
+            0.09887822691618153,
+            0.02661643620048393,
+            0.05360795813711072
+        ]
+    },
+    {
+        "columnWords": [
+            "theory",
+            "safe",
+            "detail"
+        ],
+        "rowWords": [
+            "pick",
+            "safety",
+            "mission"
+        ],
+        "correctAnswers": [
+            [
+                "thinking",
+                "anywhere",
+                "print"
+            ],
+            [
+                "practical",
+                "workplace",
+                "reliability"
+            ],
+            [
+                "experimental",
+                "launch",
+                "remarkable"
+            ]
+        ],
+        "gridQuality": [
+            0.11335847274776356,
+            0.12751807960669959,
+            0.10662988177614996,
+            0.014553899161794837,
+            0.1345972511100304,
+            0.01926288031414991,
+            0.031292528682063114,
+            -0.018530645976650106,
+            0.0357710281693131
+        ]
+    },
+    {
+        "columnWords": [
+            "try",
+            "meeting",
+            "mission"
+        ],
+        "rowWords": [
+            "art",
+            "judge",
+            "beat"
+        ],
+        "correctAnswers": [
+            [
+                "print",
+                "lecture",
+                "contemporary"
+            ],
+            [
+                "ought",
+                "clerk",
+                "witness"
+            ],
+            [
+                "tune",
+                "tuesday",
+                "victory"
+            ]
+        ],
+        "gridQuality": [
+            0.12638510673754488,
+            0.11250725209075507,
+            0.008175928124178333,
+            0.1098392293606778,
+            0.1219588349243621,
+            -0.020753968063793926,
+            0.2038284424883341,
+            -0.016399434360941267,
+            0.0251885633889799
+        ]
+    },
+    {
+        "columnWords": [
+            "judge",
+            "song",
+            "impact"
+        ],
+        "rowWords": [
+            "raise",
+            "month",
+            "review"
+        ],
+        "correctAnswers": [
+            [
+                "appeal",
+                "somebody",
+                "minimize"
+            ],
+            [
+                "jail",
+                "ending",
+                "throughout"
+            ],
+            [
+                "complaint",
+                "download",
+                "evaluation"
+            ]
+        ],
+        "gridQuality": [
+            0.02939080516681236,
+            0.03573507053490266,
+            0.17292535104528495,
+            0.12018742677348226,
+            0.10690392334208643,
+            0.10567081172800874,
+            0.06919750233080413,
+            0.1361668006682415,
+            0.18671472850115256
+        ]
+    },
+    {
+        "columnWords": [
+            "area",
+            "trouble",
+            "weight"
+        ],
+        "rowWords": [
+            "share",
+            "someone",
+            "foot"
+        ],
+        "correctAnswers": [
+            [
+                "regional",
+                "continued",
+                "strength"
+            ],
+            [
+                "specifically",
+                "worried",
+                "lean"
+            ],
+            [
+                "outdoor",
+                "walking",
+                "heel"
+            ]
+        ],
+        "gridQuality": [
+            0.10089199036997576,
+            0.029302983434121632,
+            -0.018768100793748577,
+            0.09119857582967505,
+            0.2176395657048743,
+            0.03590651687564861,
+            0.11459502515850861,
+            -0.01430202609090947,
+            0.06711626712941299
+        ]
+    },
+    {
+        "columnWords": [
+            "stuff",
+            "army",
+            "project"
+        ],
+        "rowWords": [
+            "post",
+            "step",
+            "morning"
+        ],
+        "correctAnswers": [
+            [
+                "yours",
+                "veteran",
+                "survey"
+            ],
+            [
+                "apart",
+                "squad",
+                "phase"
+            ],
+            [
+                "everyday",
+                "patrol",
+                "dawn"
+            ]
+        ],
+        "gridQuality": [
+            0.12761896585778298,
+            0.041194381889446685,
+            0.06747879511940358,
+            0.09280684309793852,
+            0.0037761106224938334,
+            0.20866210359813775,
+            0.11212739989958942,
+            0.10746661730869433,
+            -0.008888095946291585
+        ]
+    },
+    {
+        "columnWords": [
+            "account",
+            "piece",
+            "hate"
+        ],
+        "rowWords": [
+            "phone",
+            "song",
+            "draw"
+        ],
+        "correctAnswers": [
+            [
+                "mail",
+                "plastic",
+                "worried"
+            ],
+            [
+                "download",
+                "piano",
+                "kinda"
+            ],
+            [
+                "income",
+                "solid",
+                "suppose"
+            ]
+        ],
+        "gridQuality": [
+            0.1614109016781745,
+            0.012389205800692804,
+            -0.0036227389047175373,
+            -0.002290501223862984,
+            0.21106746545835697,
+            0.1417906422324513,
+            0.051943437899380385,
+            0.11330402088055957,
+            0.0505741915898722
+        ]
+    },
+    {
+        "columnWords": [
+            "sound",
+            "east",
+            "record"
+        ],
+        "rowWords": [
+            "weekend",
+            "surface",
+            "drive"
+        ],
+        "correctAnswers": [
+            [
+                "awesome",
+                "downtown",
+                "debut"
+            ],
+            [
+                "smooth",
+                "outer",
+                "bottom"
+            ],
+            [
+                "drum",
+                "lane",
+                "copy"
+            ]
+        ],
+        "gridQuality": [
+            0.13382347532459304,
+            0.04956474098076735,
+            0.10155663372536694,
+            0.13131637872602797,
+            0.04003319587910048,
+            0.027239424270473878,
+            0.021386435362806377,
+            0.15515119337551664,
+            0.025243952121993818
+        ]
+    },
+    {
+        "columnWords": [
+            "call",
+            "ship",
+            "result"
+        ],
+        "rowWords": [
+            "moment",
+            "patient",
+            "local"
+        ],
+        "correctAnswers": [
+            [
+                "anytime",
+                "beside",
+                "ending"
+            ],
+            [
+                "clinic",
+                "vessel",
+                "diagnosis"
+            ],
+            [
+                "telephone",
+                "merchant",
+                "promote"
+            ]
+        ],
+        "gridQuality": [
+            0.13449965388882035,
+            -0.01976091163932847,
+            0.17882222519271407,
+            0.02492475100324454,
+            0.006233979148609015,
+            0.1652537916693274,
+            0.08605868030448405,
+            0.06664994673503732,
+            0.10623486022071038
+        ]
+    },
+    {
+        "columnWords": [
+            "carry",
+            "fight",
+            "product"
+        ],
+        "rowWords": [
+            "space",
+            "kid",
+            "pay"
+        ],
+        "correctAnswers": [
+            [
+                "transport",
+                "conflict",
+                "platform"
+            ],
+            [
+                "stick",
+                "hero",
+                "favorite"
+            ],
+            [
+                "obligation",
+                "wage",
+                "earnings"
+            ]
+        ],
+        "gridQuality": [
+            0.07737592843605523,
+            0.01870013906648549,
+            0.08022129208293927,
+            0.035037557145452536,
+            0.10369373389668779,
+            0.028215227399102538,
+            0.14172930284872765,
+            0.14257687939880193,
+            0.12882567543277978
+        ]
+    },
+    {
+        "columnWords": [
+            "cost",
+            "front",
+            "scene"
+        ],
+        "rowWords": [
+            "purpose",
+            "hold",
+            "club"
+        ],
+        "correctAnswers": [
+            [
+                "usage",
+                "interior",
+                "passion"
+            ],
+            [
+                "expected",
+                "standing",
+                "fire"
+            ],
+            [
+                "discount",
+                "resort",
+                "comedy"
+            ]
+        ],
+        "gridQuality": [
+            0.11913838888914652,
+            0.022032124822641497,
+            0.025844979824217407,
+            0.1436416936941276,
+            0.14505596107565744,
+            0.0622751882272361,
+            0.062475418717344744,
+            0.044202638961217455,
+            0.13804034401006726
+        ]
+    },
+    {
+        "columnWords": [
+            "stuff",
+            "parent",
+            "leader"
+        ],
+        "rowWords": [
+            "charge",
+            "opinion",
+            "father"
+        ],
+        "correctAnswers": [
+            [
+                "normally",
+                "required",
+                "vice"
+            ],
+            [
+                "seriously",
+                "respect",
+                "ruling"
+            ],
+            [
+                "heaven",
+                "married",
+                "pastor"
+            ]
+        ],
+        "gridQuality": [
+            0.1305230248151119,
+            0.013978793823409164,
+            0.03460318970373977,
+            0.16855472734256294,
+            0.0018526602487481947,
+            0.08518852452851722,
+            0.09583434183662565,
+            0.069996312114599,
+            0.14256024581929094
+        ]
+    },
+    {
+        "columnWords": [
+            "lack",
+            "track",
+            "project"
+        ],
+        "rowWords": [
+            "brain",
+            "whole",
+            "fund"
+        ],
+        "correctAnswers": [
+            [
+                "cognitive",
+                "rhythm",
+                "learning"
+            ],
+            [
+                "awful",
+                "roll",
+                "creation"
+            ],
+            [
+                "mutual",
+                "sponsor",
+                "portfolio"
+            ]
+        ],
+        "gridQuality": [
+            0.13587999186848376,
+            0.02343574450535313,
+            -0.0213200748722312,
+            0.18216767019400726,
+            0.13629073995368135,
+            0.09634308943474579,
+            0.0868246994959555,
+            -0.029036179772942372,
+            0.13859353885742465
+        ]
+    },
+    {
+        "columnWords": [
+            "fight",
+            "option",
+            "term"
+        ],
+        "rowWords": [
+            "purpose",
+            "doctor",
+            "black"
+        ],
+        "correctAnswers": [
+            [
+                "destroy",
+                "utilize",
+                "concerning"
+            ],
+            [
+                "hurt",
+                "clinic",
+                "pregnancy"
+            ],
+            [
+                "belt",
+                "double",
+                "known"
+            ]
+        ],
+        "gridQuality": [
+            0.15124317562077194,
+            0.10709734634743473,
+            0.11079721212517168,
+            0.03847115170641746,
+            -0.000735788268148907,
+            0.0946744399674535,
+            0.05463629939889192,
+            0.07707410559620032,
+            -0.011663361372428738
+        ]
+    },
+    {
+        "columnWords": [
+            "machine",
+            "hate",
+            "measure"
+        ],
+        "rowWords": [
+            "white",
+            "history",
+            "review"
+        ],
+        "correctAnswers": [
+            [
+                "cotton",
+                "ugly",
+                "contrast"
+            ],
+            [
+                "creation",
+                "myth",
+                "importance"
+            ],
+            [
+                "maker",
+                "dare",
+                "proposed"
+            ]
+        ],
+        "gridQuality": [
+            0.1102681289839973,
+            0.099667985205254,
+            0.06415351873391084,
+            0.05152370427911712,
+            0.10685165542784292,
+            0.16583981174661278,
+            0.05000568540159733,
+            0.05691492820085031,
+            0.09110415047522902
+        ]
+    },
+    {
+        "columnWords": [
+            "process",
+            "fail",
+            "brain"
+        ],
+        "rowWords": [
+            "matter",
+            "game",
+            "life"
+        ],
+        "correctAnswers": [
+            [
+                "additionally",
+                "disagree",
+                "nerve"
+            ],
+            [
+                "starting",
+                "cheat",
+                "puzzle"
+            ],
+            [
+                "cycle",
+                "survive",
+                "childhood"
+            ]
+        ],
+        "gridQuality": [
+            0.11626134618363282,
+            0.16690523867516172,
+            0.04148479265806204,
+            -0.00255824238928104,
+            0.07942337472422212,
+            0.009604450365627404,
+            0.10190109925547663,
+            0.04310599591943054,
+            0.0912384644833002
+        ]
+    },
+    {
+        "columnWords": [
+            "wear",
+            "threat",
+            "call"
+        ],
+        "rowWords": [
+            "son",
+            "answer",
+            "cut"
+        ],
+        "correctAnswers": [
+            [
+                "occasion",
+                "fighting",
+                "daddy"
+            ],
+            [
+                "besides",
+                "legitimate",
+                "request"
+            ],
+            [
+                "fancy",
+                "prevent",
+                "push"
+            ]
+        ],
+        "gridQuality": [
+            -0.0071130246421812204,
+            -0.024428179088958446,
+            0.043952699971645415,
+            0.011821993747907378,
+            0.12215331539493968,
+            0.2000557791061206,
+            0.17156663984508203,
+            0.056279679240422764,
+            0.09652588688264396
+        ]
+    },
+    {
+        "columnWords": [
+            "chair",
+            "lot",
+            "dad"
+        ],
+        "rowWords": [
+            "watch",
+            "stand",
+            "fire"
+        ],
+        "correctAnswers": [
+            [
+                "vice",
+                "info",
+                "boss"
+            ],
+            [
+                "shelf",
+                "regard",
+                "proud"
+            ],
+            [
+                "wood",
+                "lightning",
+                "blast"
+            ]
+        ],
+        "gridQuality": [
+            -0.02647939843426017,
+            0.09971702443991126,
+            0.03449091132909543,
+            0.10178140885692732,
+            0.1274456032128024,
+            0.0963977797859269,
+            0.007035764180798543,
+            0.06794458296094019,
+            -0.028232882394221503
+        ]
+    },
+    {
+        "columnWords": [
+            "dad",
+            "charge",
+            "world"
+        ],
+        "rowWords": [
+            "fill",
+            "growth",
+            "poor"
+        ],
+        "correctAnswers": [
+            [
+                "hopefully",
+                "required",
+                "round"
+            ],
+            [
+                "spending",
+                "monthly",
+                "innovation"
+            ],
+            [
+                "dumb",
+                "regardless",
+                "unlike"
+            ]
+        ],
+        "gridQuality": [
+            0.051794355270092796,
+            0.13406248951702682,
+            0.10987158604948588,
+            -0.02999460727738512,
+            0.03204758339153979,
+            0.1342747614703248,
+            0.12145840837305455,
+            0.07799137948994073,
+            0.07650526347913744
+        ]
+    },
+    {
+        "columnWords": [
+            "partner",
+            "pass",
+            "court"
+        ],
+        "rowWords": [
+            "trip",
+            "baby",
+            "study"
+        ],
+        "correctAnswers": [
+            [
+                "sponsor",
+                "rush",
+                "circuit"
+            ],
+            [
+                "sister",
+                "throw",
+                "custody"
+            ],
+            [
+                "strategic",
+                "testing",
+                "proposed"
+            ]
+        ],
+        "gridQuality": [
+            0.04209783080182361,
+            0.10721302379717434,
+            0.07511539420864088,
+            0.08192385930215418,
+            0.09495629114473159,
+            -0.027447658588515278,
+            0.19197769445944068,
+            0.039292108491286504,
+            0.09880285588599214
+        ]
+    },
+    {
+        "columnWords": [
+            "look",
+            "lawyer",
+            "moment"
+        ],
+        "rowWords": [
+            "title",
+            "teacher",
+            "step"
+        ],
+        "correctAnswers": [
+            [
+                "classic",
+                "liability",
+                "ending"
+            ],
+            [
+                "wise",
+                "consultant",
+                "principal"
+            ],
+            [
+                "solid",
+                "bankruptcy",
+                "crucial"
+            ]
+        ],
+        "gridQuality": [
+            0.09137188852057487,
+            0.08150619490158639,
+            0.03140029484232165,
+            4.934113519783345e-05,
+            0.12891956806589033,
+            -0.023133493405503525,
+            0.11349358465431336,
+            -0.0035634583835575384,
+            0.10608175633672723
         ]
     }
-]
+];
 
 let maxAttempts = 3;
 let currentAttempts = maxAttempts;
