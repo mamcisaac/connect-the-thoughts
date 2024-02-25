@@ -249,8 +249,28 @@ function handleTouchEnd(e) {
     const touchLocation = e.changedTouches[0];
     const dropTarget = document.elementFromPoint(touchLocation.clientX, touchLocation.clientY);
 
-    if (dropTarget && dropTarget.classList.contains('droppable') && !dropTarget.classList.contains('locked')) {
-        dropTarget.appendChild(activeTile);
+    // Mimicking the logic from handleDrop
+    if (dropTarget) {
+        // Dropped on a tile in the grid cell, we need to swap them
+        if (dropTarget.classList.contains('tile') && dropTarget.parentNode.classList.contains('cell')) {
+            swapTiles(dropTarget.parentNode, activeTile);
+        }
+        // Dropped on an empty cell in the grid
+        else if (dropTarget.classList.contains('droppable') && !dropTarget.firstChild) {
+            dropTarget.appendChild(activeTile);
+        }
+        // Dropped on a tile in the tiles container
+        else if (dropTarget.classList.contains('tile') && dropTarget.parentNode.id === 'tiles') {
+            shuffleTilesInContainer(dropTarget, activeTile);
+        }
+        // Dropped in the tiles container
+        else if (dropTarget.id === 'tiles') {
+            document.getElementById('tiles').appendChild(activeTile);
+        }
+        // Dropped on a non-empty cell
+        else if (dropTarget.classList.contains('droppable') && dropTarget.firstChild && dropTarget.firstChild !== activeTile) {
+            swapTiles(dropTarget, activeTile);
+        }
     }
 
     // Reset styles and state
