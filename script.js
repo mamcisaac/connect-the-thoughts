@@ -249,29 +249,15 @@ function handleTouchEnd(e) {
     const touchLocation = e.changedTouches[0];
     const dropTarget = document.elementFromPoint(touchLocation.clientX, touchLocation.clientY);
 
-    // Mimicking the logic from handleDrop
-    if (dropTarget) {
-        // Dropped on a tile in the grid cell, we need to swap them
-        if (dropTarget.classList.contains('tile') && dropTarget.parentNode.classList.contains('cell')) {
-            swapTiles(dropTarget.parentNode, activeTile);
-        }
-        // Dropped on an empty cell in the grid
-        else if (dropTarget.classList.contains('droppable') && !dropTarget.firstChild) {
-            dropTarget.appendChild(activeTile);
-        }
-        // Dropped on a tile in the tiles container
-        else if (dropTarget.classList.contains('tile') && dropTarget.parentNode.id === 'tiles') {
-            shuffleTilesInContainer(dropTarget, activeTile);
-        }
-        // Dropped in the tiles container
-        else if (dropTarget.id === 'tiles') {
-            document.getElementById('tiles').appendChild(activeTile);
-        }
-        // Dropped on a non-empty cell
-        else if (dropTarget.classList.contains('droppable') && dropTarget.firstChild && dropTarget.firstChild !== activeTile) {
-            swapTiles(dropTarget, activeTile);
-        }
-    }
+    // Create a custom event for the drop
+    const customDropEvent = new CustomEvent('drop', {
+        bubbles: true, // Allow the event to bubble up
+        cancelable: true, // Allow the event to be cancelable
+        detail: { touchedElement: activeTile } // Pass the touched element as detail
+    });
+
+    // Call the drop function with the custom event
+    drop(customDropEvent, dropTarget);
 
     // Reset styles and state
     activeTile.style.position = '';
@@ -422,36 +408,40 @@ ev.dataTransfer.setData('text', ev.target.id);
 }
 
 
-
-function drop(ev) {
+function drop(ev, dropTargetElement) {
     ev.preventDefault();
 
-    const draggedTileId = ev.dataTransfer.getData('text/plain');
-    const draggedTile = document.getElementById(draggedTileId);
-    let target = ev.target;
+    let draggedTile;
 
-    // Dropped on a tile in the grid cell, we need to swap them
+    // Check if the event is from a touch event or a drag event
+    if (ev.dataTransfer) {
+        // Drag event
+        const draggedTileId = ev.dataTransfer.getData('text/plain');
+        draggedTile = document.getElementById(draggedTileId);
+    } else if (ev.detail && ev.detail.touchedElement) {
+        // Touch event
+        draggedTile = ev.detail.touchedElement;
+    }
+
+    // If there's no tile to be dropped, exit the function
+    if (!draggedTile) return;
+
+    let target = dropTargetElement || ev.target; // Use provided drop target for touch events
+
+    // The rest of your logic remains the same
     if (target.classList.contains('tile') && target.parentNode.classList.contains('cell')) {
         swapTiles(target.parentNode, draggedTile);
-    }
-    // Dropped on an empty cell in the grid
-    else if (target.classList.contains('droppable') && !target.firstChild) {
+    } else if (target.classList.contains('droppable') && !target.firstChild) {
         target.appendChild(draggedTile);
-    }
-    // Dropped on a tile in the tiles container
-    else if (target.classList.contains('tile') && target.parentNode.id === 'tiles') {
+    } else if (target.classList.contains('tile') && target.parentNode.id === 'tiles') {
         shuffleTilesInContainer(target, draggedTile);
-    }
-    // Dropped in the tiles container
-    else if (target.id === 'tiles') {
-    	document.getElementById('tiles').appendChild(draggedTile);
-
-    }
-    // Dropped on a non-empty cell
-    else if (target.classList.contains('droppable') && target.firstChild && target.firstChild !== draggedTile) {
-            swapTiles(target, draggedTile);
+    } else if (target.id === 'tiles') {
+        document.getElementById('tiles').appendChild(draggedTile);
+    } else if (target.classList.contains('droppable') && target.firstChild && target.firstChild !== draggedTile) {
+        swapTiles(target, draggedTile);
     }
 }
+
 
 function swapTiles(targetCell, draggedTile) {
 		targetCell.firstChild.classList.remove('clue-correct', 'clue-partial', 'clue-incorrect');
