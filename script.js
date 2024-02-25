@@ -318,21 +318,20 @@ function handleTouchEnd(e) {
     const touchLocation = e.changedTouches[0];
     const dropTarget = document.elementFromPoint(touchLocation.clientX, touchLocation.clientY);
 
-    // Create a custom event for the drop
-    const customDropEvent = new CustomEvent('drop', {
-        bubbles: true, // Allow the event to bubble up
-        cancelable: true, // Allow the event to be cancelable
-        detail: { touchedElement: activeTile } // Pass the touched element as detail
-    });
+    // Mimic the dragend event
+    activeTile.classList.remove('dragging');
+    activeTile.classList.remove('clue-correct', 'clue-partial', 'clue-incorrect');
 
-    // Call the drop function with the custom event
-    drop(customDropEvent, dropTarget);
+    // Check if the drop target is a valid droppable area
+    if (dropTarget && dropTarget.classList.contains('droppable') && !dropTarget.classList.contains('locked')) {
+        // Call the drop function directly
+        drop({ target: dropTarget }, activeTile);
+    }
 
     // Reset styles and state
     activeTile.style.position = '';
     activeTile.style.left = '';
     activeTile.style.top = '';
-    activeTile.classList.remove('dragging');
     activeTile = null;
 }
 
@@ -412,31 +411,31 @@ ev.dataTransfer.setData('text', ev.target.id);
 
 
 
-function drop(event, draggedElement = null) {
+function drop(event, draggedTile = null) {
     event.preventDefault();
-    const draggedTile = draggedElement || document.getElementById(event.dataTransfer.getData('text/plain'));
+    const tileToDrop = draggedTile || document.getElementById(event.dataTransfer.getData('text/plain'));
     let target = event.target;
 
+    // Now use 'tileToDrop' in place of the original 'draggedTile' logic
     // Dropped on a tile in the grid cell, we need to swap them
     if (target.classList.contains('tile') && target.parentNode.classList.contains('cell')) {
-        swapTiles(target.parentNode, draggedTile);
+        swapTiles(target.parentNode, tileToDrop);
     }
     // Dropped on an empty cell in the grid
     else if (target.classList.contains('droppable') && !target.firstChild) {
-        target.appendChild(draggedTile);
+        target.appendChild(tileToDrop);
     }
     // Dropped on a tile in the tiles container
     else if (target.classList.contains('tile') && target.parentNode.id === 'tiles') {
-        shuffleTilesInContainer(target, draggedTile);
+        shuffleTilesInContainer(target, tileToDrop);
     }
     // Dropped in the tiles container
     else if (target.id === 'tiles') {
-    	document.getElementById('tiles').appendChild(draggedTile);
-
+        document.getElementById('tiles').appendChild(tileToDrop);
     }
     // Dropped on a non-empty cell
-    else if (target.classList.contains('droppable') && target.firstChild && target.firstChild !== draggedTile) {
-            swapTiles(target, draggedTile);
+    else if (target.classList.contains('droppable') && target.firstChild && target.firstChild !== tileToDrop) {
+        swapTiles(target, tileToDrop);
     }
 }
 
