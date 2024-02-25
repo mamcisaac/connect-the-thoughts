@@ -170,7 +170,7 @@ button {
 
 /* Check Answers button - most prominent */
 #checkAnswers {
-    background-color: red /*#4CAF50; /* Green */
+    background-color: red; /*#4CAF50; /* Green */
     color: white;
     font-size: 18px;
     font-weight: bold;

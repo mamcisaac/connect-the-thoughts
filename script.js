@@ -322,7 +322,7 @@ function handleTouchEnd(e) {
     activeTile.classList.remove('dragging');
     activeTile.classList.remove('clue-correct', 'clue-partial', 'clue-incorrect');
 
-document.getElementById('result').textContent = 'I got this far...';
+document.getElementById('result').textContent = dropTarget;
 
     // Check if the drop target is a valid droppable area
     if (dropTarget && dropTarget.classList.contains('droppable') && !dropTarget.classList.contains('locked')) {
