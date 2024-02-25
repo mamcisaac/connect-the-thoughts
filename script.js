@@ -454,6 +454,8 @@ function swapTiles(targetCell, draggedTile) {
         // If dragged from a cell, swap the tiles
         targetCell.appendChild(draggedTile);
         draggedTileParent.appendChild(targetCell.firstChild);
+        targetCell.firstChild.classList.remove('clue-correct', 'clue-partial', 'clue-incorrect');
+
     } else {
         // If dragged from the tiles container, move the target tile to the container and the dragged tile to the cell
         document.getElementById('tiles').appendChild(targetCell.firstChild);
