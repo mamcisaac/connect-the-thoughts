@@ -225,9 +225,15 @@ function handleTouchStart(e) {
     e.preventDefault();
     const target = e.target;
 
+    // Check if the target has a first child and remove classes if so
+    if (target.firstChild) {
+        target.firstChild.classList.remove('clue-correct', 'clue-partial', 'clue-incorrect');
+    }
+
     // Set the element being dragged
     target.classList.add('dragging');
     activeTile = target;
+
 }
 
 function handleTouchMove(e) {
