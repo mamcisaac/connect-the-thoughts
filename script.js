@@ -422,6 +422,8 @@ function drop(ev, dropTargetElement) {
         // Touch event
         draggedTile = ev.detail.touchedElement;
     }
+		
+		draggedTile.classList.remove('clue-correct', 'clue-partial', 'clue-incorrect');
 
     // If there's no tile to be dropped, exit the function
     if (!draggedTile) return;
@@ -445,6 +447,7 @@ function drop(ev, dropTargetElement) {
 
 function swapTiles(targetCell, draggedTile) {
 		targetCell.firstChild.classList.remove('clue-correct', 'clue-partial', 'clue-incorrect');
+		draggedTile.classList.remove('clue-correct', 'clue-partial', 'clue-incorrect');
 
     // Get the parent cell (or container) of the dragged tile
     const draggedTileParent = draggedTile.parentNode;

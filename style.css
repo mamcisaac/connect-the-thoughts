@@ -15,7 +15,8 @@
 
 #grid .cell {
     border: 1px solid #000;
-    height: 50px; /* Fixed height for grid cells to accommodate tiles */
+    height: 40px; /* Fixed height for grid cells to accommodate tiles */
+    min-width: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +32,7 @@
 /* Ensure that the column and row headers have a fixed size */
 #grid .cell.heading {
     background-color: #eee; /* Different background for headers */
-    height: 50px; /* Match cell height */
+    height: 40px; /* Fixed height for grid cells to accommodate tiles */
     line-height: 50px; /* Center text vertically */
 }
 
@@ -293,10 +294,14 @@ body, #game-container {
     #grid .cell {
         height: 40px; /* Smaller height for cells */
     }
+    
+    #grid .cell.heading {
+        height: 40px; /* Smaller height for cells */
+    }
 
     .tile {
         height: 30px; /* Smaller height for tiles */
-        min-width: 30px; /* Smaller width for tiles */
+        min-width: 40px; /* Smaller width for tiles */
         font-size: 12px; /* Smaller font size if the tiles contain text */
     }
 }
