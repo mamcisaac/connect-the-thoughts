@@ -326,6 +326,8 @@ function handleTouchEnd(e) {
     if (dropTarget && dropTarget.classList.contains('droppable') && !dropTarget.classList.contains('locked')) {
         // Call the drop function directly
         drop({ target: dropTarget }, activeTile);
+document.getElementById('result').textContent = 'I tried to drop...';
+
     }
 
     // Reset styles and state
