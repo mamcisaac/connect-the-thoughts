@@ -300,3 +300,8 @@ body, #game-container {
         font-size: 12px; /* Smaller font size if the tiles contain text */
     }
 }
+
+
+.top-left-cell {
+    visibility: hidden; /* Makes the cell invisible but still takes up space */
+}

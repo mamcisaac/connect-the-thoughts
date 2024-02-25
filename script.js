@@ -225,10 +225,16 @@ function handleTouchStart(e) {
     e.preventDefault();
     const target = e.target;
 
+    // Check if the target has a first child and remove classes if so
+    if (target.firstChild) {
+        target.firstChild.classList.remove('clue-correct', 'clue-partial', 'clue-incorrect');
+    }
+
     // Set the element being dragged
     target.classList.add('dragging');
     activeTile = target;
 }
+
 
 function handleTouchMove(e) {
     e.preventDefault();
@@ -454,8 +460,7 @@ function swapTiles(targetCell, draggedTile) {
         // If dragged from a cell, swap the tiles
         targetCell.appendChild(draggedTile);
         draggedTileParent.appendChild(targetCell.firstChild);
-        targetCell.firstChild.classList.remove('clue-correct', 'clue-partial', 'clue-incorrect');
-
+        
     } else {
         // If dragged from the tiles container, move the target tile to the container and the dragged tile to the cell
         document.getElementById('tiles').appendChild(targetCell.firstChild);
