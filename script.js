@@ -290,46 +290,31 @@ function setupDragAndDrop() {
 		        }
 		    }
 		}
-		
-		function handleTouchStart(event, tileElement) {
+
+		function handleTouchStart(event) {
+		    event.preventDefault(); // Prevent default touch behavior like scrolling
 		    const touch = event.touches[0];
-		    const targetElement = document.elementFromPoint(touch.clientX, touch.clientY);
-		    const gameContainer = document.getElementById('game-container'); // Update ID if needed
+		    const targetTile = event.target.closest('.tile'); // Ensure we're touching a tile
 		
-		    // Start drag operation only if the touch starts within the grid-container
-		    if (gameContainer.contains(targetElement)) {
-		        event.preventDefault(); // Prevent default to prioritize drag operation
-		        startDrag(touch, tileElement); // Use the passed tile element
+		    if (targetTile) {
+		        startDrag(touch, targetTile); // Start the dragging process
 		    }
 		}
 		
 		function handleTouchMove(event) {
+		    event.preventDefault(); // Prevent default touch behavior like scrolling
 		    const touch = event.touches[0];
-		    const targetElement = document.elementFromPoint(touch.clientX, touch.clientY);
 		
-		    // Check if the target of the touch is within the instructions container
-		    const instructionsContainer = document.getElementById('instructions-container'); // Assuming the ID of your instructions container is 'instructions-container'
-		    if (instructionsContainer.contains(targetElement)) {
-		        // Allow default behavior, like scrolling
-		        return;
-		    }
-		
-		    // If we are in the grid-container, proceed with the drag operation
-		    const gameContainer = document.getElementById('game-container'); 
-		    if (gameContainer.contains(targetElement)) {
-		        moveDrag(touch);
-		        // Prevent default behavior to prioritize dragging
-		        if (isDraggingTile) {
-		            event.preventDefault();
-		        }
+		    if (activeTile) {
+		        moveDrag(touch); // Move the tile based on touch movement
 		    }
 		}
 		
 		function handleTouchEnd(event) {
-		    // Complete the "drag" operation if it was started
-		    if (isDraggingTile) {
-		        endDrag();
-		        event.preventDefault(); // Prevent default if a drag operation was ongoing
+		    event.preventDefault(); // Prevent default touch behavior like scrolling
+		
+		    if (activeTile) {
+		        endDrag(); // Finalize the dragging process
 		    }
 		}
 
@@ -861,6 +846,13 @@ function startNewGame() {
     const modeToSwitch = currentMode === 'hard' ? 'Regular' : 'Hard';
     document.getElementById('toggleMode').textContent = `Switch to ${modeToSwitch} Mode`;
 
+		document.getElementById('howToPlayButton').addEventListener('click', function() {
+		    document.getElementById('instructionsOverlay').classList.remove('hidden');
+		});
+		
+		document.getElementById('closeInstructions').addEventListener('click', function() {
+		    document.getElementById('instructionsOverlay').classList.add('hidden');
+		});
 
     // Hide all mode instructions
     document.querySelectorAll('.mode-instructions').forEach(element => {

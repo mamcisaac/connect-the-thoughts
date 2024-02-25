@@ -248,3 +248,33 @@ button {
   max-height: 300px; /* Adjust based on your needs */
   overflow-y: auto;
 }
+
+
+body, html {
+    overflow: hidden; /* Disables scrolling on the main page */
+}
+
+#instructionsOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#instructionsOverlay.hidden {
+    display: none;
+}
+
+#instructionsContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-height: 80%;
+    overflow-y: auto; /* Allows scrolling within the instructions */
+}
