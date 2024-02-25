@@ -16,7 +16,7 @@
 #grid .cell {
     border: 1px solid #000;
     height: 40px; /* Fixed height for grid cells to accommodate tiles */
-    min-width: 50px;
+    min-width: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,7 +73,7 @@
     gap: 5px; /* Adds a small gap between tiles */
     justify-content: center; /* Aligns tiles to the start of the container */
     min-height: 50px; /* Adjust to match the height of your tiles */
-		min-width: 50px; /* Adjust to match the height of your tiles */
+		min-width: 80px; /* Adjust to match the height of your tiles */
     margin-bottom: 20px; /* Added margin to create space underneath */
 
 }
@@ -90,7 +90,7 @@
     justify-content: center; /* Horizontally center content */
     align-items: center; /* Vertically center content */
     height: 40px; /* Fixed height for tiles */
-    min-width: 40px; /* Minimum width for tiles */
+    min-width: 80px; /* Minimum width for tiles */
     box-sizing: border-box; /* Ensures padding is included in the width and height */
 
 		-webkit-user-select: none; /* Safari */
@@ -301,7 +301,7 @@ body, #game-container {
 
     .tile {
         height: 30px; /* Smaller height for tiles */
-        min-width: 40px; /* Smaller width for tiles */
+        min-width: 80px; /* Smaller width for tiles */
         font-size: 12px; /* Smaller font size if the tiles contain text */
     }
 }
