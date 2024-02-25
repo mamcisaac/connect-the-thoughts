@@ -316,7 +316,7 @@ function handleTouchEnd(e) {
     if (!activeTile) return;
 
     const touchLocation = e.changedTouches[0];
-    const dropTarget = document.elementFromPoint(touchLocation.clientX, touchLocation.clientY);
+    const dropTarget = document.elementFromPoint(touchLocation.pageX, touchLocation.pageY);
 
     // Mimic the dragend event
     activeTile.classList.remove('dragging');
