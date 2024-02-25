@@ -208,7 +208,6 @@ function setupDragAndDrop() {
 
         // Add touch event listeners
         tile.addEventListener('touchstart', handleTouchStart, false);
-        tile.addEventListener('touchmove', handleTouchMove, false);
         tile.addEventListener('touchend', handleTouchEnd, false);
     });
 
@@ -236,17 +235,6 @@ function handleTouchStart(e) {
 
 }
 
-function handleTouchMove(e) {
-    e.preventDefault();
-    const touchLocation = e.targetTouches[0];
-
-    if (activeTile) {
-        // Move the tile to follow the touch
-        activeTile.style.position = 'absolute';
-        activeTile.style.left = touchLocation.pageX + 'px';
-        activeTile.style.top = touchLocation.pageY + 'px';
-    }
-}
 
 function handleTouchEnd(e) {
     e.preventDefault();
