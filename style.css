@@ -52,6 +52,8 @@
 .tile.dragging {
     opacity: 0.5; /* Make the tile semi-transparent when dragging */
     background-color: #cccccc; /* Different background to indicate dragging */
+    z-index: 1000; /* Ensure it's above other elements */
+    /* Optional: add transformations or scaling if needed */
 }
 
 #grid .cell.drag-over {
@@ -254,6 +256,13 @@ body, html {
     overflow: hidden; /* Disables scrolling on the main page */
 }
 
+body, #game-container {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE/Edge */
+    user-select: none;
+}
+
 #instructionsOverlay {
     position: fixed;
     top: 0;
@@ -277,4 +286,17 @@ body, html {
     border-radius: 5px;
     max-height: 80%;
     overflow-y: auto; /* Allows scrolling within the instructions */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 600px) {
+    #grid .cell {
+        height: 40px; /* Smaller height for cells */
+    }
+
+    .tile {
+        height: 30px; /* Smaller height for tiles */
+        min-width: 30px; /* Smaller width for tiles */
+        font-size: 12px; /* Smaller font size if the tiles contain text */
+    }
 }
