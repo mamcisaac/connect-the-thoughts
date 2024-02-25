@@ -180,7 +180,7 @@ button {
 }
 
 #checkAnswers:hover {
-    background-color: #388E3C;
+    background-color: red /* #388E3C;
 }
 
 /* New Game and Reset Game buttons - identical properties, half the size of Check Answers */

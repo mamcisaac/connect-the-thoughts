@@ -221,60 +221,9 @@ function setupDragAndDrop() {
 
 
     
-function handleTouchStart(e) {
-    e.preventDefault();
-    const target = e.target;
-
-    // Check if the target has a first child and remove classes if so
-    if (target.firstChild) {
-        target.firstChild.classList.remove('clue-correct', 'clue-partial', 'clue-incorrect');
-    }
-
-    // Set the element being dragged
-    target.classList.add('dragging');
-    activeTile = target;
-
-}
 
 
-function handleTouchEnd(e) {
-    e.preventDefault();
-    if (!activeTile) return;
 
-    const touchLocation = e.changedTouches[0];
-    const dropTarget = document.elementFromPoint(touchLocation.clientX, touchLocation.clientY);
-
-    // Mimicking the logic from handleDrop
-    if (dropTarget) {
-        // Dropped on a tile in the grid cell, we need to swap them
-        if (dropTarget.classList.contains('tile') && dropTarget.parentNode.classList.contains('cell')) {
-            swapTiles(dropTarget.parentNode, activeTile);
-        }
-        // Dropped on an empty cell in the grid
-        else if (dropTarget.classList.contains('droppable') && !dropTarget.firstChild) {
-            dropTarget.appendChild(activeTile);
-        }
-        // Dropped on a tile in the tiles container
-        else if (dropTarget.classList.contains('tile') && dropTarget.parentNode.id === 'tiles') {
-            shuffleTilesInContainer(dropTarget, activeTile);
-        }
-        // Dropped in the tiles container
-        else if (dropTarget.id === 'tiles') {
-            document.getElementById('tiles').appendChild(activeTile);
-        }
-        // Dropped on a non-empty cell
-        else if (dropTarget.classList.contains('droppable') && dropTarget.firstChild && dropTarget.firstChild !== activeTile) {
-            swapTiles(dropTarget, activeTile);
-        }
-    }
-
-    // Reset styles and state
-    activeTile.style.position = '';
-    activeTile.style.left = '';
-    activeTile.style.top = '';
-    activeTile.classList.remove('dragging');
-    activeTile = null;
-}
 
 function handleDragStart(event) {
     const targetElement = event.target; // The element that started the drag
@@ -342,13 +291,9 @@ function handleDrop(event) {
     }
 }
 
-}
-
-
 function handleTouchStart(event) {
     event.preventDefault();
     const targetElement = event.target;
-
     if (targetElement.classList.contains('tile')) {
         targetElement.classList.add('dragging');
         activeTile = targetElement; // Set the active tile
@@ -357,66 +302,31 @@ function handleTouchStart(event) {
 
 function handleTouchMove(event) {
     event.preventDefault();
-
-    if (!activeTile) {
-        return;
-    }
-
-    const touch = event.touches[0];
-    const targetElement = document.elementFromPoint(touch.clientX, touch.clientY);
-
-    // Move the tile
-    activeTile.style.position = 'fixed';
-    activeTile.style.left = `${touch.clientX - (activeTile.offsetWidth / 2)}px`;
-    activeTile.style.top = `${touch.clientY - (activeTile.offsetHeight / 2)}px`;
-
-    // Add 'drag-over' class to the droppable cell under the dragging tile
-    if (targetElement && targetElement.classList.contains('droppable')) {
-        targetElement.classList.add('drag-over');
+    if (activeTile) {
+        const touch = event.touches[0];
+        activeTile.style.position = 'fixed';
+        activeTile.style.left = `${touch.clientX - (activeTile.offsetWidth / 2)}px`;
+        activeTile.style.top = `${touch.clientY - (activeTile.offsetHeight / 2)}px`;
     }
 }
 
 
-
 function handleTouchEnd(event) {
     event.preventDefault();
-
-    if (!activeTile) {
-        return;
+    if (activeTile) {
+        const touch = event.changedTouches[0];
+        const targetElement = document.elementFromPoint(touch.clientX, touch.clientY);
+        // Insert logic here to handle different dropping scenarios
+        // Reset the active tile
+        activeTile.classList.remove('dragging');
+        activeTile.style.position = '';
+        activeTile.style.left = '';
+        activeTile.style.top = '';
+        activeTile = null;
     }
+}
 
-    const touch = event.changedTouches[0];
-    const targetElement = document.elementFromPoint(touch.clientX, touch.clientY);
 
-    // Using existing logic for different scenarios of dropping a tile
-    if (targetElement) {
-        if (targetElement.classList.contains('tile') && targetElement.parentNode.classList.contains('droppable')) {
-            // Swap tiles if dropped on another tile within a grid cell
-            swapTiles(targetElement.parentNode, activeTile);
-        } else if (targetElement.classList.contains('droppable') && !targetElement.firstChild) {
-            // Place the tile in an empty cell
-            targetElement.appendChild(activeTile);
-        } else if (targetElement.classList.contains('tile') && targetElement.parentNode.id === 'tiles') {
-            // Shuffle tiles within the tiles container
-            shuffleTilesInContainer(targetElement, activeTile);
-        } else if (targetElement.id === 'tiles') {
-            // Place the tile back in the tiles container
-            document.getElementById('tiles').appendChild(activeTile);
-        } else if (targetElement.classList.contains('droppable') && targetElement.firstChild) {
-            // Swap tiles if dropped on a cell that already contains a tile
-            swapTiles(targetElement, activeTile);
-        }
-    }
-
-    // Reset the styles and state
-    activeTile.classList.remove('dragging');
-    activeTile.style.position = '';
-    activeTile.style.left = '';
-    activeTile.style.top = '';
-    document.querySelectorAll('.droppable').forEach(cell => cell.classList.remove('drag-over'));
-
-    // Reset activeTile
-    activeTile = null;
 }
 
 
