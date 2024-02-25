@@ -203,13 +203,6 @@ function setupDragAndDrop() {
     const tiles = document.querySelectorAll('.tile');
     const droppableCells = document.querySelectorAll('.droppable');
 
-    // Add touch event listeners to the tiles
-		tiles.forEach(tile => {
-		    tile.addEventListener('touchstart', (event) => handleTouchStart(event, tile));
-		    tile.addEventListener('touchmove', handleTouchMove);
-		    tile.addEventListener('touchend', handleTouchEnd);
-		});
-    
     // Add drag event listeners to the tiles
     tiles.forEach(tile => {
         tile.addEventListener('dragstart', handleDragStart);
@@ -291,32 +284,6 @@ function setupDragAndDrop() {
 		    }
 		}
 
-		function handleTouchStart(event) {
-		    event.preventDefault(); // Prevent default touch behavior like scrolling
-		    const touch = event.touches[0];
-		    const targetTile = event.target.closest('.tile'); // Ensure we're touching a tile
-		
-		    if (targetTile) {
-		        startDrag(touch, targetTile); // Start the dragging process
-		    }
-		}
-		
-		function handleTouchMove(event) {
-		    event.preventDefault(); // Prevent default touch behavior like scrolling
-		    const touch = event.touches[0];
-		
-		    if (activeTile) {
-		        moveDrag(touch); // Move the tile based on touch movement
-		    }
-		}
-		
-		function handleTouchEnd(event) {
-		    event.preventDefault(); // Prevent default touch behavior like scrolling
-		
-		    if (activeTile) {
-		        endDrag(); // Finalize the dragging process
-		    }
-		}
 
 }
 
@@ -332,23 +299,8 @@ function displayGameData(gameData) {
 
 let activeTile = null; // Keep track of the tile being dragged
 
-function startDrag(touch, tile) {
-    // Mark the tile as being dragged
-    activeTile = tile;
-    activeTile.classList.add('dragging');
-    // Set any data you need for the drag operation
-    // You can use the touch coordinates (touch.pageX and touch.pageY) if needed
-}
 
-function moveDrag(touch) {
-    // Move the tile based on the touch coordinates
-    if (activeTile) {
-        // Update the tile position based on touch coordinates
-        // You might need to adjust this to account for the offset from the touch point to the tile's center
-        activeTile.style.left = touch.pageX + 'px';
-        activeTile.style.top = touch.pageY + 'px';
-    }
-}
+
 
 function endDrag() {
     if (activeTile) {
