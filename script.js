@@ -206,9 +206,6 @@ function setupDragAndDrop() {
         tile.addEventListener('dragstart', handleDragStart);
         tile.addEventListener('dragend', handleDragEnd);
 
-        // Add touch event listeners
-        tile.addEventListener('touchstart', handleTouchStart, false);
-        tile.addEventListener('touchend', handleTouchEnd, false);
     });
 
     droppableCells.forEach(cell => {
