@@ -218,7 +218,7 @@ function setupDragAndDrop() {
         cell.addEventListener('dragleave', handleDragLeave);
         cell.addEventListener('drop', handleDrop);
     });
-}
+
 
     
 function handleTouchStart(e) {
@@ -353,7 +353,7 @@ function handleDrop(event) {
     }
 }
 
-
+}
 
 
 
