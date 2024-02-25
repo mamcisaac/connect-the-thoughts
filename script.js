@@ -382,7 +382,7 @@ function endDrag() {
 function generateGrid(columnWords, rowWords) {
   const grid = document.getElementById('grid');
 
-  let html = '<div class="cell"></div>'; // First cell is empty for alignment
+    let html = '<div class="cell top-left-cell"></div>'; // Top left cell
   
   // Loop through column words to add column headings
   columnWords.forEach((word, colIndex) => {
