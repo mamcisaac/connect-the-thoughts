@@ -203,87 +203,102 @@ function setupDragAndDrop() {
     const droppableCells = document.querySelectorAll('.droppable');
 
     tiles.forEach(tile => {
+        // Add mouse event listeners
         tile.addEventListener('dragstart', handleDragStart);
         tile.addEventListener('dragend', handleDragEnd);
 
+        // Add touch event listeners
+        tile.addEventListener('touchstart', handleTouchStart);
+        tile.addEventListener('touchmove', handleTouchMove);
+        tile.addEventListener('touchend', handleTouchEnd);
     });
 
     droppableCells.forEach(cell => {
+        // Add mouse event listeners
         cell.addEventListener('dragover', handleDragOver);
         cell.addEventListener('dragenter', handleDragEnter);
         cell.addEventListener('dragleave', handleDragLeave);
         cell.addEventListener('drop', handleDrop);
+
+        // Add touch event listeners
+        cell.addEventListener('touchmove', handleTouchMove);
+        cell.addEventListener('touchend', handleTouchEnd);
     });
+}
 
 
-    
+function handleTouchStart(event) {
+    event.preventDefault();
+    const targetElement = event.target;
 
-function handleDragStart(event) {
-    const targetElement = event.target; // The element that started the drag
-    const gameContainer = document.getElementById('game-container');
-
-    // Start drag operation only if it starts within the grid-container
-    if (gameContainer.contains(targetElement)) {
-        event.target.classList.add('dragging');
-        // Optionally, set the data transfer
-        event.dataTransfer.setData('text/plain', event.target.id);
-    } else {
-        // If not in the game container, allow default behaviors
-        event.preventDefault();
+    if (targetElement.classList.contains('tile')) {
+        targetElement.classList.add('dragging');
+        activeTile = targetElement; // Set the active tile
     }
 }
 
-function handleDragEnd(event) {
-    event.target.classList.remove('dragging');
-    // Reset color-related classes
-    event.target.classList.remove('clue-correct', 'clue-partial', 'clue-incorrect');
-}
 
+function handleTouchMove(event) {
+    event.preventDefault();
 
-function handleDragOver(event) {
-    // Allow dropping only if the drag is within the game container
-    const gameContainer = document.getElementById('game-container');
-    if (gameContainer.contains(event.target)) {
-        event.preventDefault(); // Necessary to allow dropping
+    if (!activeTile) {
+        return;
+    }
+
+    const touch = event.touches[0];
+    const targetElement = document.elementFromPoint(touch.clientX, touch.clientY);
+
+    // Move the tile
+    activeTile.style.position = 'fixed';
+    activeTile.style.left = `${touch.clientX - (activeTile.offsetWidth / 2)}px`;
+    activeTile.style.top = `${touch.clientY - (activeTile.offsetHeight / 2)}px`;
+
+    // Add 'drag-over' class to the droppable cell under the dragging tile
+    if (targetElement && targetElement.classList.contains('droppable')) {
+        targetElement.classList.add('drag-over');
     }
 }
 
-function handleDragEnter(event) {
-  const gameContainer = document.getElementById('game-container');
-  if (gameContainer.contains(event.target) && event.target.classList.contains('droppable')) {
-      event.target.classList.add('drag-over');
-	 }
-}
 
-function handleDragLeave(event) {
-    const gameContainer = document.getElementById('game-container');
-    if (gameContainer.contains(event.target) && event.target.classList.contains('droppable')) {
-        event.target.classList.remove('drag-over');
+function handleTouchEnd(event) {
+    event.preventDefault();
+
+    if (!activeTile) {
+        return;
     }
-}
 
-// Attach these functions to the dragenter and dragleave events
-document.querySelectorAll('.droppable').forEach(cell => {
-cell.addEventListener('dragenter', handleDragEnter);
-cell.addEventListener('dragleave', handleDragLeave);
-});
+    const touch = event.changedTouches[0];
+    const targetElement = document.elementFromPoint(touch.clientX, touch.clientY);
 
-
-function handleDrop(event) {
-    const gameContainer = document.getElementById('game-container');
-    if (gameContainer.contains(event.target)) {
-        event.preventDefault();
-        var draggedElement = document.querySelector('.dragging');
-
-        // Ensure the target is a cell and it does not have the 'locked' class
-        if (draggedElement && event.target.classList.contains('droppable') && !event.target.classList.contains('locked')) {
-            // Append the tile to the cell or handle the drop logic
-            event.target.appendChild(draggedElement);
-            event.target.classList.remove('drag-over');
+    // Using existing logic for different scenarios of dropping a tile
+    if (targetElement) {
+        if (targetElement.classList.contains('tile') && targetElement.parentNode.classList.contains('droppable')) {
+            // Swap tiles if dropped on another tile within a grid cell
+            swapTiles(targetElement.parentNode, activeTile);
+        } else if (targetElement.classList.contains('droppable') && !targetElement.firstChild) {
+            // Place the tile in an empty cell
+            targetElement.appendChild(activeTile);
+        } else if (targetElement.classList.contains('tile') && targetElement.parentNode.id === 'tiles') {
+            // Shuffle tiles within the tiles container
+            shuffleTilesInContainer(targetElement, activeTile);
+        } else if (targetElement.id === 'tiles') {
+            // Place the tile back in the tiles container
+            document.getElementById('tiles').appendChild(activeTile);
+        } else if (targetElement.classList.contains('droppable') && targetElement.firstChild) {
+            // Swap tiles if dropped on a cell that already contains a tile
+            swapTiles(targetElement, activeTile);
         }
     }
-}
 
+    // Reset the styles and state
+    activeTile.classList.remove('dragging');
+    activeTile.style.position = '';
+    activeTile.style.left = '';
+    activeTile.style.top = '';
+    document.querySelectorAll('.droppable').forEach(cell => cell.classList.remove('drag-over'));
+
+    // Reset activeTile
+    activeTile = null;
 }
 
 
