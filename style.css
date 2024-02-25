@@ -89,6 +89,10 @@
     height: 40px; /* Fixed height for tiles */
     min-width: 40px; /* Minimum width for tiles */
     box-sizing: border-box; /* Ensures padding is included in the width and height */
+
+		-webkit-user-select: none; /* Safari */
+  	-moz-user-select: none; /* Firefox */
+  	-ms-user-select: none; /* Firefox */
 }
 
 .tile, .cell.droppable {
@@ -225,4 +229,22 @@ button {
 
 .locked {
     pointer-events: none; /* Disables mouse events on the locked cell */
+}
+
+
+#game-container {
+  position: sticky;
+  top: 0; /* Adjust this value as needed */
+  z-index: 10; /* Ensure this is above the z-index of other elements */
+	overflow: hidden; /* This will prevent scrolling within the game container */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none;
+  -webkit-overflow-scrolling: touch; /* Specific to Safari on iOS */
+  user-select: none;
+}
+
+#gameInstructions {
+  max-height: 300px; /* Adjust based on your needs */
+  overflow-y: auto;
 }

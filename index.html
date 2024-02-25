@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+	
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect-the-thoughts</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 </head>
 <body>
+<div id="game-container">
 <div id="grid-container">
     <div id="grid">
       <!-- Grid cells will be dynamically inserted here -->
     </div>
 </div>
-
-
 <div id="tiles" class="droppable" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 <button id="checkAnswers">Check Answers</button>
 <button id="newGame">New Game</button>	
@@ -22,8 +23,7 @@
 <div id="heartsContainer"></div>
 
 <div id="result"></div>
-
-<!-- Your game's HTML content -->
+</div>
 
 <!-- Instructions section -->
 <div id="gameInstructions">
