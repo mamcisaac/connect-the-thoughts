@@ -311,19 +311,29 @@ function handleTouchMove(event) {
 }
 
 
-function handleTouchEnd(event) {
-    event.preventDefault();
-    if (activeTile) {
-        const touch = event.changedTouches[0];
-        const targetElement = document.elementFromPoint(touch.clientX, touch.clientY);
-        // Insert logic here to handle different dropping scenarios
-        // Reset the active tile
-        activeTile.classList.remove('dragging');
-        activeTile.style.position = '';
-        activeTile.style.left = '';
-        activeTile.style.top = '';
-        activeTile = null;
-    }
+function handleTouchEnd(e) {
+    e.preventDefault();
+    if (!activeTile) return;
+
+    const touchLocation = e.changedTouches[0];
+    const dropTarget = document.elementFromPoint(touchLocation.clientX, touchLocation.clientY);
+
+    // Create a custom event for the drop
+    const customDropEvent = new CustomEvent('drop', {
+        bubbles: true, // Allow the event to bubble up
+        cancelable: true, // Allow the event to be cancelable
+        detail: { touchedElement: activeTile } // Pass the touched element as detail
+    });
+
+    // Call the drop function with the custom event
+    drop(customDropEvent, dropTarget);
+
+    // Reset styles and state
+    activeTile.style.position = '';
+    activeTile.style.left = '';
+    activeTile.style.top = '';
+    activeTile.classList.remove('dragging');
+    activeTile = null;
 }
 
 
@@ -402,12 +412,10 @@ ev.dataTransfer.setData('text', ev.target.id);
 
 
 
-function drop(ev) {
-    ev.preventDefault();
-
-    const draggedTileId = ev.dataTransfer.getData('text/plain');
-    const draggedTile = document.getElementById(draggedTileId);
-    let target = ev.target;
+function drop(event, draggedElement = null) {
+    event.preventDefault();
+    const draggedTile = draggedElement || document.getElementById(event.dataTransfer.getData('text/plain'));
+    let target = event.target;
 
     // Dropped on a tile in the grid cell, we need to swap them
     if (target.classList.contains('tile') && target.parentNode.classList.contains('cell')) {
