@@ -15,7 +15,7 @@ const gameDataSets = [
   "rowWords": ["front", "respect", "foot"],
   "correctAnswers": [
     ["bow", "streak", "display"],
-    ["salute", "honor", "display"],
+    ["salute", "honor", "praise"],
     ["yard", "kick", "step"]
   ]
 }

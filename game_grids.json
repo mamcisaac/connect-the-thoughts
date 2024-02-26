@@ -13,7 +13,7 @@
   "rowWords": ["front", "respect", "foot"],
   "correctAnswers": [
     ["bow", "streak", "display"],
-    ["salute", "honor", "display"],
+    ["salute", "honor", "praise"],
     ["yard", "kick", "step"]
   ]
 }
@@ -156,3 +156,13 @@
   ]
 }
 ,
+{
+  "columnWords": ["affair", "dessert", "marker"],
+  "rowWords": ["evening", "sweet", "time"],
+  "correctAnswers": [
+    ["Gala", "Nightcap", "Twilight"],
+    ["Crush", "Pie", "Note"],
+    ["Date", "Tea", "Watch"]
+  ]
+}
+
