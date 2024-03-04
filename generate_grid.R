@@ -7,6 +7,8 @@ library(jsonlite)
 library(purrr)
 library(combinat)
 library(jsonlite)
+library(stringi)
+
 
 
 word_list = read_csv("word_list.txt", col_names = FALSE)$X1
@@ -51,59 +53,88 @@ reverse_dictionary = function(word1, word2) {
 	return(out)
 }
 
-manual_check = function(game_grid) {
 
-	# Get unique word pairs
-	unique_pairs <- unique(game_grid[, c("word1", "word2")])
+manual_check = function(game_grid) {
 	
 	correct_answers = c()
-	
-	# Iterate through each unique pair
-	for (k in 1:nrow(unique_pairs)) {
-		word1 <- unique_pairs$word1[k]
-		word2 <- unique_pairs$word2[k]
-		ijclues <- game_grid %>% filter(`word1` == unique_pairs$word1[k] & `word2` == unique_pairs$word2[k])
-		
-		# Display the (i, j) pair and corresponding clues with numbers
-		print(cbind(unique(unique_pairs[,1]), (unique(unique_pairs[,2]))))
-		cat("Words:", word1, "-", word2, "\n")
-		cat("Clues:\n")
-		for (clue_num in 1:dim(ijclues)[1]) {
-			cat(clue_num, ": ", ijclues$clue[clue_num], "\n")
-		}
-		cat("0: None of the clues\n")
-		
-		# Prompt user to input the number associated with the best clue or a custom clue
-		selected_clue_input <- readline(prompt = "Enter the number associated with the best clue (or '0' for none) or enter a custom clue: ")
-		
-		# Check if the input is a number
-		if (grepl("^\\d+$", selected_clue_input)) {
-			selected_clue_num <- as.integer(selected_clue_input)
-			
-			# Retrieve the selected clue based on the entered number
-			if (selected_clue_num == 0) {
-				selected_clue <- NA
-				return(NA)
-			} else {
-				selected_clue <- ijclues$clue[selected_clue_num]
-			}
-		} else {
-			# Use the input as the selected clue
-			selected_clue <- selected_clue_input
-		}
-		
-		correct_answers = c(correct_answers, selected_clue)
-	}
-	
-	return(correct_answers)
+  
+  # Get unique word pairs
+  unique_pairs <- unique(game_grid[, c("word1", "word2")])
+  
+  # Iterate through each unique pair
+  for (k in 1:nrow(unique_pairs)) {
+    word1 <- unique_pairs$word1[k]
+    word2 <- unique_pairs$word2[k]
+    ijclues <- game_grid %>% filter(`word1` == unique_pairs$word1[k] & `word2` == unique_pairs$word2[k])
+    
+    # Display the (i, j) pair and corresponding clues with numbers
+    print(cbind(unique(unique_pairs[,1]), (unique(unique_pairs[,2]))))
+    cat("Words:", word1, "-", word2, "\n")
+    cat("Clues so far: ", correct_answers, "\n")
+    cat("Potential clues:\n")
+    for (clue_num in 1:dim(ijclues)[1]) {
+      cat(clue_num, ": ", ijclues$clue[clue_num], "\n")
+    }
+    cat("0: None of the clues\n")
+    
+    repeat {
+      # Prompt user to input the number associated with the best clue or a custom clue
+      selected_clue_input <- readline(prompt = "Enter the number associated with the best clue (or '0' for none) or enter a custom clue: ")
+      
+      # Check if the input is a number
+      if (grepl("^\\d+$", selected_clue_input)) {
+        selected_clue_num <- as.integer(selected_clue_input)
+        
+        # Retrieve the selected clue based on the entered number
+        if (selected_clue_num == 0) {
+          selected_clue <- NA
+          return("")
+        } else {
+          selected_clue <- ijclues$clue[selected_clue_num]
+        }
+      } else {
+        # Use the input as the selected clue
+        selected_clue <- selected_clue_input
+      }
+      
+      # Check if the selected clue is already in correct_answers
+      if (selected_clue %in% correct_answers) {
+      	cat("This clue has already been selected. Please choose another one.\n")
+      	next
+      }
+      
+      # Check if the selected clue shares 3-letter subwords with previous clues or with word1/word2
+      if (any(sapply(correct_answers, function(x) nchar(x) >= 3 && grepl(substr(selected_clue, 1, 3), x)))) {
+      	word_with_subword <- which(sapply(correct_answers, function(x) nchar(x) >= 3 && grepl(substr(selected_clue, 1, 3), x)))[1]
+      	print(paste("This clue shares a 3-letter subword with '", correct_answers[word_with_subword], "'.", sep = ""))
+      	use_anyway <- readline(prompt = "Would you like to use it anyway? (yes/no): ")
+      	if (tolower(use_anyway) == "yes") {
+      		break
+      	} else {
+      		next
+      	}
+      }
+      
+      
+      # If all checks pass, add the selected clue to correct_answers and break the loop
+      correct_answers = c(correct_answers, selected_clue)
+      break
+    }
+  }
+  
+  return(correct_answers)
 }
+
 	
 create_grid = function(row_words_in=c(NA, NA, NA), col_words_in=c(NA, NA, NA)) {
 
-	valid_game = FALSE
 	mikes_happy= FALSE
 	
 	while (!mikes_happy){
+	cat("Generating new words")
+		
+	valid_game = FALSE
+		
 	while (!valid_game){
 		
 		row_words = row_words_in
@@ -111,20 +142,22 @@ create_grid = function(row_words_in=c(NA, NA, NA), col_words_in=c(NA, NA, NA)) {
 		sum_na_rows = sum(is.na(row_words_in))
 		sum_na_cols = sum(is.na(col_words_in))
 		
-		if(sum_na_rows>0){row_words[is.na(row_words)] = sample(word_list, sum_na_rows)}
-		if(sum_na_cols>0){col_words[is.na(col_words)] = sample(word_list, sum_na_cols)}
+		if(sum_na_rows>0){row_words[is.na(row_words_in)] = sample(word_list, sum_na_rows)}
+		if(sum_na_cols>0){col_words[is.na(row_words_in)] = sample(word_list, sum_na_cols)}
 	
 		game_grid = tibble(word1=NULL, word2=NULL, clue=NULL)
 		
-		for(i in 1:3){
-			for (j in 1:3) {
-				game_grid = rbind(game_grid, tibble(word1=row_words[i], word2=col_words[j], clue= reverse_dictionary(row_words[i], col_words[j])))
-			}
-		}
+for(i in 1:3){
+    for (j in 1:3) {
+        game_grid = rbind(game_grid, tibble(word1=row_words[j], word2=col_words[i], clue= reverse_dictionary(row_words[j], col_words[i])))
+    }
+}
+
 		if (dim(unique(game_grid[, c(1,2)]))[1]==9 | sum_na_rows + sum_na_rows ==0){valid_game=TRUE}
 	}
 	correct_answers <- manual_check(game_grid)
-	if (!any(is.na(correct_answers))){mikes_happy=TRUE}
+	if (all(stri_count_words(correct_answers) == rep(1,9))){mikes_happy=TRUE}
+	if (!mikes_happy & (sum_na_rows + sum_na_cols ==0)){stop()}
 	}
 	
 	

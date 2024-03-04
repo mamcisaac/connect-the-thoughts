@@ -165,4 +165,34 @@
     ["Date", "Tea", "Watch"]
   ]
 }
-
+,
+{
+  "columnWords": ["person", "light", "equal"],
+  "rowWords": ["contest", "fire", "form"],
+  "correctAnswers": [
+    ["match", "shade", "tie"],
+    ["sack", "flicker", "shoot"],
+    ["figure", "ray", "copy"]
+  ]
+}
+,
+{
+  "columnWords": ["good", "left", "claim"],
+  "rowWords": ["moral", "not", "legal"],
+  "correctAnswers": [
+    ["decent", "bad", "just"],
+    ["progressive", "right", "liberal"],
+    ["value", "deny", "lawsuit"]
+  ]
+}
+,
+{
+  "columnWords": ["money", "side", "in"],
+  "rowWords": ["invest", "water", "trust"],
+  "correctAnswers": [
+    ["fund", "bank", "savings"],
+    ["hustle", "coast", "ally"],
+    ["buy", "fill", "faith"]
+  ]
+}
+,
