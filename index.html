@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-	
 <head>
     <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Connect-the-thoughts</title>
     <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 </head>
 <body>
-<div id="game-container">
-    <div id="grid-container">
+    <div id="game-container">
         <div id="grid">
             <!-- Grid cells will be dynamically inserted here -->
         </div>
+    	
+    <div id="tiles" class="droppable" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <!-- Tiles will be dynamically inserted here -->
     </div>
-    <div id="tiles" class="droppable" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <button id="checkAnswers">Check Answers</button>
-    <button id="newGame">New Game</button>	
-    <button id="resetGame">Reset</button>
-    <button id="toggleMode">Switch to Hard Mode</button>
-    <div id="heartsContainer"></div>
-    <div id="result"></div>
-</div>
 
 
-<div id="howToPlayButton" style="position: fixed; right: 20px; top: 20px; z-index: 1000; cursor: pointer; background-color: #007bff; border-radius: 50%; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; color: white; font-size: 30px;">
-    ?
-</div>
+        <button id="checkAnswers">Check Answers</button>
+            <div id="heartsContainer">
+        <!-- Hearts will be dynamically inserted here -->
+    </div>
+        <div id="result"></div>
 
-<div id="instructionsOverlay" class="hidden">
-    <div id="instructionsContent">
+        <button id="toggleMode">Switch to Hard Mode</button> 
+
+  			 <div id="endgame">
+	        <button id="newGame">New Game</button>	
+	        <button id="resetGame">Reset</button><br>
+					</div>
+    
+
+            
+
+    <div id="howToPlayButton">
+        <!-- How to play "?" button -->
+    </div>
+
+    <div id="instructionsOverlay" class="hidden">
+            <div id="instructionsContent">
         <button id="closeInstructions">Close</button>
         <h2>Instructions</h2>
         <div id="gameInstructions">
@@ -69,8 +77,9 @@
             </p>
         </div>
     </div>
-</div>
+    </div>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+

@@ -1,179 +1,21 @@
-// Structure for game data
-const gameDataSets = [
-{
-  "columnWords": ["reach", "mission", "artist"],
-  "rowWords": ["officer", "couple", "test"],
-  "correctAnswers": [
-    ["baton", "case", "sketch"],
-    ["marriage", "baby", "duet"],
-    ["ace", "assessment", "pose"]
-  ]
-}
-,
-{
-  "columnWords": ["ship", "show", "put"],
-  "rowWords": ["front", "respect", "foot"],
-  "correctAnswers": [
-    ["bow", "streak", "display"],
-    ["salute", "honor", "praise"],
-    ["yard", "kick", "step"]
-  ]
-}
-,
-{
-  "columnWords": ["base", "ball", "diamond"],
-  "rowWords": ["time", "level", "place"],
-  "correctAnswers": [
-    ["start", "party", "proposal"],
-    ["ground", "tie", "hard"],
-    ["home", "hall", "finger"]
-  ]
-},
-{
-  "columnWords": ["action", "person", "type"],
-  "rowWords": ["legal", "dress", "card"],
-  "correctAnswers": [
-    ["suit", "judge", "family"],
-    ["uniform", "tailor", "tag"],
-    ["charge", "license", "birthday"]
-  ]
-},
-{
-  "columnWords": ["stop", "drop", "roll"],
-  "rowWords": ["take", "team", "fire"],
-  "correctAnswers": [
-    ["thief", "fall", "call"],
-    ["defend", "cut", "roster"],
-    ["water", "match", "hose"]
-  ]
-}
-,
-{
-  "columnWords": ["spread", "spot", "play"],
-  "rowWords": ["sweet", "tight", "band"],
-  "correctAnswers": [
-    ["honey", "perfect", "ace"],
-    ["stretch", "bind", "close"],
-    ["noise", "bar", "jam"]
-  ]
-}
-,
-{
-  "columnWords": ["pile", "turn", "place"],
-  "rowWords": ["snow", "sharp", "fund"],
-  "correctAnswers": [
-    ["bank", "slip", "mountain"],
-    ["heap", "twist", "edge"],
-    ["reserve", "crash", "chest"]
-  ]
-}
-,
-{
-  "columnWords": ["lock", "center", "music"],
-  "rowWords": ["open", "thrust", "note"],
-  "correctAnswers": [
-    ["pick", "plaza", "bar"],
-    ["jam", "core", "beat"],
-    ["seal", "pitch", "key"]
-  ]
-}
-,
-{
-  "columnWords": ["food", "pain", "fast"],
-  "rowWords": ["cut", "fly", "hold"],
-  "correctAnswers": [
-    ["dice", "sting", "slash"],
-    ["fish", "bug", "buzz"],
-    ["wait", "bear", "bite"]
-  ]
-}
-,
-{
-  "columnWords": ["place", "bottom", "down"],
-  "rowWords": ["sleep", "water", "settle"],
-  "correctAnswers": [
-    ["den", "bunk", "pillow"],
-    ["isle", "bed", "thin"],
-    ["lodge", "sink", "calm"]
-  ]
-}
-,
-{
-  "columnWords": ["speed", "past", "sentence"],
-  "rowWords": ["record", "present", "measure"],
-  "correctAnswers": [
-    ["log", "account", "write"],
-    ["pace", "tense", "judge"],
-    ["clock", "hand", "words"]
-  ]
-}
-,
-{
-  "columnWords": ["side", "support", "hand"],
-  "rowWords": ["rear", "offer", "join"],
-  "correctAnswers": [
-    ["back", "brief", "nanny"],
-    ["proposal", "aid", "present"],
-    ["align", "league", "shake"]
-  ]
-}
-,
-{
-  "columnWords": ["shaft", "spot", "wind"],
-  "rowWords": ["wood", "light", "toy"],
-  "correctAnswers": [
-    ["rod", "cabin", "reed"],
-    ["beam", "focus", "draft"],
-    ["figure", "chest", "clockwork"]
-  ]
-}
-,
-{
-  "columnWords": ["content", "line", "ship"],
-  "rowWords": ["desert", "air", "long"],
-  "correctAnswers": [
-    ["sand", "run", "camel"],
-    ["peace", "fly", "mail"],
-    ["epic", "wait", "boat"]
-  ]
-}
-,
-{
-  "columnWords": ["object", "movie", "force"],
-  "rowWords": ["close", "refuse", "control"],
-  "correctAnswers": [
-    ["shut", "credit", "grip"],
-    ["waste", "cuts", "resist"],
-    ["hold", "direct", "law"]
-  ]
-}
-,
-{
-  "columnWords": ["sound", "feel", "down"],
-  "rowWords": ["off", "tear", "wound"],
-  "correctAnswers": [
-    ["talk", "blue", "repel"],
-    ["rip", "cry", "level"],
-    ["gash", "smart", "eased"]
-  ]
-}
-,
-{
-  "columnWords": ["affair", "dessert", "marker"],
-  "rowWords": ["evening", "sweet", "time"],
-  "correctAnswers": [
-    ["Gala", "Nightcap", "Twilight"],
-    ["Crush", "Pie", "Note"],
-    ["Date", "Tea", "Watch"]
-  ]
-}
-
-];
-
+let gameDataSets;
 let maxAttempts = 3;
 let currentAttempts = maxAttempts;
 let currentMode = 'regular'; // Default mode is regular
+let currentGameData; // Global variable to hold the current game's data
 
+
+// New function to fetch and initialize game data sets
+async function fetchGameData() {
+    try {
+        const response = await fetch('game_grids.json');
+        const data = await response.text();
+        const jsonDataWithBrackets = `[${data}]`;
+        gameDataSets = JSON.parse(jsonDataWithBrackets);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
 
 function initializeHearts() {
 		currentAttempts = maxAttempts;
@@ -195,7 +37,6 @@ function getRandomGameData() {
     return gameDataSets[randomIndex];
 }
 
-let currentGameData; // Global variable to hold the current game's data
 
 
 // Function to reset the current game
@@ -218,6 +59,7 @@ function setupDragAndDrop() {
 
         // Mobile Events
         tile.addEventListener('touchstart', handleTouchStart, false);
+        tile.addEventListener('touchmove', handleTouchMove, false);
         tile.addEventListener('touchend', handleTouchEnd, false);
     });
 
@@ -273,29 +115,51 @@ function handleDrop(event) {
     performDrop(draggedElement, this);
     resetDragState();
 }
+    
+function handleTouchStart(e) {
+    e.preventDefault();
+    const target = e.target;
 
-// Touch start event
-function handleTouchStart(event) {
-    event.preventDefault();
-    this.classList.add('dragging');
-    // Mimic "pick-up" effect for touch devices
-    this.style.transform = "scale(1.1)";
-    window.draggedElement = this; // Track the element being dragged
+    // Set the element being dragged
+    target.classList.add('dragging');
+    activeTile = target;
 }
 
-// Touch end event
-function handleTouchEnd(event) {
-    event.preventDefault();
-    // Attempt to find a drop target
-    const touchLocation = event.changedTouches[0];
+function handleTouchMove(e) {
+    e.preventDefault();
+    const touchLocation = e.targetTouches[0];
+
+    if (activeTile) {
+        // Move the tile to follow the touch
+        activeTile.style.position = 'absolute';
+        activeTile.style.left = touchLocation.pageX + 'px';
+        activeTile.style.top = touchLocation.pageY + 'px';
+    }
+}
+
+function handleTouchEnd(e) {
+    e.preventDefault();
+    if (!activeTile) return;
+
+    const touchLocation = e.changedTouches[0];
     const dropTarget = document.elementFromPoint(touchLocation.clientX, touchLocation.clientY);
 
-    if (dropTarget && dropTarget.classList.contains('droppable')) {
-        performDrop(window.draggedElement, dropTarget);
-    }
-    resetDragState();
-    window.draggedElement.style.transform = ""; // Reset "pick-up" effect
-    window.draggedElement = null; // Clear reference
+    // Create a custom event for the drop
+    const customDropEvent = new CustomEvent('drop', {
+        bubbles: true, // Allow the event to bubble up
+        cancelable: true, // Allow the event to be cancelable
+        detail: { touchedElement: activeTile } // Pass the touched element as detail
+    });
+
+    // Call the drop function with the custom event
+    drop(customDropEvent, dropTarget);
+
+    // Reset styles and state
+    activeTile.style.position = '';
+    activeTile.style.left = '';
+    activeTile.style.top = '';
+    activeTile.classList.remove('dragging');
+    activeTile = null;
 }
 
 // Perform the drop
@@ -398,15 +262,38 @@ function generateGrid(columnWords, rowWords) {
 // Function to generate the clue tiles
 function generateTiles(clues) {
     const tilesContainer = document.getElementById('tiles');
-    tilesContainer.innerHTML = clues.map((clue, index) => 
-        `<div class="tile" draggable="true" id="tile-${index}">${clue}</div>`
-    ).join('');
+    // Clear existing tiles
+    tilesContainer.innerHTML = '';
+    
+    // Create new tiles and add to the container
+    clues.forEach((clue, index) => {
+        const tile = document.createElement('div');
+        tile.classList.add('tile');
+        tile.setAttribute('draggable', true);
+        tile.setAttribute('id', `tile-${index}`);
+        tile.textContent = clue;
+        
+        // Add event listeners
+        tile.addEventListener('dragover', highlight);
+        tile.addEventListener('dragleave', unhighlight); 
+        tile.addEventListener('dragstart', handleDragStart); 
+        
+        // Append the tile to the container
+        tilesContainer.appendChild(tile);
+    });
+}
+
+function highlight(ev) {
+    ev.currentTarget.classList.add('drag-over'); // Use currentTarget to refer to the tile
+}
+
+function unhighlight(ev) {
+    ev.currentTarget.classList.remove('drag-over'); // Use currentTarget to refer to the tile
 }
 
 function allowDrop(ev) {
     ev.preventDefault();
 }
-
 
 function drag(ev) {
 ev.dataTransfer.setData('text', ev.target.id);
@@ -838,7 +725,10 @@ document.addEventListener('DOMContentLoaded', function() {
     startNewGame(); // This function should handle everything needed to start a new game, including setting up drag and drop
 });
 
-function startNewGame() {
+async function startNewGame() {
+    // Await the fetch and initialization of game datasets
+    await fetchGameData();
+    
 	// Event listeners
 		document.getElementById('checkAnswers').addEventListener('click', checkAnswers);
 		document.getElementById('newGame').addEventListener('click', startNewGame);
@@ -851,6 +741,7 @@ function startNewGame() {
     currentGameData = getRandomGameData();
     displayGameData(currentGameData); // This will create the tiles and grid
        // Update the button text to indicate the mode to which it will switch
+       
     const modeToSwitch = currentMode === 'hard' ? 'Regular' : 'Hard';
     document.getElementById('toggleMode').textContent = `Switch to ${modeToSwitch} Mode`;
 
@@ -889,10 +780,4 @@ window.oncontextmenu = function(event) {
   return false;
 };
 
-window.onload = function() {
-    var gridWidth = document.getElementById('grid').offsetWidth; // Get the width of the grid
-    var tilesContainer = document.getElementById('tiles'); // Get the tile container
 
-    // Set the maximum width of the tile container to match the grid's width
-    tilesContainer.style.maxWidth = gridWidth + 'px';
-};

@@ -1,4 +1,4 @@
-{
+  {
   "columnWords": ["reach", "mission", "artist"],
   "rowWords": ["officer", "couple", "test"],
   "correctAnswers": [
@@ -195,4 +195,3 @@
     ["buy", "fill", "faith"]
   ]
 }
-,
