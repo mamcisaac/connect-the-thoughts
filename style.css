@@ -321,15 +321,15 @@ body, #game-container {
     position: absolute;
     background-color: blue;
     color: white;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     /* Adjust top and left properties to position it correctly */
-    top: 0;
-    left:20;
+    top: 5px;
+    left:25px;
     font-size: 24px;
         font-weight: bold;
 
