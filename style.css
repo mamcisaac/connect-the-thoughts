@@ -1,11 +1,79 @@
-/* Add your custom styles here */
+/* General styling */
+body, html {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0; /* Light background */
+    color: #333; /* Soft text color */
+    margin: 0;
+    padding: 20px;
+    overflow: hidden; /* Disables scrolling on the main page */
+    user-select: none; /* Disable text selection */
+}
+
+/* Game container */
 #game-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    overflow: hidden;
 }
 
+/* Buttons */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#helpButton {
+    background-color: #28a745; /* Green for help */
+}
+
+/* Tiles */
+.tile {
+    border: 1px solid #000;
+    padding: 5px;
+    margin: 0;
+    cursor: pointer;
+    background-color: #f8f8f8;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    min-width: 80px;
+    box-sizing: border-box;
+}
+
+.tile.dragging {
+    opacity: 0.5;
+    background-color: #cccccc;
+    z-index: 1000;
+}
+
+.tile:hover {
+    background-color: grey;
+}
+
+/* Grid */
 #grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -15,262 +83,74 @@
 
 #grid .cell {
     border: 1px solid #000;
-    height: 40px; /* Fixed height for grid cells to accommodate tiles */
+    height: 40px;
     min-width: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0; /* Remove padding to fit the tile */
-    box-sizing: border-box; /* Ensures border is included in the height */
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Styling for when a cell is droppable (i.e., can accept a tile) */
 #grid .cell.droppable {
-    background-color: #fff; /* Background color for droppable cells */
+    background-color: #fff;
 }
 
-/* Ensure that the column and row headers have a fixed size */
 #grid .cell.heading {
-    background-color: #eee; /* Different background for headers */
-    height: 40px; /* Fixed height for grid cells to accommodate tiles */
-    line-height: 50px; /* Center text vertically */
+    background-color: #eee;
+    height: 40px;
+    line-height: 50px;
 }
 
-.heading {
-    font-weight: bold;
-}
-
-.droppable {
-    background-color: #f0f0f0;
-}
-
-/* Hover effect on tile */
-.tile:hover {
-    background-color: #e0e0e0; /* Slightly darker when hovered */
-}
-
-/* Style for tile being dragged - you'll need to add a class dynamically via JavaScript */
-.tile.dragging {
-    opacity: 0.5; /* Make the tile semi-transparent when dragging */
-    background-color: #cccccc; /* Different background to indicate dragging */
-    z-index: 1000; /* Ensure it's above other elements */
-    /* Optional: add transformations or scaling if needed */
-}
-
-#grid .cell.drag-over {
-    background-color: #f0f0f0; /* Background color for droppable cells */
-}
-
-/* Enhanced droppable cell style */
-#grid .cell.droppable {
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-}
-
-#tiles {
-    display: flex; /* Aligns tiles horizontally */
-		align-items: center; /* Center items vertically */
-    flex-wrap: wrap; /* Allows tiles to wrap to the next line if the container is full */
-    gap: 5px; /* Adds a small gap between tiles */
-    justify-content: center; /* Aligns tiles to the start of the container */
-    min-height: 50px; /* Adjust to match the height of your tiles */
-		min-width: 80px; /* Adjust to match the height of your tiles */
-    margin-bottom: 20px; /* Added margin to create space underneath */
-
-}
-
-
-.tile {
-    border: 1px solid #000;
-    padding: 5px; /* Reduced padding */
-    margin: 0; /* Remove any margin if present */
-    cursor: pointer;
-    background-color: #f8f8f8; /* Faint background color */
-    user-select: none; /* Prevents the text from being selectable */
-    display: flex; /* Enables centering of content */
-    justify-content: center; /* Horizontally center content */
-    align-items: center; /* Vertically center content */
-    height: 40px; /* Fixed height for tiles */
-    min-width: 80px; /* Minimum width for tiles */
-    box-sizing: border-box; /* Ensures padding is included in the width and height */
-
-		-webkit-user-select: none; /* Safari */
-  	-moz-user-select: none; /* Firefox */
-  	-ms-user-select: none; /* Firefox */
-}
-
-.tile, .cell.droppable {
-    transition: background-color 0.3s ease;
-}
-
-#result {
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 10px;
-		min-height: 1.5em; /* Adjust the value as needed */
-}
-
-/* Add styles for when the grid is in a 'win' state */
 #grid.win {
     background-color: lightgreen;
 }
 
-#heartContainer {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
-.heart {
-    font-size: 24px;
-    margin: 0 5px;
-}
-
 #grid.gameOver {
     background-color: red;
-    pointer-events: none; /* Disables interaction with the grid */
+    pointer-events: none;
 }
 
-#gameInstructions {
-    margin-top: 20px;
-    padding: 15px;
-    border-top: 2px solid #ccc; /* Optional: Adds a line above the instructions */
-    font-size: 16px; /* Adjust as needed */
+#grid .cell.droppable.drag-over, #grid .cell.droppable.highlight , #tiles .tile.drag-over, #grid .tile.drag-over{
+    border: 2px dashed #007bff;
+    background-color: rgba(0, 123, 255, 0.2);
 }
 
-#gameInstructions h2 {
-    color: #333;
-    font-size: 20px;
+/* Highlight class for tiles being hovered over */
+.highlight-tile {
+    border: 2px solid #f00; /* Example: red border */
+    box-shadow: 0 0 5px #f00; /* Example: red shadow for emphasis */
 }
 
-#gameInstructions ol {
-    margin-left: 20px;
-}
-
-
-.clue-correct {
-    background-color: green;
-    opacity: 0.6; /* Makes the clue look faded */
-    pointer-events: none; /* Makes the clue unmovable */
-}
-
-.clue-partial {
-    background-color: yellow;
-}
-
-.clue-incorrect {
-    background-color: red;
-}
-
-/* Base styling for all buttons */
-button {
-    border: none;
-    border-radius: 5px;
+/* Floating Action Button */
+#floatingActionButton {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 48px;
+    height: 48px;
+    background-color: #007bff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    transition: all 0.3s ease;
+    z-index: 100;
 }
 
-/* Check Answers button - most prominent */
-#checkAnswers {
-    background-color: #4CAF50; /* Green */
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 15px 20px; /* Larger size */
-    box-shadow: 0 4px #2e7d32;
-    margin-bottom: 20px; /* Added margin to create space underneath */
+#floatingActionButton svg {
+    fill: white;
 }
 
-#checkAnswers:hover {
-    background-color: #388E3C;
-}
-
-/* New Game and Reset Game buttons - identical properties, half the size of Check Answers */
-#newGame, #resetGame {
-    background-color: #2196F3; /* Blue */
-    color: white;
-    font-size: 9px; /* Half the font size */
-    padding: 10px 15px; /* Half the padding */
-}
-
-#newGame:hover, #resetGame:hover {
-    background-color: #1976D2; /* Darker Blue */
-}
-
-/* Toggle Mode button - distinct and slightly intimidating, half the size of Check Answers */
-#toggleMode {
-    background-color: #FF5722; /* Deep Orange */
-    color: white;
-    font-size: 9px; /* Half the font size */
-    padding: 10px 15px; /* Half the padding */
-    border-radius: 0; /* Optional: makes it look more 'sharp' */
-}
-
-#toggleMode:hover {
-    background-color: #E64A19; /* Darker Deep Orange */
-}
-
-
-
-#modeInstructions p {
-    display: none; /* Initially hide mode-specific instructions */
-}
-
-#modeInstructions p.active {
-    display: block; /* Show instructions for the active mode */
-}
-
-.all-correct {
-    background-color: lightgreen; /* Or any other color you want for the correct row/column */
-    opacity: 0.6; /* Fade effect for the tiles */
-}
-
-.all-correct .tile {
-	    background-color: lightgreen; /* Or any other color you want for the correct row/column */
-
-    pointer-events: none; /* Makes the tiles unmovable */
-}
-
-.locked {
-    pointer-events: none; /* Disables mouse events on the locked cell */
-}
-
-
-#game-container {
-  position: sticky;
-  top: 0; /* Adjust this value as needed */
-  z-index: 10; /* Ensure this is above the z-index of other elements */
-	overflow: hidden; /* This will prevent scrolling within the game container */
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none;
-  -webkit-overflow-scrolling: touch; /* Specific to Safari on iOS */
-  user-select: none;
-}
-
-#gameInstructions {
-  max-height: 300px; /* Adjust based on your needs */
-  overflow-y: auto;
-}
-
-
-body, html {
-    overflow: hidden; /* Disables scrolling on the main page */
-}
-
-body, #game-container {
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE/Edge */
-    user-select: none;
-}
-
+/* Instructions Overlay */
 #instructionsOverlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -286,27 +166,131 @@ body, #game-container {
     padding: 20px;
     border-radius: 5px;
     max-height: 80%;
-    overflow-y: auto; /* Allows scrolling within the instructions */
+    overflow-y: auto;
 }
 
-/* Responsive design adjustments */
-@media (max-width: 600px) {
-    #grid .cell {
-        height: 40px; /* Smaller height for cells */
-    }
-    
-    #grid .cell.heading {
-        height: 40px; /* Smaller height for cells */
-    }
-
-    .tile {
-        height: 30px; /* Smaller height for tiles */
-        min-width: 80px; /* Smaller width for tiles */
-        font-size: 12px; /* Smaller font size if the tiles contain text */
-    }
+/* Clues */
+.clue-correct {
+    background-color: green;
+    opacity: 0.6;
+    pointer-events: none;
 }
 
+.clue-partial {
+    background-color: yellow;
+}
 
-.top-left-cell {
-    visibility: hidden; /* Makes the cell invisible but still takes up space */
+.clue-incorrect {
+    background-color: red;
+}
+
+/* Base styling for all buttons */
+button {
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Check Answers button */
+#checkAnswers {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 20px;
+    box-shadow: 0 4px #2e7d32;
+    margin-bottom: 20px;
+}
+
+#checkAnswers:hover {
+    background-color: #388E3C;
+}
+
+/* New Game and Reset Game buttons */
+#newGame,
+#resetGame {
+    background-color: #2196F3;
+    color: white;
+    font-size: 9px;
+    padding: 10px 15px;
+}
+
+#newGame:hover,
+#resetGame:hover {
+    background-color: #1976D2;
+}
+
+/* Toggle Mode button */
+#toggleMode {
+    background-color: #FF5722;
+    color: white;
+    font-size: 9px;
+    padding: 10px 15px;
+    border-radius: 0;
+}
+
+#toggleMode:hover {
+    background-color: #E64A19;
+}
+
+#modeInstructions p {
+    display: none;
+}
+
+#modeInstructions p.active {
+    display: block;
+}
+
+/* Heart Container */
+#heartContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.heart {
+    font-size: 24px;
+    margin: 0 5px;
+}
+
+/* Correct Row/Column */
+.all-correct {
+    background-color: lightgreen;
+    opacity: 0.6;
+}
+
+.all-correct .tile {
+    background-color: lightgreen;
+    pointer-events: none;
+}
+
+/* Locked Cell */
+.locked {
+    pointer-events: none;
+}
+
+/* Hide top left cell */
+#grid .top-left-cell {
+    visibility: hidden;
+}
+
+/* Clue display */
+#tiles {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  	min-width: 400px;
+  	min-height: 80px;
+		justify-content: center; /* Center the tiles horizontally */
+    margin: 0 auto; /* Center the tile container horizontally */
+}
+
+.tile {
+    border: 1px solid #000;
+    padding: 5px;
+    margin: 0 2px 2px 0;
+    cursor: pointer;
+}
+
+.tile, .cell.heading {
+    text-transform: capitalize;
 }

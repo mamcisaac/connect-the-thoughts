@@ -3,68 +3,71 @@
 	
 <head>
     <meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Connect-the-thoughts</title>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 </head>
 <body>
 <div id="game-container">
-<div id="grid-container">
-    <div id="grid">
-      <!-- Grid cells will be dynamically inserted here -->
+    <div id="grid-container">
+        <div id="grid">
+            <!-- Grid cells will be dynamically inserted here -->
+        </div>
     </div>
-</div>
-<div id="tiles" class="droppable" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-<button id="checkAnswers">Check Answers</button>
-<button id="newGame">New Game</button>	
-<button id="resetGame">Reset</button>
-<button id="toggleMode">Switch to Hard Mode</button>
-<div id="heartsContainer"></div>
-
-<div id="result"></div>
+    <div id="tiles" class="droppable" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <button id="checkAnswers">Check Answers</button>
+    <button id="newGame">New Game</button>	
+    <button id="resetGame">Reset</button>
+    <button id="toggleMode">Switch to Hard Mode</button>
+    <div id="heartsContainer"></div>
+    <div id="result"></div>
 </div>
 
-<button id="howToPlayButton">How to Play</button>
+
+<div id="howToPlayButton" style="position: fixed; right: 20px; top: 20px; z-index: 1000; cursor: pointer; background-color: #007bff; border-radius: 50%; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; color: white; font-size: 30px;">
+    ?
+</div>
+
 <div id="instructionsOverlay" class="hidden">
     <div id="instructionsContent">
         <button id="closeInstructions">Close</button>
         <h2>Instructions</h2>
-<div id="gameInstructions">
-    <h2>How to Play</h2>
-    <p>Welcome to <strong>Connect-the-thoughts</strong>! Here's how you play:</p>
-    <ol>
-        <li>Look at the words at the top of each column and the beginning of each row.</li>
-        <li>Your goal is to place the given clues in the correct cells. Each clue is individually connected to both the column and row words, but not necessarily in a way that connects the two words to each other.</li>
-        <li>Drag and drop each clue into the cell where you think it fits best.</li>
-        <li>Click "Check Answers" to see if you are correct. You have three attempts per puzzle.</li>
-        <li>If you get stuck, click "Reset" to try again with the current words, or "New Game" for a completely new set of words and clues.</li>
-    </ol>
-    <div id="modeInstructions">
-				<div id="regularModeInstructions" class="mode-instructions">
-            <strong>Regular Mode:</strong><br>
-            In this mode, the clues will change color based on their placement:
-            <ul>
-                <li><strong><span style="color:green;">Green:</span></strong> The clue is in the correct cell.</li>
-                <li><strong><span style="color:#C5B600;">Yellow:</span></strong> The clue is in the correct row or column.</li>
-                <li><strong><span style="color:red;">Red:</span></strong> The clue is neither in the correct row nor the correct column.</li>
-            </ul>
+        <div id="gameInstructions">
+            <h2>How to Play</h2>
+            <p>Welcome to <strong>Connect-the-thoughts</strong>! Here's how you play:</p>
+            <ol>
+                <li>Look at the words at the top of each column and the beginning of each row.</li>
+                <li>Your goal is to place the given clues in the correct cells. Each clue is individually connected to both the column and row words, but not necessarily in a way that connects the two words to each other.</li>
+                <li>Drag and drop each clue into the cell where you think it fits best.</li>
+                <li>Click "Check Answers" to see if you are correct. You have three attempts per puzzle.</li>
+                <li>If you get stuck, click "Reset" to try again with the current words, or "New Game" for a completely new set of words and clues.</li>
+            </ol>
+            <div id="modeInstructions">
+                <div id="regularModeInstructions" class="mode-instructions">
+                    <strong>Regular Mode:</strong><br>
+                    In this mode, the clues will change color based on their placement:
+                    <ul>
+                        <li><strong><span style="color:green;">Green:</span></strong> The clue is in the correct cell.</li>
+                        <li><strong><span style="color:#C5B600;">Yellow:</span></strong> The clue is in the correct row or column.</li>
+                        <li><strong><span style="color:red;">Red:</span></strong> The clue is neither in the correct row nor the correct column.</li>
+                    </ul>
+                </div>
+                <div id="hardModeInstructions" class="mode-instructions">
+                    <strong>Hard Mode:</strong><br>
+                    In this mode, the colors of the columns and rows will change based on correctness when you check your answers:
+                    <ul>
+                        <li><strong><span style="color:green;">Green:</span></strong> All answers in the row or column are correct.</li>
+                        <li><strong><span style="color:#C5B600;">Yellow:</span></strong> Some answers in the row or column are correct.</li>
+                        <li><strong><span style="color:red;">Red:</span></strong> No answers in the row or column are correct.</li>
+                    </ul>
+                </div>
+            </div>
+            <p>
+                <strong>Example:</strong><br>
+                If the column word is "Apple" and the row word is "Tree", a fitting clue might be "Fruit". Place "Fruit" in the cell where the "Apple" column and "Tree" row intersect.
+            </p>
         </div>
-				<div id="hardModeInstructions" class="mode-instructions">
-            <strong>Hard Mode:</strong><br>
-            In this mode, the colors of the columns and rows will change based on correctness when you check your answers:
-            <ul>
-                <li><strong><span style="color:green;">Green:</span></strong> All answers in the row or column are correct.</li>
-                <li><strong><span style="color:#C5B600;">Yellow:</span></strong> Some answers in the row or column are correct.</li>
-                <li><strong><span style="color:red;">Red:</span></strong> No answers in the row or column are correct.</li>
-            </ul>
-        </div>
-    </div>
-    <p>
-        <strong>Example:</strong><br>
-        If the column word is "Apple" and the row word is "Tree", a fitting clue might be "Fruit". Place "Fruit" in the cell where the "Apple" column and "Tree" row intersect.
-    </p>
-</div>
     </div>
 </div>
 
