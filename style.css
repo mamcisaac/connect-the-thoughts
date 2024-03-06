@@ -146,7 +146,6 @@
 #gameInstructions {
     margin-top: 20px;
     padding: 15px;
-    border-top: 2px solid #ccc; /* Optional: Adds a line above the instructions */
     font-size: 16px; /* Adjust as needed */
 }
 
@@ -159,6 +158,13 @@
     margin-left: 20px;
 }
 
+#closeInstructions{
+	height: fit-content;
+	width:    fit-content; 
+	margin: 0;
+	font-size: 12px;
+
+}
 
 .clue-correct {
     background-color: green;
@@ -183,7 +189,7 @@ button {
         font-size: 18px;
         margin-bottom: 10px; /* Added margin to create space underneath */
   box-shadow: 0 1px 1px grey; /* Soft shadow */
-    width: 240px;
+    width: 260px;
 		height: 50px;
 
 
@@ -204,7 +210,7 @@ button {
 #newGame, #resetGame {
     background-color: #2196F3; /* Blue */
     color: white;
-    width: 120px;
+    width: 130px;
 }
 
 #newGame:hover, #resetGame:hover {
@@ -308,4 +314,23 @@ body, #game-container {
 
 .top-left-cell {
     visibility: hidden; /* Makes the cell invisible but still takes up space */
+        position: relative;
+}
+
+#howToPlayButton {
+    position: absolute;
+    background-color: blue;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Adjust top and left properties to position it correctly */
+    top: 0;
+    left:0;
+    font-size: 24px;
+        font-weight: bold;
+
 }
