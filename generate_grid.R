@@ -66,6 +66,7 @@ manual_check = function(game_grid) {
     word1 <- unique_pairs$word1[k]
     word2 <- unique_pairs$word2[k]
     ijclues <- game_grid %>% filter(`word1` == unique_pairs$word1[k] & `word2` == unique_pairs$word2[k])
+    flush.console()
     
     # Display the (i, j) pair and corresponding clues with numbers
     print(cbind(unique(unique_pairs[,1]), (unique(unique_pairs[,2]))))
@@ -79,8 +80,9 @@ manual_check = function(game_grid) {
     
     repeat {
       # Prompt user to input the number associated with the best clue or a custom clue
-      selected_clue_input <- readline(prompt = "Enter the number associated with the best clue (or '0' for none) or enter a custom clue: ")
-      
+    	flush.console()
+    	selected_clue_input <- readline(prompt = "Enter the number associated with the best clue (or '0' for none) or enter a custom clue: ")
+    	
       # Check if the input is a number
       if (grepl("^\\d+$", selected_clue_input)) {
         selected_clue_num <- as.integer(selected_clue_input)
@@ -104,16 +106,19 @@ manual_check = function(game_grid) {
       }
       
       # Check if the selected clue shares 3-letter subwords with previous clues or with word1/word2
-      if (any(sapply(correct_answers, function(x) nchar(x) >= 3 && grepl(substr(selected_clue, 1, 3), x)))) {
-      	word_with_subword <- which(sapply(correct_answers, function(x) nchar(x) >= 3 && grepl(substr(selected_clue, 1, 3), x)))[1]
-      	print(paste("This clue shares a 3-letter subword with '", correct_answers[word_with_subword], "'.", sep = ""))
-      	use_anyway <- readline(prompt = "Would you like to use it anyway? (yes/no): ")
-      	if (tolower(use_anyway) == "yes") {
-      		break
-      	} else {
-      		next
-      	}
-      }
+    	# Check if the selected clue shares 3-letter subwords with previous clues or with word1/word2
+    	if (any(sapply(correct_answers, function(x) nchar(x) >= 3 && grepl(substr(selected_clue, 1, 3), x)))) {
+    		word_with_subword <- which(sapply(correct_answers, function(x) nchar(x) >= 3 && grepl(substr(selected_clue, 1, 3), x)))[1]
+    		print(paste("This clue shares a 3-letter subword with '", correct_answers[word_with_subword], "'.", sep = ""))
+    		use_anyway <- readline(prompt = "Would you like to use it anyway? (yes/no): ")
+    		if (tolower(use_anyway) == "yes") {
+    			correct_answers = c(correct_answers, selected_clue)  # Add the selected clue to correct_answers
+    			break
+    		} else {
+    			next
+    		}
+    	}
+    	
       
       
       # If all checks pass, add the selected clue to correct_answers and break the loop
@@ -126,40 +131,58 @@ manual_check = function(game_grid) {
 }
 
 	
-create_grid = function(row_words_in=c(NA, NA, NA), col_words_in=c(NA, NA, NA)) {
-
-	mikes_happy= FALSE
+create_grid <- function(row_words_in = c(NA, NA, NA), col_words_in = c(NA, NA, NA)) {
 	
-	while (!mikes_happy){
-	cat("Generating new words")
-		
-	valid_game = FALSE
-		
-	while (!valid_game){
-		
-		row_words = row_words_in
-		col_words = col_words_in
-		sum_na_rows = sum(is.na(row_words_in))
-		sum_na_cols = sum(is.na(col_words_in))
-		
-		if(sum_na_rows>0){row_words[is.na(row_words_in)] = sample(word_list, sum_na_rows)}
-		if(sum_na_cols>0){col_words[is.na(row_words_in)] = sample(word_list, sum_na_cols)}
+	mikes_happy <- FALSE
 	
-		game_grid = tibble(word1=NULL, word2=NULL, clue=NULL)
+	while (!mikes_happy) {
+		cat("Generating new words\n")
 		
-for(i in 1:3){
-    for (j in 1:3) {
-        game_grid = rbind(game_grid, tibble(word1=row_words[j], word2=col_words[i], clue= reverse_dictionary(row_words[j], col_words[i])))
-    }
-}
-
-		if (dim(unique(game_grid[, c(1,2)]))[1]==9 | sum_na_rows + sum_na_rows ==0){valid_game=TRUE}
+		valid_game <- FALSE
+		
+		while (!valid_game) {
+			
+			row_words <- row_words_in
+			col_words <- col_words_in
+			sum_na_rows <- sum(is.na(row_words_in))
+			sum_na_cols <- sum(is.na(col_words_in))
+			
+			if (sum_na_rows > 0) {
+				row_words[is.na(row_words_in)] <- sample(word_list, sum_na_rows)
+			}
+			if (sum_na_cols > 0) {
+				col_words[is.na(col_words_in)] <- sample(word_list, sum_na_cols)
+			}
+			
+			row_words <- sample(row_words)  # Shuffle row words
+			col_words <- sample(col_words)  # Shuffle column words
+			
+			game_grid <- tibble(word1 = NULL, word2 = NULL, clue = NULL)
+			
+			for (i in 1:3) {
+				for (j in 1:3) {
+						clues <- reverse_dictionary(row_words[i], col_words[j])
+						if(length(clues)==0){if(!is.na(row_words_in[i]) & !is.na(col_words_in[j])){print("continuing without a clue"); clues=NA}else{break()}}
+						game_grid <- rbind(game_grid, tibble(word1 = row_words[i], word2 = col_words[j], clue = clues))
+				}
+			}
+			
+			
+			
+			if (dim(unique(game_grid[, c(1, 2)]))[1] == 9) {
+				valid_game <- TRUE
+			}
+		}
+		
+		correct_answers <- manual_check(game_grid)
+		
+		if (all(stri_count_words(correct_answers) == rep(1, 9))) {
+			mikes_happy <- TRUE
+		}
+		if (!mikes_happy & (sum_na_rows + sum_na_cols == 0)) {
+			stop("Unable to generate a valid grid.")
+		}
 	}
-	correct_answers <- manual_check(game_grid)
-	if (all(stri_count_words(correct_answers) == rep(1,9))){mikes_happy=TRUE}
-	if (!mikes_happy & (sum_na_rows + sum_na_cols ==0)){stop()}
-	}
-	
 	
 	# Create a list to store the JSON structure for the current set
 	json_data <- list()
@@ -174,9 +197,8 @@ for(i in 1:3){
 	json_data$correctAnswers <- list(correct_answers[1:3], correct_answers[4:6], correct_answers[7:9])
 	
 	# Write the JSON data to the file
-	write(toJSON(json_data, pretty=TRUE), "game_grids.json", append=TRUE)
-	write(",", "game_grids.json", append=TRUE)
-	
+	write(",", "game_grids.json", append = TRUE)
+	write(toJSON(json_data, pretty = TRUE), "game_grids.json", append = TRUE)
 }
 
-create_grid(row_words_in = c("front", "respect", NA), col_words_in = c("ship", "show", NA))
+create_grid(row_words_in = c("fish", "over", "standard" ), col_words_in = c("layer", "climb", "measure"))

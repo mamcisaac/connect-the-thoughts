@@ -195,3 +195,163 @@
     ["buy", "fill", "faith"]
   ]
 }
+,
+{
+  "columnWords": ["camp", "sound", "game"],
+  "rowWords": ["setup", "low", "field"],
+  "correctAnswers": [
+    ["tent", "stereo", "assist"],
+    ["base", "bass", "love"],
+    ["site", "chirp", "pitch"]
+  ]
+}
+,
+{
+  "columnWords": ["zero", "lower", "bird"],
+  "rowWords": ["down", "water", "runs"],
+  "correctAnswers": [
+    ["sale", "under", "feather"],
+    ["dry", "fathom", "loon"],
+    ["duck", "falls", "flight"]
+  ]
+}
+,
+{
+  "columnWords": ["metal", "ends", "together"],
+  "rowWords": ["fingers", "join", "spike"],
+  "correctAnswers": [
+    ["gauntlet", "pads", "hand"],
+    ["weld", "tie", "wed"],
+    ["nail", "points", "staple"]
+  ]
+}
+,
+{
+  "columnWords": ["back", "person", "track"],
+  "rowWords": ["teach", "dress", "car"],
+  "correctAnswers": [
+    ["retrain", "tutor", "coach"],
+    ["train", "tailor", "sweats"],
+    ["trunk", "driver", "rail"]
+  ]
+}
+,
+{
+  "columnWords": ["work", "beam", "word"],
+  "rowWords": ["spot", "send", "support"],
+  "correctAnswers": [
+    ["site", "laser", "sign"],
+    ["refer", "emit", "wire"],
+    ["care", "post", "advocate"]
+  ]
+}
+,
+{
+  "columnWords": ["action", "soft", "charge"],
+  "rowWords": ["in", "metal", "direct"],
+  "correctAnswers": [
+    ["sloth", "comfort", "boss"],
+    ["drum", "lead", "ionic"],
+    ["protest", "guide", "conduct"]
+  ]
+}
+,
+{
+  "columnWords": ["person", "activity", "stick"],
+  "rowWords": ["hit", "group", "big"],
+  "correctAnswers": [
+    ["star", "trend", "bat"],
+    ["team", "party", "bundle"],
+    ["giant", "enterprise", "club"]
+  ]
+}
+,
+{
+  "columnWords": ["band", "face", "after"],
+  "rowWords": ["pull", "look", "time"],
+  "correctAnswers": [
+    ["stretch", "mug", "draw"],
+    ["style", "expression", "guard"],
+    ["watch", "charged", "later"]
+  ]
+}
+,
+{
+  "columnWords": ["words", "air", "pick"],
+  "rowWords": ["first", "army", "cool"],
+  "correctAnswers": [
+    ["intro", "pilot", "prime"],
+    ["doctrine", "bomb", "recruit"],
+    ["slang", "draft", "trend"]
+  ]
+}
+,
+{
+  "columnWords": ["flat", "many", "bottom"],
+  "rowWords": ["not", "fish", "foot"],
+  "correctAnswers": [
+    ["sharp", "few", "top"],
+    ["sole", "school", "tail"],
+    ["loafer", "yard", "heel"]
+  ]
+}
+,
+{
+  "columnWords": ["move", "increase", "high"],
+  "rowWords": ["hand", "water", "sudden"],
+  "correctAnswers": [
+    ["wave", "draw", "flush"],
+    ["flow", "flood", "tide"],
+    ["jerk", "surge", "thrill"]
+  ]
+}
+,
+{
+  "columnWords": ["money", "condition", "taste"],
+  "rowWords": ["maker", "fresh", "bad"],
+  "correctAnswers": [
+    ["face", "contract", "guru"],
+    ["crisp", "clean", "mint"],
+    ["debt", "poor", "cheap"]
+  ]
+}
+,
+{
+  "columnWords": ["people", "tree", "plane"],
+  "rowWords": ["piece", "inside", "group"],
+  "correctAnswers": [
+    ["gene", "stick", "wing"],
+    ["spies", "rings", "cabin"],
+    ["band", "forest", "flight"]
+  ]
+}
+,
+{
+  "columnWords": ["body", "look", "land"],
+  "rowWords": ["flat", "side", "basic"],
+  "correctAnswers": [
+    ["plane", "stony", "plain"],
+    ["right", "profile", "coast"],
+    ["anatomy", "staple", "soil"]
+  ]
+}
+,
+{
+  "columnWords": ["open", "hot", "sound"],
+  "rowWords": ["water", "hand", "not"],
+  "correctAnswers": [
+    ["sea", "trouble", "lap"],
+    ["slap", "lucky", "clap"],
+    ["shut", "lame", "ill"]
+  ]
+}
+,
+{
+  "columnWords": ["together", "wood", "paper"],
+  "rowWords": ["work", "walk", "gather"],
+  "correctAnswers": [
+    ["unite", "file", "form"],
+    ["parade", "trail", "beat"],
+    ["crowd", "lumber", "stack"]
+  ]
+}

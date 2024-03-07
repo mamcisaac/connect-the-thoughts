@@ -3,6 +3,7 @@ let maxAttempts = 3;
 let currentAttempts = maxAttempts;
 let currentMode = 'regular'; // Default mode is regular
 let currentGameData; // Global variable to hold the current game's data
+let gameIndex;
 
 
 // New function to fetch and initialize game data sets
@@ -15,6 +16,8 @@ async function fetchGameData() {
     } catch (error) {
         console.error('Error:', error);
     }
+    gameIndex = Math.floor(Math.random() * gameDataSets.length);
+    currentGameData = gameDataSets[gameIndex];
 }
 
 function initializeHearts() {
@@ -31,10 +34,11 @@ function initializeHearts() {
 }
 
 
-// Function to randomly select a game data set
-function getRandomGameData() {
-    const randomIndex = Math.floor(Math.random() * gameDataSets.length);
-    return gameDataSets[randomIndex];
+// Function to select a game data set
+function getNextGameData() {
+		gameIndex++;
+		if(gameIndex>gameDataSets.length){gameIndex=0}
+    return gameDataSets[gameIndex];
 }
 
 
@@ -721,13 +725,15 @@ function unfreezeGame() {
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+    // Await the fetch and initialization of game datasets
+    await fetchGameData();
     startNewGame(); // This function should handle everything needed to start a new game, including setting up drag and drop
 });
 
+
 async function startNewGame() {
-    // Await the fetch and initialization of game datasets
-    await fetchGameData();
+
     
 	// Event listeners
 		document.getElementById('checkAnswers').addEventListener('click', checkAnswers);
@@ -738,7 +744,7 @@ async function startNewGame() {
 
     // Initialize game settings
     initializeHearts();
-    currentGameData = getRandomGameData();
+    currentGameData = getNextGameData();
     displayGameData(currentGameData); // This will create the tiles and grid
        // Update the button text to indicate the mode to which it will switch
        
