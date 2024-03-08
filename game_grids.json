@@ -355,3 +355,93 @@
     ["crowd", "lumber", "stack"]
   ]
 }
+,
+{
+  "columnWords": ["Cup", "House", "Shelf"],
+  "rowWords": ["Coffee", "Tree", "Book"],
+  "correctAnswers": [
+    ["Mug", "Cafe", "Roast"],
+    ["Knot", "Habitat", "Branch"],
+    ["Prize", "Library", "Rack"]
+  ]
+}
+,
+{
+  "columnWords": ["Band", "Glass", "Mark"],
+  "rowWords": ["Watch", "Water", "Book"],
+  "correctAnswers": [
+    ["Strap", "Crystal", "Time"],
+    ["Current", "Cup", "Level"],
+    ["Hire", "Magnifier", "Dog-ear"]
+  ]
+}
+,
+{
+  "columnWords": ["Light", "Field", "Rise"],
+  "rowWords": ["Moon", "Star", "Sun"],
+  "correctAnswers": [
+    ["Glow", "Crater", "Tide"],
+    ["Twinkle", "Astronomy", "Nova"],
+    ["Shine", "Solar", "Dawn"]
+  ]
+}
+,
+{
+  "columnWords": ["way", "out", "over"],
+  "rowWords": ["run", "back", "make"],
+  "correctAnswers": [
+    ["model", "bolt", "hit"],
+    ["past", "exit", "review"],
+    ["move", "kiss", "renew"]
+  ]
+}
+,
+{
+  "columnWords": ["out", "off", "in"],
+  "rowWords": ["take", "fall", "side"],
+  "correctAnswers": [
+    ["kill", "strip", "earn"],
+    ["impact", "drop", "cave"],
+    ["surface", "taboo", "guts"]
+  ]
+}
+,
+{
+  "columnWords": ["up", "off", "out"],
+  "rowWords": ["set", "line", "pick"],
+  "correctAnswers": [
+    ["prep", "trip", "start"],
+    ["list", "down", "throw"],
+    ["get", "shoot", "choose"]
+  ]
+}
+,
+{
+  "columnWords": ["off", "out", "down"],
+  "rowWords": ["drop", "break", "head"],
+  "correctAnswers": [
+    ["slow", "quit", "sink"],
+    ["chip", "start", "fail"],
+    ["stop", "leave", "duck"]
+  ]
+}
+,
+{
+  "columnWords": ["in", "match", "shape"],
+  "rowWords": ["stick", "box", "up"],
+  "correctAnswers": [
+    ["add", "light", "line"],
+    ["trap", "fight", "square"],
+    ["involved", "pair", "improve"]
+  ]
+}
+,
+{
+  "columnWords": ["out", "house", "tail"],
+  "rowWords": ["fox", "rat", "round"],
+  "correctAnswers": [
+    ["trick", "den", "fern"],
+    ["sing", "cage", "style"],
+    ["fill", "kick", "follow"]
+  ]
+}
